@@ -6,7 +6,7 @@
     <title>e편한세상 부천 어반스퀘어 - 공식 방문예약 / 분양안내</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome 아이콘 -->
+    <!-- FontAwesome 아이콘 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* 반짝이는 네온 Glow 애니메이션 */
@@ -53,12 +53,10 @@
     <!-- 2. Hero 섹션 (메인 상단) -->
     <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-amber-950/30 pt-10 pb-12 px-4 text-center border-b border-amber-500/30">
         
-        <!-- 매체 태그 -->
         <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/50 text-amber-300 text-xs md:text-sm px-3 py-1 rounded-full mb-4">
             <i class="fa-solid fa-crown"></i> DL이앤씨 & 롯데건설 1군 컨소시엄 1,649세대 대단지
         </div>
 
-        <!-- 메인 헤드라인 -->
         <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 leading-tight">
             e편한세상 부천 어반스퀘어<br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
@@ -66,7 +64,6 @@
             </span>
         </h1>
 
-        <!-- 파격 강조 박스 -->
         <div class="max-w-md mx-auto my-6 bg-red-950/80 border-2 border-red-500 rounded-2xl p-5 shadow-2xl relative overflow-hidden">
             <div class="text-amber-300 font-bold text-lg md:text-xl mb-1">🔥 파격 조건 완벽 확정! 🔥</div>
             <div class="text-3xl md:text-4xl font-black text-white my-2">
@@ -88,7 +85,7 @@
             </div>
         </div>
 
-        <!-- 메인 인콜 CTA 버튼 -->
+        <!-- 전화 CTA 버튼 -->
         <div class="max-w-md mx-auto space-y-3">
             <a href="tel:1833-8384" class="glow-btn shimmer-effect block w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-black text-xl md:text-2xl py-4 rounded-xl shadow-lg border border-red-400 transition-all transform active:scale-95">
                 <i class="fa-solid fa-phone-volume mr-2"></i> 1833-8384 즉시 전화 상담
@@ -97,7 +94,7 @@
         </div>
     </section>
 
-    <!-- 3. 핵심 프리미엄 4가지 (카드형) -->
+    <!-- 3. 핵심 프리미엄 4가지 -->
     <section class="max-w-4xl mx-auto px-4 py-10">
         <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-amber-300">
             <i class="fa-solid fa-star mr-2"></i>e편한세상 부천 어반스퀘어 5대 프리미엄
@@ -200,9 +197,7 @@
         </div>
     </div>
 
-    <!-- JavaScript 기능 구현 -->
     <script>
-        // 1. 카운트다운 타이머 기능
         function startTimer() {
             let h = 2, m = 45, s = 18;
             setInterval(() => {
@@ -217,7 +212,6 @@
         }
         startTimer();
 
-        // 2. 실시간 예약 알림 팝업 (가짜 팝업 효과로 세일즈 자극)
         const dummyData = [
             { name: "부천 소사구 박OO 고객님", action: "로얄층 로열동 문의 완료" },
             { name: "서울 구로구 이OO 고객님", action: "방문예약 신청 완료" },
@@ -241,7 +235,6 @@
         }
         setInterval(showToast, 7000);
 
-        // 3. 폼 제출 시 메시지
         function handleFormSubmit(e) {
             e.preventDefault();
             alert("관심고객 등록이 완료되었습니다!\n담당자가 빠르게 연락드려 방문예약 및 혜택 안내를 도와드리겠습니다.");
