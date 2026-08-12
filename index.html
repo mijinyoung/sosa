@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e편한세상 부천 어반스퀘어 - 공식 방문예약 / 분양안내</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome 아이콘 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 반짝이는 네온 Glow 애니메이션 */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.8), 0 0 30px rgba(239, 68, 68, 0.4); }
+            50% { box-shadow: 0 0 25px rgba(239, 68, 68, 1), 0 0 50px rgba(239, 68, 68, 0.7); }
+        }
+        .glow-btn { animation: pulse-glow 1.8s infinite; }
+
+        /* 버튼 빛 반사(Shimmer) 애니메이션 */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .shimmer-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-effect::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 50%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-20deg);
+            animation: shimmer 2.5s infinite;
+        }
+
+        /* 텍스트 반짝임 효과 */
+        @keyframes text-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        .blink-text { animation: text-blink 1.2s infinite; }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans antialiased pb-24">
+
+    <!-- 1. 최상단 긴급 공지 바 -->
+    <div class="bg-red-600 text-white py-2 px-4 text-center font-bold text-sm md:text-base flex items-center justify-center gap-2">
+        <span class="bg-white text-red-600 px-2 py-0.5 rounded-full text-xs font-black blink-text">선착순 혜택</span>
+        <span>🎁 방문 예약 고객 선착순 30명 '신세계 상품권 1만원' 즉시 증정!</span>
+    </div>
+
+    <!-- 2. Hero 섹션 (메인 상단) -->
+    <section class="relative bg-gradient-to-b from-slate-950 via-slate-900 to-amber-950/30 pt-10 pb-12 px-4 text-center border-b border-amber-500/30">
+        
+        <div class="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-400/50 text-amber-300 text-xs md:text-sm px-3 py-1 rounded-full mb-4">
+            <i class="fa-solid fa-crown"></i> DL이앤씨 & 롯데건설 1군 컨소시엄 1,649세대 대단지
+        </div>
+
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3 leading-tight">
+            e편한세상 부천 어반스퀘어<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
+                선착순 로얄층 특별분양
+            </span>
+        </h1>
+
+        <div class="max-w-md mx-auto my-6 bg-red-950/80 border-2 border-red-500 rounded-2xl p-5 shadow-2xl relative overflow-hidden">
+            <div class="text-amber-300 font-bold text-lg md:text-xl mb-1">🔥 파격 조건 완벽 확정! 🔥</div>
+            <div class="text-3xl md:text-4xl font-black text-white my-2">
+                입주까지 <span class="text-yellow-300 underline decoration-red-500 underline-offset-4">계약금 5%</span> 끝!
+            </div>
+            <div class="text-xl md:text-2xl font-bold text-red-200">
+                1차 계약금 <span class="text-white bg-red-600 px-2 py-0.5 rounded font-black">1,000만 원</span> 정액제
+            </div>
+            <div class="mt-3 text-xs md:text-sm text-gray-300 border-t border-red-800/60 pt-2">
+                10.15 부동산 대책 <span class="text-amber-300 font-bold">비규제 단지</span> | GTX-B(예정) 수혜
+            </div>
+        </div>
+
+        <!-- 카운트다운 타이머 -->
+        <div class="max-w-sm mx-auto bg-slate-800/90 border border-slate-700 rounded-xl p-3 mb-6">
+            <div class="text-xs text-gray-400 mb-1">⏰ 로얄층 선착순 특별혜택 마감 임박</div>
+            <div class="flex justify-center items-center gap-3 font-mono text-xl font-bold text-amber-400">
+                <span id="hours">02</span>시간 : <span id="minutes">45</span>분 : <span id="seconds">18</span>초
+            </div>
+        </div>
+
+        <!-- 전화 CTA 버튼 -->
+        <div class="max-w-md mx-auto space-y-3">
+            <a href="tel:1833-8384" class="glow-btn shimmer-effect block w-full bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-black text-xl md:text-2xl py-4 rounded-xl shadow-lg border border-red-400 transition-all transform active:scale-95">
+                <i class="fa-solid fa-phone-volume mr-2"></i> 1833-8384 즉시 전화 상담
+            </a>
+            <p class="text-xs text-gray-400">※ 모바일에서 터치 시 분양 대표번호로 즉시 연결됩니다.</p>
+        </div>
+    </section>
+
+    <!-- 3. 핵심 프리미엄 4가지 -->
+    <section class="max-w-4xl mx-auto px-4 py-10">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-amber-300">
+            <i class="fa-solid fa-star mr-2"></i>e편한세상 부천 어반스퀘어 5대 프리미엄
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div class="bg-slate-800/70 border border-slate-700 p-5 rounded-xl flex items-start gap-4">
+                <div class="bg-amber-500/20 text-amber-400 text-2xl p-3 rounded-lg"><i class="fa-solid fa-train-subway"></i></div>
+                <div>
+                    <h3 class="font-bold text-lg text-white">소사·부천 더블역세권 & GTX-B</h3>
+                    <p class="text-sm text-gray-300 mt-1">1호선·서해선 소사역으로 2·5·7·9호선 환승 용이, GTX-B(예정) 개통 시 서울 20분대 진입!</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/70 border border-slate-700 p-5 rounded-xl flex items-start gap-4">
+                <div class="bg-amber-500/20 text-amber-400 text-2xl p-3 rounded-lg"><i class="fa-solid fa-building-user"></i></div>
+                <div>
+                    <h3 class="font-bold text-lg text-white">1,649세대 랜드마크 대단지</h3>
+                    <p class="text-sm text-gray-300 mt-1">지하 3층~지상 38층, 13개 동 규모! 선호도 높은 전용 59 / 74 / 84㎡ 구성.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/70 border border-slate-700 p-5 rounded-xl flex items-start gap-4">
+                <div class="bg-amber-500/20 text-amber-400 text-2xl p-3 rounded-lg"><i class="fa-solid fa-coins"></i></div>
+                <div>
+                    <h3 class="font-bold text-lg text-white">초파격 금융혜택</h3>
+                    <p class="text-sm text-gray-300 mt-1">입주까지 계약금 5%로 끝! 1차 계약금 1,000만 원 정액제로 자금 부담 최소화.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/70 border border-slate-700 p-5 rounded-xl flex items-start gap-4">
+                <div class="bg-amber-500/20 text-amber-400 text-2xl p-3 rounded-lg"><i class="fa-solid fa-school"></i></div>
+                <div>
+                    <h3 class="font-bold text-lg text-white">명문 학세권 & 고급 커뮤니티</h3>
+                    <p class="text-sm text-gray-300 mt-1">원미초·소명여중고·원미고 도보권, 세대별 개별창고, 사우나, 게스트하우스, 실내골프장 제공.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. 관심고객 등록 (DB 수집 폼) -->
+    <section id="db-form" class="max-w-md mx-auto px-4 py-8 bg-slate-800 border-2 border-amber-500/50 rounded-2xl my-6 shadow-2xl">
+        <div class="text-center mb-6">
+            <span class="bg-amber-500 text-slate-950 font-black text-xs px-2 py-1 rounded-full uppercase">VIP Fast Pass</span>
+            <h2 class="text-2xl font-black text-white mt-2">관심고객 등록 및 방문예약</h2>
+            <p class="text-xs text-amber-300 mt-1">등록 시 모델하우스 위치문자 및 로얄층 잔여세대 정보 즉시 발송</p>
+        </div>
+
+        <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">성함 <span class="text-red-500">*</span></label>
+                <input type="text" required placeholder="성함을 입력하세요" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-amber-400">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">연락처 <span class="text-red-500">*</span></label>
+                <input type="tel" required placeholder="010-0000-0000" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-amber-400">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-1">관심 평형대 (선택)</label>
+                <select class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-amber-400">
+                    <option value="">평형대를 선택하세요</option>
+                    <option value="59">59㎡ (구 25평형)</option>
+                    <option value="74">74㎡ (구 30평형)</option>
+                    <option value="84">84㎡ (구 34평형)</option>
+                </select>
+            </div>
+
+            <div class="flex items-center gap-2 text-xs text-gray-400 pt-2">
+                <input type="checkbox" id="privacy" checked required class="rounded accent-amber-500">
+                <label for="privacy">개인정보 수집 및 분양안내 문자/전화 수신에 동의합니다.</label>
+            </div>
+
+            <button type="submit" class="shimmer-effect w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xl py-4 rounded-xl shadow-lg transition-all transform active:scale-95 mt-2">
+                📋 방문예약 / 분양가 문의 신청
+            </button>
+        </form>
+    </section>
+
+    <!-- 5. 모바일 하단 고정 전화 / DB 신청 바 (Sticky Footer) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-slate-950/95 border-t border-amber-500/40 p-3 z-50 backdrop-blur-md">
+        <div class="max-w-md mx-auto grid grid-cols-2 gap-2">
+            <a href="tel:1833-8384" class="glow-btn bg-red-600 hover:bg-red-500 text-white font-black py-3 rounded-xl text-center flex items-center justify-center gap-2 shadow-lg">
+                <i class="fa-solid fa-phone"></i> 1833-8384
+            </a>
+            <a href="#db-form" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black py-3 rounded-xl text-center flex items-center justify-center gap-2 shadow-lg">
+                <i class="fa-solid fa-calendar-check"></i> 방문예약 폼
+            </a>
+        </div>
+    </div>
+
+    <!-- 6. 실시간 예약 알림 팝업 (Toast Alert) -->
+    <div id="toast" class="fixed top-20 right-4 bg-slate-800 border-2 border-amber-400 text-white px-4 py-3 rounded-xl shadow-2xl transition-all duration-500 opacity-0 transform translate-y-4 z-50 flex items-center gap-3">
+        <div class="bg-amber-500 text-slate-950 p-2 rounded-full font-bold text-xs"><i class="fa-solid fa-bell"></i></div>
+        <div class="text-xs">
+            <p class="font-bold text-amber-300" id="toast-name">부천 심곡동 김OO 고객님</p>
+            <p class="text-gray-300" id="toast-action">방문예약 신청 완료!</p>
+        </div>
+    </div>
+
+    <script>
+        function startTimer() {
+            let h = 2, m = 45, s = 18;
+            setInterval(() => {
+                s--;
+                if (s < 0) { s = 59; m--; }
+                if (m < 0) { m = 59; h--; }
+                if (h < 0) { h = 12; }
+                document.getElementById('hours').innerText = String(h).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+            }, 1000);
+        }
+        startTimer();
+
+        const dummyData = [
+            { name: "부천 소사구 박OO 고객님", action: "로얄층 로열동 문의 완료" },
+            { name: "서울 구로구 이OO 고객님", action: "방문예약 신청 완료" },
+            { name: "인천 부평구 최OO 고객님", action: "1차 계약금 상담 진행 중" },
+            { name: "부천 심곡동 정OO 고객님", action: "신세계 상품권 증정대상 확정" }
+        ];
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            const item = dummyData[Math.floor(Math.random() * dummyData.length)];
+            document.getElementById('toast-name').innerText = item.name;
+            document.getElementById('toast-action').innerText = item.action;
+
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 3500);
+        }
+        setInterval(showToast, 7000);
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert("관심고객 등록이 완료되었습니다!\n담당자가 빠르게 연락드려 방문예약 및 혜택 안내를 도와드리겠습니다.");
+        }
+    </script>
+</body>
+</html>
