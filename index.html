@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e편한세상 부천 어반스퀘어 - 공식 방문예약/분양안내</title>
+    <title>e편한세상 부천 어반스퀘어 - 대표사이트</title>
     
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,16 +45,11 @@
             background-position: center;
         }
         .glow-text { text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
-        .pulse-subtle { animation: pulse 2s infinite; }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
     </style>
 </head>
 <body class="font-sans bg-gray-950 text-gray-100 antialiased selection:bg-gold-500 selection:text-white pb-20 sm:pb-0">
 
-    <!-- 상단 헤더 / 네비게이션 -->
+    <!-- Header Navigation -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-navy-900/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-2">
@@ -64,7 +59,6 @@
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
                 <a href="#about" class="hover:text-gold-400 transition-colors">사업개요</a>
                 <a href="#premium" class="hover:text-gold-400 transition-colors">프리미엄 6</a>
-                <a href="#location" class="hover:text-gold-400 transition-colors">입지환경</a>
                 <a href="#type" class="hover:text-gold-400 transition-colors">세대평면</a>
                 <a href="#reservation" class="hover:text-gold-400 transition-colors">방문예약</a>
             </nav>
@@ -76,7 +70,7 @@
         </div>
     </header>
 
-    <!-- 히어로 메인 섹션 -->
+    <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center pt-20 relative overflow-hidden px-4">
         <div class="max-w-5xl mx-auto text-center text-white py-16 relative z-10">
             <div class="inline-block px-4 py-1.5 rounded-full bg-gold-500/20 border border-gold-500/40 text-gold-400 text-xs sm:text-sm font-bold tracking-wide mb-6 uppercase">
@@ -93,7 +87,7 @@
                 e편한세상 부천 어반스퀘어에서 선착순 동·호지정 계약이 진행 중입니다.
             </p>
             
-            <!-- 메인 포인트 스펙 카운터 -->
+            <!-- 핵심 요약 카운터 -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12 bg-navy-900/60 p-6 rounded-2xl border border-white/10 backdrop-blur-md">
                 <div class="p-3">
                     <p class="text-xs text-gray-400">세대수</p>
@@ -114,7 +108,7 @@
             </div>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-                <a href="#reservation" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-black rounded-xl shadow-xl hover:brightness-110 transition-all text-base pulse-subtle">
+                <a href="#reservation" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-black rounded-xl shadow-xl hover:brightness-110 transition-all text-base">
                     📋 VIP 방문예약 신청하기
                 </a>
                 <a href="tel:1800-0000" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-xl border border-white/20 transition-all text-base">
@@ -124,19 +118,19 @@
         </div>
     </section>
 
-    <!-- 사업개요 (87.png, 88.png 이미지 활용) -->
+    <!-- 사업개요 (87.png, 88.png) -->
     <section id="about" class="py-20 bg-gray-900 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-gold-500 font-bold text-xs tracking-widest uppercase">Project Overview</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">단지 배고 및 조경 안내</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">단지 배치 및 조경 안내</h2>
                 <p class="text-gray-400 mt-3 text-sm">e편한세상만의 차별화된 특화 설계와 친환경 단지 조경을 선보입니다.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-navy-800 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                     <div class="relative overflow-hidden h-72">
-                        <img src="./87.png" alt="단지 투시도" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <img src="./87.png" alt="단지 투시도" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 sm:p-8">
                         <span class="text-gold-400 text-xs font-bold uppercase tracking-wider">Design Exterior</span>
@@ -149,7 +143,7 @@
 
                 <div class="bg-navy-800 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                     <div class="relative overflow-hidden h-72">
-                        <img src="./88.png" alt="조경 투시도" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                        <img src="./88.png" alt="조경 투시도" class="w-full h-full object-cover">
                     </div>
                     <div class="p-6 sm:p-8">
                         <span class="text-gold-400 text-xs font-bold uppercase tracking-wider">Landscape & Garden</span>
@@ -163,53 +157,47 @@
         </div>
     </section>
 
-    <!-- 프리미엄 6 세부 카드 섹션 -->
+    <!-- 프리미엄 6 섹션 -->
     <section id="premium" class="py-20 bg-navy-900 border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <span class="text-gold-500 font-bold text-xs tracking-widest uppercase">Special Premium</span>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">부천 어반스퀘어 프리미엄 6</h2>
-                <p class="text-gray-400 mt-3 text-sm">입지부터 브랜드 가치까지 비교할 수 없는 프리미엄 프리미엄 라이프</p>
+                <p class="text-gray-400 mt-3 text-sm">입지부터 브랜드 가치까지 비교할 수 없는 프리미엄 라이프</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Premium 1 -->
-                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10">
                     <div class="w-12 h-12 bg-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center text-xl font-black mb-6">01</div>
                     <h3 class="text-xl font-bold text-white mb-3">1,649세대 랜드마크 대단지</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">압도적 규모감이 주는 단지 프리미엄과 상징성, 관리비 절감 효과까지 누리는 대단지 라이프</p>
                 </div>
 
-                <!-- Premium 2 -->
-                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10">
                     <div class="w-12 h-12 bg-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center text-xl font-black mb-6">02</div>
                     <h3 class="text-xl font-bold text-white mb-3">더블 역세권 & GTX-B 비전</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">인근 지하철역 이용이 편리한 더블 역세권 환경에 GTX-B 노선(예정) 개통 시 여의도/서울역 신속 이동</p>
                 </div>
 
-                <!-- Premium 3 -->
-                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10">
                     <div class="w-12 h-12 bg-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center text-xl font-black mb-6">03</div>
                     <h3 class="text-xl font-bold text-white mb-3">파격적인 조건변경 혜택</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">입주 시까지 계약금 5% 확정, 1차 계약금 1,000만 원 정액제로 초기 자금 부담 최소화</p>
                 </div>
 
-                <!-- Premium 4 -->
-                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10">
                     <div class="w-12 h-12 bg-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center text-xl font-black mb-6">04</div>
                     <h3 class="text-xl font-bold text-white mb-3">원스톱 중심 생활인프라</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">대형마트, 백화점, 병원, 관공서 등 부천 원도심의 풍부한 생활 인프라를 그대로 이용</p>
                 </div>
 
-                <!-- Premium 5 -->
-                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10">
                     <div class="w-12 h-12 bg-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center text-xl font-black mb-6">05</div>
                     <h3 class="text-xl font-bold text-white mb-3">C2 HOUSE 혁신 평면 설계</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">e편한세상만의 라이프스타일 맞춤 주거 플랫폼 C2 HOUSE 적용으로 수납과 가변형 구조 극대화</p>
                 </div>
 
-                <!-- Premium 6 -->
-                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 p-8 rounded-2xl border border-white/10">
                     <div class="w-12 h-12 bg-gold-500/20 text-gold-400 rounded-xl flex items-center justify-center text-xl font-black mb-6">06</div>
                     <h3 class="text-xl font-bold text-white mb-3">안심 도보 학군 & 공원 인프라</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">초·중·고교 인접으로 안전한 통학환경을 갖추었으며, 인근 공원 및 녹지공간 보유</p>
@@ -218,7 +206,7 @@
         </div>
     </section>
 
-    <!-- 세대 평면안내 (49.png ~ 54.png 전체) -->
+    <!-- 평면 안내 (49.png ~ 54.png) -->
     <section id="type" class="py-20 bg-gray-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -228,8 +216,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 59A (49.png) -->
-                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10">
                     <div class="flex justify-between items-center mb-4">
                         <span class="px-3 py-1 bg-gold-500 text-navy-900 font-black text-xs rounded-md">59㎡ A TYPE</span>
                         <span class="text-xs text-gray-400">맞통풍 4Bay 판상형</span>
@@ -241,8 +228,7 @@
                     <p class="text-xs text-gray-400 mt-1">채광과 통풍이 우수한 인기 4Bay 구조</p>
                 </div>
 
-                <!-- 59B (50.png) -->
-                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10">
                     <div class="flex justify-between items-center mb-4">
                         <span class="px-3 py-1 bg-gold-500 text-navy-900 font-black text-xs rounded-md">59㎡ B TYPE</span>
                         <span class="text-xs text-gray-400">타워형 독립 구조</span>
@@ -254,8 +240,7 @@
                     <p class="text-xs text-gray-400 mt-1">침실간 프라이버시가 보장되는 구조</p>
                 </div>
 
-                <!-- 74A (51.png) -->
-                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10">
                     <div class="flex justify-between items-center mb-4">
                         <span class="px-3 py-1 bg-gold-500 text-navy-900 font-black text-xs rounded-md">74㎡ A TYPE</span>
                         <span class="text-xs text-gray-400">수납 특화 판상형</span>
@@ -267,8 +252,7 @@
                     <p class="text-xs text-gray-400 mt-1">넉넉한 팬트리와 안방 드레스룸 강화</p>
                 </div>
 
-                <!-- 74B (52.png) -->
-                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10">
                     <div class="flex justify-between items-center mb-4">
                         <span class="px-3 py-1 bg-gold-500 text-navy-900 font-black text-xs rounded-md">74㎡ B TYPE</span>
                         <span class="text-xs text-gray-400">LDK 거실 개방형</span>
@@ -280,8 +264,7 @@
                     <p class="text-xs text-gray-400 mt-1">와이드한 거실 공간감과 효율적 동선</p>
                 </div>
 
-                <!-- 84A (53.png) -->
-                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10">
                     <div class="flex justify-between items-center mb-4">
                         <span class="px-3 py-1 bg-gold-500 text-navy-900 font-black text-xs rounded-md">84㎡ A TYPE</span>
                         <span class="text-xs text-gray-400">시그니처 4Bay</span>
@@ -293,8 +276,7 @@
                     <p class="text-xs text-gray-400 mt-1">선호도 최우수 선착순 인기 주력 타입</p>
                 </div>
 
-                <!-- 84B (54.png) -->
-                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10 hover:border-gold-500/50 transition-all">
+                <div class="bg-navy-800 rounded-2xl p-6 border border-white/10">
                     <div class="flex justify-between items-center mb-4">
                         <span class="px-3 py-1 bg-gold-500 text-navy-900 font-black text-xs rounded-md">84㎡ B TYPE</span>
                         <span class="text-xs text-gray-400">고급형 조망 타워형</span>
@@ -309,7 +291,7 @@
         </div>
     </section>
 
-    <!-- 방문예약 신청 폼 섹션 (구글 시트 & Solapi 연결) -->
+    <!-- 방문예약 신청 폼 -->
     <section id="reservation" class="py-20 bg-navy-900 border-t border-white/10">
         <div class="max-w-2xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-10">
@@ -321,17 +303,17 @@
             <form id="dbForm" class="bg-navy-800 p-8 rounded-2xl border border-white/10 space-y-5 shadow-2xl">
                 <div>
                     <label class="block text-sm font-bold text-gray-200 mb-2">성함 <span class="text-gold-500">*</span></label>
-                    <input type="text" name="name" required placeholder="성함을 입력하세요" class="w-full px-4 py-3.5 bg-navy-900 border border-white/10 rounded-xl text-white text-sm focus:border-gold-500 focus:outline-none transition-all">
+                    <input type="text" name="name" required placeholder="성함을 입력하세요" class="w-full px-4 py-3.5 bg-navy-900 border border-white/10 rounded-xl text-white text-sm focus:border-gold-500 focus:outline-none">
                 </div>
 
                 <div>
                     <label class="block text-sm font-bold text-gray-200 mb-2">연락처 <span class="text-gold-500">*</span></label>
-                    <input type="tel" name="phone" required placeholder="010-0000-0000" class="w-full px-4 py-3.5 bg-navy-900 border border-white/10 rounded-xl text-white text-sm focus:border-gold-500 focus:outline-none transition-all">
+                    <input type="tel" name="phone" required placeholder="010-0000-0000" class="w-full px-4 py-3.5 bg-navy-900 border border-white/10 rounded-xl text-white text-sm focus:border-gold-500 focus:outline-none">
                 </div>
 
                 <div>
                     <label class="block text-sm font-bold text-gray-200 mb-2">관심 평형</label>
-                    <select name="type" class="w-full px-4 py-3.5 bg-navy-900 border border-white/10 rounded-xl text-white text-sm focus:border-gold-500 focus:outline-none transition-all">
+                    <select name="type" class="w-full px-4 py-3.5 bg-navy-900 border border-white/10 rounded-xl text-white text-sm focus:border-gold-500 focus:outline-none">
                         <option value="미선택">관심 있으신 평형대를 선택하세요</option>
                         <option value="59A">59㎡ A</option>
                         <option value="59B">59㎡ B</option>
@@ -356,7 +338,7 @@
         </div>
     </section>
 
-    <!-- 푸터 -->
+    <!-- Footer -->
     <footer class="bg-navy-900 text-gray-500 py-12 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-4 text-center sm:text-left">
             <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
@@ -384,16 +366,15 @@
     </div>
 
     <!-- 실시간 접수 알림 팝업 -->
-    <div id="livePopup" class="fixed bottom-20 left-4 z-30 bg-navy-800/90 border border-gold-500/50 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-md hidden transition-all">
+    <div id="livePopup" class="fixed bottom-20 left-4 z-30 bg-navy-800/90 border border-gold-500/50 text-white text-xs px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-md hidden">
         <span id="popupText">김**님(010-****-12**) 84A 타입 방문예약 완료</span>
     </div>
 
     <!-- DB 전송 및 팝업 스크립트 -->
     <script>
-        // Google Apps Script 웹앱 URL
-        const GAS_URL = "여기에_구글_앱스크립트_웹앱_URL을_넣으세요";
+        // Google Apps Script 웹앱 URL (배포하신 URL을 대입하세요)
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwKUq_sRxpE9PTNmaZ-9RLdTReKQf1DaV2zgoluXdFC_lj91RR9SpJNmvkqNSF97tt3/exec";
 
-        // 1. 구글 시트 및 Solapi DB 제출
         document.getElementById('dbForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
@@ -407,20 +388,20 @@
             .then(res => res.json())
             .then(data => {
                 if(data.result === 'success') {
-                    alert("VIP 방문예약 신청이 성공적으로 완료되었습니다.\n담당자가 확인 후 안내 문자를 드립니다.");
+                    alert("VIP 방문예약 신청이 완료되었습니다.");
                     this.reset();
                 } else {
                     alert("접수 중 오류가 발생했습니다. 전화로 문의해 주세요.");
                 }
             })
-            .catch(() => alert("접수 중 오류가 발생했습니다. 전화로 문의해 주세요."))
+            .catch(() => alert("접수 중 오류가 발생했습니다."))
             .finally(() => {
                 btn.disabled = false;
                 btn.innerText = "📋 VIP 방문예약 신청하기";
             });
         });
 
-        // 2. 실시간 예약 알림 팝업 로직
+        // 실시간 예약 알림 팝업
         const names = ["김**", "이**", "박**", "최**", "정**", "강**", "조**", "윤**"];
         const types = ["59A", "59B", "74A", "74B", "84A", "84B"];
         
