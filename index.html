@@ -441,6 +441,28 @@
                     </select>
                 </div>
 
+                <!-- 관심 평형 밑에 추가되는 방문일시 영역 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div>
+        <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">방문 희망일</label>
+        <input type="date" id="visitDate" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all [color-scheme:dark]">
+    </div>
+    <div>
+        <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">방문 희망시간</label>
+        <select id="visitTime" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
+            <option value="시간미정">방문 시간 선택</option>
+            <option value="10:00">오전 10:00</option>
+            <option value="11:00">오전 11:00</option>
+            <option value="13:00">오후 01:00</option>
+            <option value="14:00">오후 02:00</option>
+            <option value="15:00">오후 03:00</option>
+            <option value="16:00">오후 04:00</option>
+            <option value="17:00">오후 05:00</option>
+            <option value="18:00">오후 06:00</option>
+        </select>
+    </div>
+</div>
+
                 <div class="flex items-start gap-2 text-xs md:text-sm text-slate-300 pt-1">
                     <input type="checkbox" id="privacy" checked required class="mt-0.5 rounded accent-[#D4A373]">
                     <label for="privacy" class="cursor-pointer">개인정보 수집 이용 동의 및 현장 안내문자 수신 동의</label>
