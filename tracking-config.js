@@ -1,6 +1,6 @@
 /* 배포 환경별 공개 설정입니다. 비밀값·Pixel ID·Access Token은 넣지 마세요. */
 window.SOSA_CONFIG = {
-  relayUrl: 'https://YOUR-WORKER.example.com'
+  relayUrl: 'https://sosa-lead-relay.mijinyoung.workers.dev'
 };
 
 // Pixel ID는 중계 API의 환경변수에서만 읽어 이 파일로 내려옵니다.

@@ -155,7 +155,7 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-300 mb-1">연락처 <span class="text-red-500">*</span></label>
-                <input type="tel" required placeholder="010-0000-0000" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-amber-400">
+                <input type="tel" required inputmode="numeric" maxlength="11" pattern="010[0-9]{8}" placeholder="01012345678" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white focus:outline-none focus:border-amber-400">
             </div>
 
             <div>

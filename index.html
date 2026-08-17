@@ -425,7 +425,7 @@
 
                 <div>
                     <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">연락처 <span class="text-rose-400">*</span></label>
-                    <input type="tel" id="userPhone" required placeholder="010-0000-0000" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
+                    <input type="tel" id="userPhone" required inputmode="numeric" maxlength="11" pattern="010[0-9]{8}" placeholder="01012345678" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 11)" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
                 </div>
 
                 <div>
@@ -528,8 +528,8 @@
             const visitTime = document.getElementById('visitTime').value;
             const submitBtn = document.getElementById('submitBtn');
 
-            if (phone.length < 10) {
-                alert('올바른 휴대폰 번호를 입력해 주세요.');
+            if (!/^010\d{8}$/.test(phone)) {
+                alert('010으로 시작하는 11자리 휴대폰 번호를 입력해 주세요.');
                 return;
             }
 
@@ -547,7 +547,8 @@
             const eventId = createEventId();
 
             try {
-                const response = await fetch(SOSA_CONFIG.relayUrl.replace(/\/$/, '') + '/lead', {
+                const leadEndpoint = SOSA_CONFIG.relayUrl.replace(/\/$/, '') + '/lead';
+                const response = await fetch(leadEndpoint, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -565,6 +566,11 @@
 
                 const result = await response.json().catch(() => ({}));
                 if (!response.ok || result.result !== 'success') {
+                    console.error('[SOSA] 접수 API 응답 오류', {
+                        endpoint: leadEndpoint,
+                        status: response.status,
+                        response: result
+                    });
                     throw new Error(result.message || '접수 처리에 실패했습니다.');
                 }
 
@@ -579,7 +585,10 @@
                 alert(`VIP 관심고객 등록이 완료되었습니다!\n\n접수자: ${name}님\n연락처: ${phone}\n\n담당자가 확인 후 즉시 안내해 드리겠습니다.`);
                 document.getElementById('vipForm').reset();
             } catch (error) {
-                console.error('전송 오류:', error);
+                console.error('[SOSA] 접수 요청 실패', {
+                    message: error instanceof Error ? error.message : String(error),
+                    endpoint: SOSA_CONFIG.relayUrl ? SOSA_CONFIG.relayUrl.replace(/\/$/, '') + '/lead' : null
+                });
                 alert(`접수 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.`);
             } finally {
                 submitBtn.disabled = false;
