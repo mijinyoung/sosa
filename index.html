@@ -6,7 +6,7 @@
     <title>e편한세상 부천 어반스퀘어 - 공식 VIP 분양안내</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Pretendard 초고화질 한글 폰트 CDN -->
+    <!-- Pretendard 한글 폰트 CDN -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <!-- FontAwesome 아이콘 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,10 +14,10 @@
     <style>
         body {
             font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
         }
 
-        /* [영종유림 감성] 로즈 골드 Shimmer */
+        /* 로즈 골드 Shimmer */
         @keyframes gold-shimmer {
             0% { transform: translateX(-150%); }
             100% { transform: translateX(150%); }
@@ -30,28 +30,27 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 60%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 185, 0.6), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 185, 0.7), transparent);
             transform: skewX(-20deg);
             animation: gold-shimmer 2.2s infinite;
         }
 
-        /* [영종유림 감성] 고급스러운 로즈 골드 Glow */
+        /* 로즈 골드 Glow */
         @keyframes rose-gold-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(235, 185, 145, 0.5), inset 0 0 10px rgba(235, 185, 145, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(235, 185, 145, 1), inset 0 0 18px rgba(235, 185, 145, 0.5); }
+            0%, 100% { box-shadow: 0 0 25px rgba(235, 185, 145, 0.4), inset 0 0 10px rgba(235, 185, 145, 0.2); }
+            50% { box-shadow: 0 0 45px rgba(235, 185, 145, 0.9), inset 0 0 20px rgba(235, 185, 145, 0.4); }
         }
         .glow-rose-gold { animation: rose-gold-glow 1.8s infinite ease-in-out; }
 
-        /* [영종유림 감성] 타이틀 텍스트 그라데이션 */
+        /* 타이틀 텍스트 그라데이션 */
         .text-rose-gold {
-            background: linear-gradient(135deg, #FFDAB9 0%, #EBB991 50%, #D4A373 100%);
+            background: linear-gradient(135deg, #FFF0E5 0%, #EBB991 50%, #D4A373 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* 볼드 글자 그림자 */
         .text-shadow-bold {
-            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.95);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
         }
 
         /* 왼쪽 고정 배너 */
@@ -71,374 +70,523 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-rose-100 selection:text-slate-950">
 
-    <!-- [영종유림 감성] 최상단 럭셔리 로즈골드 배너 -->
-    <div class="bg-gradient-to-r from-[#D4A373] via-[#EBB991] to-[#D4A373] text-slate-950 font-black py-2.5 px-4 text-center text-xs md:text-sm shadow-xl flex items-center justify-center gap-2">
-        <span class="bg-slate-950 text-[#D4A373] px-3 py-0.5 rounded-full text-xs font-black animate-pulse">🎁 VIP BENEFIT</span>
-        <span class="font-extrabold tracking-tight">방문예약 고객 전원 '신세계 상품권 1만원권' 100% 증정!</span>
+    <!-- 1. 최상단 긴급 배너 -->
+    <div class="bg-gradient-to-r from-[#D4A373] via-[#EBB991] to-[#D4A373] text-slate-950 font-black py-3 px-4 text-center text-sm md:text-base shadow-xl flex items-center justify-center gap-2">
+        <span class="bg-slate-950 text-[#D4A373] px-3.5 py-1 rounded-full text-xs md:text-sm font-black animate-pulse">🎁 VIP BENEFIT</span>
+        <span class="font-extrabold tracking-tight">방문예약 후 내방하시면 신세계 상품권 및 와인 증정!</span>
     </div>
 
-    <!-- [영종유림 감성] 좌측 고정 배너 구현 -->
-    <div class="sticky-left-banner hidden md:flex">
-        <a href="#db-form" class="shimmer-gold w-[70px] h-[70px] bg-gradient-to-b from-[#FFDAB9] to-[#D4A373] rounded-full flex flex-col items-center justify-center text-slate-950 shadow-2xl active:scale-95 transition-transform">
+    <!-- 2. 좌측 고정 플로팅 버튼 -->
+    <div class="sticky-left-banner hidden lg:flex">
+        <a href="#db-form" class="shimmer-gold w-[80px] h-[80px] bg-gradient-to-b from-[#FFDAB9] to-[#D4A373] rounded-2xl flex flex-col items-center justify-center text-slate-950 shadow-2xl active:scale-95 transition-transform border border-white/40">
             <i class="fa-solid fa-calendar-check text-2xl mb-1"></i>
-            <span class="text-[11px] font-black">방문예약</span>
+            <span class="text-xs font-black">방문예약</span>
         </a>
-        <a href="tel:1833-8384" class="w-[70px] h-[70px] bg-slate-800 border border-slate-700 rounded-full flex flex-col items-center justify-center text-slate-100 shadow-2xl active:scale-95 transition-transform group">
-            <i class="fa-solid fa-phone-volume text-2xl mb-1 group-hover:text-yellow-400"></i>
-            <span class="text-[11px] font-black group-hover:text-yellow-400">전화연결</span>
+        <a href="tel:1833-8384" class="w-[80px] h-[80px] bg-slate-900 border border-[#D4A373]/50 rounded-2xl flex flex-col items-center justify-center text-slate-100 shadow-2xl active:scale-95 transition-transform group hover:border-[#D4A373]">
+            <i class="fa-solid fa-phone-volume text-2xl mb-1 text-[#EBB991]"></i>
+            <span class="text-xs font-black text-[#EBB991]">전화연결</span>
         </a>
     </div>
 
-    <!-- [영종유림 감성] GNB 헤더 리뉴얼 (딥퍼플배경 & 로즈골드 띠) -->
-    <header class="bg-slate-900/95 backdrop-blur-md sticky top-0 z-40 border-b border-[#D4A373]">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-            <div class="font-black text-xl md:text-2xl text-white tracking-tight flex items-center gap-2">
-                <span class="w-4 h-8 bg-[#EBB991] rounded-sm inline-block shadow-lg"></span>
-                e편한세상 <span class="font-light text-slate-300 text-xs md:text-base">부천 어반스퀘어</span>
+    <!-- 3. GNB 헤더 -->
+    <header class="bg-slate-900/95 backdrop-blur-md sticky top-0 z-40 border-b border-[#D4A373]/80">
+        <div class="max-w-6xl mx-auto px-4 h-16 md:h-20 flex items-center justify-between">
+            <div class="font-black text-2xl md:text-3xl text-white tracking-tight flex items-center gap-3">
+                <span class="w-4 h-8 bg-gradient-to-b from-[#FFDAB9] to-[#D4A373] rounded-sm inline-block shadow-md"></span>
+                e편한세상 <span class="font-light text-slate-300 text-sm md:text-xl">부천 어반스퀘어</span>
             </div>
-            <a href="tel:1833-8384" class="bg-[#EBB991] hover:bg-[#FFDAB9] text-slate-950 font-black text-xs md:text-base px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 shadow-lg active:scale-95">
-                <i class="fa-solid fa-phone-volume"></i> 1833-8384
-            </a>
+            <div class="flex items-center gap-3">
+                <span class="hidden md:inline-block text-sm text-[#EBB991] font-bold bg-slate-950 px-4 py-2 rounded-xl border border-[#D4A373]/30">
+                    <i class="fa-solid fa-clock mr-1.5"></i> 상담시간: 09:00 ~ 20:00
+                </span>
+                <a href="tel:1833-8384" class="bg-[#EBB991] hover:bg-[#FFDAB9] text-slate-950 font-black text-sm md:text-base px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 shadow-lg active:scale-95">
+                    <i class="fa-solid fa-phone-volume"></i> 1833-8384
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- [영종유림 감성] Hero 섹션 (풀 스크롤 웅장함 구현) -->
-    <section class="relative bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white min-h-[85vh] flex items-center pt-16 pb-24 px-4 text-center border-b border-slate-800 overflow-hidden">
-        
-        <!-- 영종유림 감성 광채 빔 효과 -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#D4A373]/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+    <!-- 4. Hero 섹션 -->
+    <section class="relative bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 text-white pt-6 pb-12 px-4 border-b border-slate-800 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#D4A373]/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="max-w-4xl mx-auto relative z-10 w-full">
-            
-            <div class="inline-flex items-center gap-2 bg-[#D4A373]/10 border-2 border-[#D4A373]/60 px-5 py-2 rounded-full text-xs md:text-sm text-[#FFDAB9] font-extrabold mb-8 backdrop-blur-md shadow-inner">
-                <i class="fa-solid fa-crown text-base animate-bounce"></i> DL이앤씨 & 롯데건설 1군 브랜드 컨소시엄
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center gap-2 bg-[#D4A373]/15 border border-[#D4A373]/60 px-4 py-1.5 rounded-full text-xs md:text-sm text-[#FFDAB9] font-extrabold mb-3 backdrop-blur-md">
+                    <i class="fa-solid fa-crown text-yellow-400"></i> DL이앤씨 브랜드 랜드마크 대단지
+                </div>
+
+                <h1 class="text-3xl md:text-6xl font-black tracking-tight leading-tight mb-2 text-shadow-bold">
+                    e편한세상 부천 어반스퀘어<br>
+                    <span class="text-rose-gold text-shadow-bold">VIP 선착순 동·호지정 진행중</span>
+                </h1>
+
+                <p class="text-slate-200 text-sm md:text-xl font-semibold max-w-2xl mx-auto leading-relaxed">
+                    소사·부천 더블역세권의 중심! 총 1,649세대 프리미엄 대단지<br>
+                    <span class="text-rose-gold font-black bg-slate-900/90 px-3.5 py-1 rounded-lg border border-[#D4A373]/40 inline-block mt-2 text-sm md:text-base">계약금 5% 끝 & 중도금 안심혜택 적용</span>
+                </p>
             </div>
 
-            <!-- [영종유림 감성] ExtraBold 로즈골드 타이틀 -->
-            <h1 class="text-4xl md:text-7xl font-black tracking-tight leading-tight mb-6 text-shadow-bold">
-                e편한세상 부천 어반스퀘어<br>
-                <span class="text-rose-gold text-shadow-bold">VIP 선착순 분양</span>
-            </h1>
-
-            <p class="text-slate-300 text-sm md:text-xl font-bold max-w-2xl mx-auto mb-12 leading-relaxed">
-                소사·부천 더블역세권의 정점! 총 1,649세대 랜드마크 대단지<br>
-                <span class="text-rose-gold font-black bg-slate-900/95 px-3 py-1.5 rounded border border-[#D4A373]/50 inline-block mt-2">10.15 부동산 대책 완벽 수혜 & 비규제단지의 가치</span>
-            </p>
-
-            <!-- [영종유림 감성] 로즈골드 네온 혜택 박스 -->
-            <div class="glow-rose-gold bg-slate-900 border-2 border-[#D4A373] rounded-3xl p-7 md:p-10 shadow-2xl max-w-xl mx-auto text-left relative overflow-hidden transition-all hover:border-[#FFDAB9]">
-                <div class="flex justify-between items-center mb-5 pb-4 border-b border-slate-800">
-                    <span class="bg-[#EBB991] text-slate-950 text-xs font-black px-4 py-1.5 rounded-lg">🔥 파격 분양조건 변경 완료</span>
-                    <span class="text-[#EBB991] text-sm font-extrabold flex items-center gap-1.5"><i class="fa-solid fa-hourglass-half animate-pulse text-base"></i> 잔여세대 한정</span>
-                </div>
-                
-                <div class="space-y-5">
-                    <div class="flex items-baseline justify-between border-b border-slate-800 pb-4">
-                        <span class="text-slate-200 text-base md:text-xl font-black">입주까지 계약금</span>
-                        <span class="text-4xl md:text-6xl font-black text-rose-gold tracking-tighter">5% 끝!</span>
-                    </div>
-                    <div class="flex items-baseline justify-between bg-slate-950 p-5 rounded-3xl border border-[#D4A373]/60">
-                        <span class="text-slate-300 text-sm md:text-base font-bold">1차 계약금</span>
-                        <span class="text-3xl md:text-4xl font-black text-white">1,000만 원 <span class="text-xs text-[#EBB991] font-normal">(정액제)</span></span>
-                    </div>
-                </div>
-
-                <div class="mt-7 pt-4 text-xs text-slate-300 grid grid-cols-2 gap-x-4 gap-y-2.5 font-bold">
-                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-check-double text-[#D4A373]"></i> 중도금 안심 대출</div>
-                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-check-double text-[#D4A373]"></i> 실거주 의무 없음</div>
-                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-check-double text-[#D4A373]"></i> GTX-B(예정) 수혜</div>
-                    <div class="flex items-center gap-1.5"><i class="fa-solid fa-check-double text-[#D4A373]"></i> 전매 제한 완화</div>
+            <!-- 메인 조감도 -->
+            <div class="max-w-4xl mx-auto mb-8 rounded-3xl overflow-hidden border-2 border-[#D4A373]/40 shadow-2xl relative group">
+                <img src="./86.png" alt="e편한세상 부천 어반스퀘어 조감도" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                    <span class="bg-slate-950/80 backdrop-blur-md text-[#FFDAB9] border border-[#D4A373]/50 text-xs md:text-sm font-black px-4 py-2 rounded-xl">
+                        🏢 단지 전경 조감도 / 총 1,649세대
+                    </span>
                 </div>
             </div>
 
+            <!-- 메인 파격 혜택 카드 -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch max-w-4xl mx-auto">
+                <div class="md:col-span-7 glow-rose-gold bg-slate-900/90 border-2 border-[#D4A373] rounded-3xl p-5 md:p-6 shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-3 pb-2.5 border-b border-slate-800">
+                            <span class="bg-[#EBB991] text-slate-950 text-xs md:text-sm font-black px-3.5 py-1 rounded-md">🔥 핵심 분양 조건</span>
+                            <span class="text-[#EBB991] text-xs md:text-sm font-black flex items-center gap-1"><i class="fa-solid fa-fire animate-bounce"></i> 로얄층 선착순</span>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-baseline justify-between border-b border-slate-800/80 pb-2.5">
+                                <span class="text-slate-100 text-base md:text-lg font-black">입주까지 계약금</span>
+                                <span class="text-4xl md:text-5xl font-black text-rose-gold">5% 확정!</span>
+                            </div>
+                            <div class="flex items-baseline justify-between bg-slate-950 p-3.5 rounded-2xl border border-[#D4A373]/50">
+                                <span class="text-slate-200 text-sm md:text-base font-bold">1차 계약금</span>
+                                <span class="text-2xl md:text-3xl font-black text-white">1,000만 원 <span class="text-xs md:text-sm text-[#EBB991] font-normal">(정액제)</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-slate-800 text-xs md:text-sm text-slate-200 grid grid-cols-2 gap-2 font-bold">
+                        <div><i class="fa-solid fa-circle-check text-[#D4A373] mr-1.5"></i> 중도금 안심 대출</div>
+                        <div><i class="fa-solid fa-circle-check text-[#D4A373] mr-1.5"></i> 실거주의무 무관</div>
+                        <div><i class="fa-solid fa-circle-check text-[#D4A373] mr-1.5"></i> GTX-B(예정) 수혜</div>
+                        <div><i class="fa-solid fa-circle-check text-[#D4A373] mr-1.5"></i> 전매제한 완화 단지</div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+                            <h3 class="font-black text-white text-base">타입별 일반분양 마감 현황</h3>
+                        </div>
+
+                        <div class="space-y-3 my-3">
+                            <div>
+                                <div class="flex justify-between text-xs md:text-sm font-bold mb-1">
+                                    <span class="text-slate-200">59㎡ (A/B 총 481세대)</span>
+                                    <span class="text-rose-400 font-extrabold">마감 임박</span>
+                                </div>
+                                <div class="w-full bg-slate-950 rounded-full h-2.5">
+                                    <div class="bg-rose-500 h-2.5 rounded-full" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs md:text-sm font-bold mb-1">
+                                    <span class="text-slate-200">74㎡ (A/B 총 316세대)</span>
+                                    <span class="text-[#EBB991] font-extrabold">잔여 소량</span>
+                                </div>
+                                <div class="w-full bg-slate-950 rounded-full h-2.5">
+                                    <div class="bg-[#EBB991] h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs md:text-sm font-bold mb-1">
+                                    <span class="text-slate-200">84㎡ (A/B 총 100세대)</span>
+                                    <span class="text-emerald-400 font-extrabold">소량 계약중</span>
+                                </div>
+                                <div class="w-full bg-slate-950 rounded-full h-2.5">
+                                    <div class="bg-emerald-400 h-2.5 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="tel:1833-8384" class="shimmer-gold w-full bg-gradient-to-r from-[#D4A373] to-[#EBB991] text-slate-950 font-black text-sm md:text-base py-3 rounded-xl text-center shadow-lg block mt-2">
+                        <i class="fa-solid fa-phone mr-1.5"></i> VIP 상담 1833-8384
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 4. 실시간 잔여세대 현황판 (세련된 퍼플스타일) -->
-    <section class="max-w-4xl mx-auto px-4 py-12">
-        <div class="bg-slate-900/95 rounded-2xl border border-slate-800 p-6 shadow-2xl relative">
-            <div class="flex items-center justify-between mb-5">
-                <div class="flex items-center gap-2">
-                    <span class="w-3.5 h-3.5 rounded-full bg-rose-400 animate-ping"></span>
-                    <h3 class="font-black text-white text-base md:text-lg">실시간 로얄층 분양 진행 현황</h3>
-                </div>
-                <span class="text-xs text-slate-400 font-bold bg-slate-800 px-2 py-0.5 rounded-md">2026년 선착순 마감 직전</span>
+    <!-- 📍 4-1. 입지 환경 프리미엄 (4.png 추가 위치) -->
+    <section class="max-w-5xl mx-auto px-4 py-12 border-b border-slate-800/80">
+        <div class="text-center mb-8">
+            <span class="text-[#D4A373] font-extrabold text-xs md:text-sm tracking-widest uppercase">Location Premium</span>
+            <h2 class="text-2xl md:text-4xl font-black text-white mt-1">부천의 중심을 소장하는 입지 프리미엄</h2>
+            <p class="text-xs md:text-sm text-slate-400 mt-2">소사역·부천종합운동장역(GTX-B 예정) 더블 역세권 및 풍부한 인프라</p>
+        </div>
+
+        <div class="bg-slate-900 rounded-3xl border border-slate-800 p-4 md:p-6 shadow-2xl overflow-hidden">
+            <div class="rounded-2xl overflow-hidden border border-slate-800 mb-6 group">
+                <img src="./4.png" alt="e편한세상 부천 어반스퀘어 광역 위치도" class="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500">
             </div>
-            
-            <div class="grid grid-cols-3 gap-4 text-center">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-xs text-slate-400 font-bold mb-1">59㎡ (25평형)</div>
-                    <div class="text-rose-400 font-black text-base md:text-lg">마감 임박🚨</div>
-                </div>
-                <div class="bg-slate-950 p-4 rounded-2xl border-2 border-[#D4A373]/60">
-                    <div class="text-xs text-slate-400 font-bold mb-1">74㎡ (30평형)</div>
-                    <div class="text-[#EBB991] font-black text-base md:text-lg">로얄층 소량⚡</div>
+                    <div class="text-[#EBB991] font-black text-base mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-train-subway"></i> 쾌속 교통망
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                        소사역(1호선·서해선), 부천종합운동장역(GTX-B 예정) 연결로 서울 및 수도권 빠르게 이동
+                    </p>
                 </div>
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
-                    <div class="text-xs text-slate-400 font-bold mb-1">84㎡ (34평형)</div>
-                    <div class="text-emerald-400 font-black text-base md:text-lg">잔여세대 보유👍</div>
+                    <div class="text-[#EBB991] font-black text-base mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap"></i> 명문 교육 환경
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                        원미초, 소명여중·고, 가톨릭대 등 단지 인근에 위치한 우수한 교육 인프라
+                    </p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <div class="text-[#EBB991] font-black text-base mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-store"></i> 풍부한 생활 인프라
+                    </div>
+                    <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                        부천성모병원, 이마트, 현대백화점, 원미산 공원 등 완벽하게 갖춰진 생활 편의시설
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. 사업 개요 (럭셔리 카드 형태) -->
+    <!-- 5. 단지 투시도 & 조경 프리미엄 -->
     <section class="max-w-5xl mx-auto px-4 py-12">
-        <div class="text-center mb-12">
-            <span class="text-[#D4A373] font-extrabold text-xs tracking-widest uppercase">Project Overview</span>
-            <h2 class="text-3xl md:text-4xl font-black text-white mt-1">사업개요 안내</h2>
+        <div class="text-center mb-8">
+            <span class="text-[#D4A373] font-extrabold text-xs md:text-sm tracking-widest uppercase">Premium Design</span>
+            <h2 class="text-2xl md:text-4xl font-black text-white mt-1">랜드마크 단지 디자인 & 친환경 조경</h2>
         </div>
 
-        <div class="bg-slate-900 rounded-3xl border border-slate-800 p-6 md:p-10 shadow-3xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 text-sm md:text-base">
-                <div class="flex border-b border-slate-800 pb-3">
-                    <span class="w-32 text-slate-400 font-bold">사업명</span>
-                    <span class="text-white font-extrabold">e편한세상 부천 어반스퀘어</span>
-                </div>
-                <div class="flex border-b border-slate-800 pb-3">
-                    <span class="w-32 text-slate-400 font-bold">대지위치</span>
-                    <span class="text-white font-bold">경기도 부천시 소사구 심곡본동 일원</span>
-                </div>
-                <div class="flex border-b border-slate-800 pb-3">
-                    <span class="w-32 text-slate-400 font-bold">건축규모</span>
-                    <span class="text-white font-bold">지하 3층 ~ 지상 38층, 총 13개 동</span>
-                </div>
-                <div class="flex border-b border-slate-800 pb-3">
-                    <span class="w-32 text-slate-400 font-bold">세대수</span>
-                    <span class="text-[#EBB991] font-black">총 1,649세대 (초대단지)</span>
-                </div>
-                <div class="flex border-b border-slate-800 pb-3 md:border-b-0">
-                    <span class="w-32 text-slate-400 font-bold">주택형</span>
-                    <span class="text-white font-bold">전용 59㎡ / 74㎡ / 84㎡ (중소형)</span>
-                </div>
-                <div class="flex border-b border-slate-800 pb-3 md:border-b-0">
-                    <span class="w-32 text-slate-400 font-bold">시공사</span>
-                    <span class="text-white font-bold">DL이앤씨 · 롯데건설</span>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-slate-900 rounded-3xl border border-slate-800 p-4 shadow-xl overflow-hidden">
+                <img src="./87.png" alt="단지 투시도" class="w-full h-64 md:h-80 object-cover rounded-2xl mb-3">
+                <h3 class="text-lg font-black text-[#EBB991] px-2">세련된 외관 디자인 & 주출입구</h3>
+                <p class="text-xs md:text-sm text-slate-300 px-2 mt-1">e편한세상만의 프리미엄 외관 설계와 탁 트인 주출입구 동선</p>
+            </div>
+            <div class="bg-slate-900 rounded-3xl border border-slate-800 p-4 shadow-xl overflow-hidden">
+                <img src="./88.png" alt="단지 내 중앙광장 조경" class="w-full h-64 md:h-80 object-cover rounded-2xl mb-3">
+                <h3 class="text-lg font-black text-[#EBB991] px-2">자연친화적 중앙광장 & 수변공원</h3>
+                <p class="text-xs md:text-sm text-slate-300 px-2 mt-1">단지 내 차 없는 지상공간과 쾌적한 힐링 테마 조경 조성</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. 평형별 타입 가이드 (이미지 대체 그래픽 카드 스타일) -->
-    <section class="max-w-5xl mx-auto px-4 py-16">
-        <div class="text-center mb-12">
-            <span class="text-[#D4A373] font-extrabold text-xs tracking-widest uppercase">Unit Type Guide</span>
-            <h2 class="text-3xl md:text-4xl font-black text-white mt-1">혁신 평면 설계 및 타입 가이드</h2>
+    <!-- 📍 5-1. 단지 배치도 및 커뮤니티 (5.png 추가 위치) -->
+    <section class="max-w-5xl mx-auto px-4 py-8 border-t border-slate-800/80">
+        <div class="text-center mb-8">
+            <span class="text-[#D4A373] font-extrabold text-xs md:text-sm tracking-widest uppercase">Site Plan</span>
+            <h2 class="text-2xl md:text-4xl font-black text-white mt-1">총 1,649세대 단지 배치도</h2>
+            <p class="text-xs md:text-sm text-slate-400 mt-2">드포엠파크, 드포엠카페, 커뮤니티 센터가 어우러진 명품 단지 설계</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-slate-900 rounded-3xl border border-slate-800 p-4 md:p-6 shadow-2xl overflow-hidden">
+            <div class="rounded-2xl overflow-hidden border border-slate-800 mb-4 bg-white p-2">
+                <img src="./5.png" alt="e편한세상 부천 어반스퀘어 단지배치도" class="w-full h-auto object-contain rounded-xl">
+            </div>
             
-            <!-- 59㎡ -->
-            <div class="bg-slate-900 rounded-3xl border-2 border-slate-800 p-8 relative hover:border-[#D4A373] transition-all">
-                <div class="bg-gradient-to-r from-[#D4A373] to-[#EBB991] text-slate-950 font-black text-xs px-3.5 py-1.5 rounded-full w-fit mb-4 flex items-center gap-1.5 shadow-md">
-                    <i class="fa-solid fa-home"></i> 신혼부부 인기
-                </div>
-                <h3 class="text-3xl font-black text-white">전용 59㎡ <span class="text-xs text-slate-400 font-normal">(구 25평형)</span></h3>
-                <p class="text-xs text-slate-400 mt-2.5 leading-relaxed font-light">
-                    실속 있는 3Bay/4Bay 맞통풍 혁신 구조 적용! 채광과 통풍을 극대화한 실속형 신혼부부 맞춤 평면.
-                </p>
-                <div class="mt-5 pt-5 border-t border-slate-800 space-y-2.5 text-sm text-slate-300 font-extrabold">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-bed text-[#D4A373]"></i> 침실 3개 + 욕실 2개</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-t-shirt text-[#D4A373]"></i> 드레스룸 & 파우더룸</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-kitchen-set text-[#D4A373]"></i> ㄷ자형 효율 주방</div>
-                </div>
+            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <h4 class="text-[#EBB991] font-black text-sm md:text-base mb-2">🌿 단지 내 핵심 프리미엄 시설</h4>
+                <ul class="text-xs md:text-sm text-slate-300 space-y-1.5 font-semibold">
+                    <li>• <strong class="text-white">드포엠파크:</strong> 단지 중심의 핵심 조경 공간으로 넓은 잔디마당과 수경시설이 어우러진 힐링 공간</li>
+                    <li>• <strong class="text-white">드포엠카페 & 미스티포레:</strong> 공원과 미세먼지 저감 식재가 어우러진 일상 속 휴식 공간</li>
+                    <li>• <strong class="text-white">고품격 커뮤니티센터:</strong> 피트니스, 실내골프연습장, 사우나, 게스트하우스, 라운지카페 등 조성</li>
+                </ul>
             </div>
-
-            <!-- 74㎡ -->
-            <div class="bg-slate-900 rounded-3xl border-2 border-[#D4A373] p-8 relative hover:border-[#FFDAB9] transition-all shadow-2xl">
-                <div class="bg-gradient-to-r from-[#D4A373] to-[#EBB991] text-slate-950 font-black text-xs px-3.5 py-1.5 rounded-full w-fit mb-4 flex items-center gap-1.5 shadow-md">
-                    <i class="fa-solid fa-certificate animate-spin"></i> BEST 틈새평형
-                </div>
-                <h3 class="text-3xl font-black text-white">전용 74㎡ <span class="text-xs text-slate-400 font-normal">(구 30평형)</span></h3>
-                <p class="text-xs text-slate-400 mt-2.5 leading-relaxed font-light">
-                    30평형의 넉넉한 공간감과 합리적 분양가를 동시에! 4Bay 혁신 설계의 인기 타입.
-                </p>
-                <div class="mt-5 pt-5 border-t border-slate-800 space-y-2.5 text-sm text-[#FFDAB9] font-extrabold">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-[#EBB991]"></i> 4Bay 맞통풍 구조</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-box-open text-[#EBB991]"></i> 대형 팬트리 수납</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-chart-line text-[#EBB991]"></i> 알파룸급 공간여유</div>
-                </div>
-            </div>
-
-            <!-- 84㎡ -->
-            <div class="bg-slate-900 rounded-3xl border-2 border-slate-800 p-8 relative hover:border-[#D4A373] transition-all">
-                <div class="bg-gradient-to-r from-[#D4A373] to-[#EBB991] text-slate-950 font-black text-xs px-3.5 py-1.5 rounded-full w-fit mb-4 flex items-center gap-1.5 shadow-md">
-                    <i class="fa-solid fa-building"></i> 국민 평형
-                </div>
-                <h3 class="text-3xl font-black text-white">전용 84㎡ <span class="text-xs text-slate-400 font-normal">(구 34평형)</span></h3>
-                <p class="text-xs text-slate-400 mt-2.5 leading-relaxed font-light">
-                    압도적인 와이드 거실과 e편한세상만의 최고급 마감재가 도입된 시그니처 평면.
-                </p>
-                <div class="mt-5 pt-5 border-t border-slate-800 space-y-2.5 text-sm text-slate-300 font-extrabold">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-gem text-[#D4A373]"></i> 하이엔드 드레스룸</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-[#D4A373]"></i> 현관 대형 수납창고</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-square-root-variable text-[#D4A373]"></i> 공간 효율 극대화</div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- 7. 핵심 인프라 프리미엄 4대 핵심 (내용 보강) -->
-    <section class="max-w-5xl mx-auto px-4 py-16">
-        <div class="text-center mb-12">
-            <span class="text-[#D4A373] font-extrabold text-xs tracking-widest uppercase">Location Premium</span>
-            <h2 class="text-3xl md:text-4xl font-black text-white mt-1">부천을 이끄는 4대 프리미엄 인프라</h2>
+    <!-- 6. 평형별 타입 가이드 & 평면도 -->
+    <section class="max-w-5xl mx-auto px-4 py-8">
+        <div class="text-center mb-8">
+            <span class="text-[#D4A373] font-extrabold text-xs md:text-sm tracking-widest uppercase">Floor Plan</span>
+            <h2 class="text-2xl md:text-4xl font-black text-white mt-1">세대별 평면 안내</h2>
+            <p class="text-xs md:text-sm text-slate-400 mt-2">채광과 통풍을 고려한 e편한세상만의 혁신 평면 설계</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 flex gap-5 items-start transition-transform hover:-translate-y-2 hover:border-[#D4A373]">
-                <div class="w-14 h-14 bg-[#D4A373] text-slate-950 rounded-2xl flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">
-                    <i class="fa-solid fa-subway"></i>
+        <!-- 59㎡ 섹션 -->
+        <div class="mb-10">
+            <h3 class="text-xl md:text-2xl font-black text-[#EBB991] mb-4 border-l-4 border-[#D4A373] pl-3">59㎡ (구 25평형) - 실속형 인기 타입</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-5 shadow-xl hover:border-[#D4A373] transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-black text-white">59㎡ A <span class="text-xs text-[#EBB991] font-bold">(일반분양 374세대)</span></span>
+                        <span class="bg-slate-950 border border-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full">3Bay 판상형</span>
+                    </div>
+                    <div class="my-3 rounded-2xl overflow-hidden bg-white p-2">
+                        <img src="./49.png" alt="59A 평면도" class="w-full h-56 object-contain">
+                    </div>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-1 font-semibold mt-2">
+                        <li>• 채광이 우수한 3Bay 맞통풍 구조</li>
+                        <li>• 안방 드레스룸 & 파우더룸 설계</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="font-black text-xl text-white mb-1.5">소사역 더블역세권 & GTX-B</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed font-light">
-                        1호선과 서해선 소사역 도보권 이용! 여의도·강남·시청 등 서울 업무지구 쾌속 통근권이며, 향후 GTX-B(예정) 개통 시 여의도 10분대 진입!
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 flex gap-5 items-start transition-transform hover:-translate-y-2 hover:border-[#D4A373]">
-                <div class="w-14 h-14 bg-[#D4A373] text-slate-950 rounded-2xl flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <div>
-                    <h3 class="font-black text-xl text-white mb-1.5">도보 5분 안심학세권</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed font-light">
-                        원미초, 소명여중, 소명여고, 원미고 등 대단지 옆 완벽한 초중고 학군! 부천역 대형 학원가 인프라도 공유하는 프리미엄 교육환경.
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 flex gap-5 items-start transition-transform hover:-translate-y-2 hover:border-[#D4A373]">
-                <div class="w-14 h-14 bg-[#D4A373] text-slate-950 rounded-2xl flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-                <div>
-                    <h3 class="font-black text-xl text-white mb-1.5">이마트 & 이마트트레이더스</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed font-light">
-                        단지 근거리 대형 마트 및 성모병원, 원미산 자연공원 인접! 풍부한 생활 인프라와 쾌적한 자연을 한곳에서 누리는 최고의 주거 명당.
-                    </p>
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-5 shadow-xl hover:border-[#D4A373] transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-black text-white">59㎡ B <span class="text-xs text-[#EBB991] font-bold">(일반분양 107세대)</span></span>
+                        <span class="bg-slate-950 border border-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full">타워형 구조</span>
+                    </div>
+                    <div class="my-3 rounded-2xl overflow-hidden bg-white p-2">
+                        <img src="./50.png" alt="59B 평면도" class="w-full h-56 object-contain">
+                    </div>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-1 font-semibold mt-2">
+                        <li>• 개방감이 뛰어난 거실 2면 개방 구조</li>
+                        <li>• 독립적인 침실 배치로 사생활 보호</li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
-            <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 flex gap-5 items-start transition-transform hover:-translate-y-2 hover:border-[#D4A373]">
-                <div class="w-14 h-14 bg-[#D4A373] text-slate-950 rounded-2xl flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">
-                    <i class="fa-solid fa-dumbbell"></i>
+        <!-- 74㎡ 섹션 -->
+        <div class="mb-10">
+            <h3 class="text-xl md:text-2xl font-black text-[#EBB991] mb-4 border-l-4 border-[#D4A373] pl-3">74㎡ (구 30평형) - 틈새 가성비 추천</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-5 shadow-xl hover:border-[#D4A373] transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-black text-white">74㎡ A <span class="text-xs text-[#EBB991] font-bold">(일반분양 208세대)</span></span>
+                        <span class="bg-slate-950 border border-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full">판상형 구조</span>
+                    </div>
+                    <div class="my-3 rounded-2xl overflow-hidden bg-white p-2">
+                        <img src="./51.png" alt="74A 평면도" class="w-full h-56 object-contain">
+                    </div>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-1 font-semibold mt-2">
+                        <li>• 넉넉한 수납공간과 안방 대형 드레스룸</li>
+                        <li>• ㄷ자형 주방 배치로 동선 효율성 극대화</li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 class="font-black text-xl text-white mb-1.5">세대창고 & 고품격 커뮤니티</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed font-light">
-                        세대별 전용 지하창고, 고급 사우나, 실내골프장, 피트니스, 게스트하우스 등 대기업 1군 브랜드 대단지만의 품격 높은 커뮤니티 시설 제공.
-                    </p>
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-5 shadow-xl hover:border-[#D4A373] transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-black text-white">74㎡ B <span class="text-xs text-[#EBB991] font-bold">(일반분양 108세대)</span></span>
+                        <span class="bg-slate-950 border border-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full">팬트리 특화</span>
+                    </div>
+                    <div class="my-3 rounded-2xl overflow-hidden bg-white p-2">
+                        <img src="./52.png" alt="74B 평면도" class="w-full h-56 object-contain">
+                    </div>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-1 font-semibold mt-2">
+                        <li>• 현관 대형 팬트리로 수납력 강화</li>
+                        <li>• 넓은 거실과 아늑한 안방 공간</li>
+                    </ul>
                 </div>
             </div>
+        </div>
 
+        <!-- 84㎡ 섹션 -->
+        <div class="mb-6">
+            <h3 class="text-xl md:text-2xl font-black text-[#EBB991] mb-4 border-l-4 border-[#D4A373] pl-3">84㎡ (구 34평형) - 선호도 1위 대표 시그니처</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 rounded-3xl border-2 border-[#D4A373] p-5 shadow-2xl relative">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-black text-white">84㎡ A <span class="text-xs text-[#EBB991] font-bold">(일반분양 73세대)</span></span>
+                        <span class="bg-[#EBB991] text-slate-950 font-black text-xs px-3 py-1 rounded-full">4Bay 혁신평면</span>
+                    </div>
+                    <div class="my-3 rounded-2xl overflow-hidden bg-white p-2">
+                        <img src="./53.png" alt="84A 평면도" class="w-full h-56 object-contain">
+                    </div>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-1 font-semibold mt-2">
+                        <li>• 4Bay 판상형 채광·통풍 극대화 설계</li>
+                        <li>• 대형 현관 팬트리 + 대형 안방 드레스룸</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900 rounded-3xl border border-slate-800 p-5 shadow-xl hover:border-[#D4A373] transition-all">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xl font-black text-white">84㎡ B <span class="text-xs text-[#EBB991] font-bold">(일반분양 27세대)</span></span>
+                        <span class="bg-slate-950 border border-slate-700 text-slate-300 text-xs px-3 py-1 rounded-full">희소 가치</span>
+                    </div>
+                    <div class="my-3 rounded-2xl overflow-hidden bg-white p-2">
+                        <img src="./54.png" alt="84B 평면도" class="w-full h-56 object-contain">
+                    </div>
+                    <ul class="text-xs md:text-sm text-slate-300 space-y-1 font-semibold mt-2">
+                        <li>• 와이드 거실과 여유로운 주방/식당 공간</li>
+                        <li>• 대형 현관 팬트리로 깔끔한 수납 가능</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 8. VIP 관심고객 등록 폼 (영종유림 폼 스타일 이식) -->
-    <section id="db-form" class="max-w-2xl mx-auto px-4 py-16 pb-32">
-        <div class="glow-rose-gold bg-slate-900 border-2 border-[#D4A373] rounded-3xl p-8 md:p-12 shadow-3xl relative overflow-hidden backdrop-blur-xl">
-            <div class="text-center mb-10">
-                <span class="bg-[#EBB991] text-slate-950 font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">VIP Fast Pass</span>
-                <h2 class="text-3xl md:text-4xl font-black text-white mt-4 text-shadow-bold">관심고객 등록 / 방문예약</h2>
-                <p class="text-xs md:text-sm text-[#FFDAB9] mt-3 font-normal">등록 시 모델하우스 오시는 길 문자 및 VIP 분양가표를 실시간 발송해 드립니다.</p>
+    <!-- 7. 관심고객 등록 폼 -->
+    <section id="db-form" class="max-w-xl mx-auto px-4 py-8 pb-28">
+        <div class="glow-rose-gold bg-slate-900 border-2 border-[#D4A373] rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+            <div class="text-center mb-6">
+                <span class="bg-[#EBB991] text-slate-950 font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">VIP Fast Pass</span>
+                <h2 class="text-2xl md:text-3xl font-black text-white mt-2">관심고객 등록 / 방문예약</h2>
+                <p class="text-xs md:text-sm text-[#FFDAB9] mt-2">등록시 상담사를 배정하여 상담 및 방문예약을 도와드립니다.</p>
             </div>
 
-            <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+            <form id="vipForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
                 <div>
-                    <label class="block text-sm font-bold text-slate-200 mb-2">성함 <span class="text-rose-400">*</span></label>
-                    <input type="text" required placeholder="성함을 입력해 주세요" class="w-full px-5 py-4 bg-slate-950 border border-slate-800 rounded-2xl text-white text-base focus:outline-none focus:border-[#D4A373] transition-all">
+                    <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">성함 <span class="text-rose-400">*</span></label>
+                    <input type="text" id="userName" required placeholder="성함을 입력해 주세요" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-slate-200 mb-2">연락처 <span class="text-rose-400">*</span></label>
-                    <input type="tel" required placeholder="010-0000-0000" class="w-full px-5 py-4 bg-slate-950 border border-slate-800 rounded-2xl text-white text-base focus:outline-none focus:border-[#D4A373] transition-all">
+                    <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">연락처 <span class="text-rose-400">*</span></label>
+                    <input type="tel" id="userPhone" required placeholder="010-0000-0000" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-bold text-slate-200 mb-2">관심 평형</label>
-                    <select class="w-full px-5 py-4 bg-slate-950 border border-slate-800 rounded-2xl text-white text-base focus:outline-none focus:border-[#D4A373] transition-all cursor-pointer">
-                        <option value="">희망 평형대를 선택해 주세요</option>
-                        <option value="59">59㎡ (구 25평형)</option>
-                        <option value="74">74㎡ (구 30평형)</option>
-                        <option value="84">84㎡ (구 34평형)</option>
+                    <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">관심 평형</label>
+                    <select id="userType" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
+                        <option value="미선택">희망 평형대를 선택해 주세요</option>
+                        <option value="59A">59㎡ A (일반분양 374세대)</option>
+                        <option value="59B">59㎡ B (일반분양 107세대)</option>
+                        <option value="74A">74㎡ A (일반분양 208세대)</option>
+                        <option value="74B">74㎡ B (일반분양 108세대)</option>
+                        <option value="84A">84㎡ A (일반분양 73세대)</option>
+                        <option value="84B">84㎡ B (일반분양 27세대)</option>
                     </select>
                 </div>
 
-                <div class="flex items-start gap-2.5 text-xs text-slate-400 pt-1.5">
-                    <input type="checkbox" id="privacy" checked required class="mt-0.5 rounded-sm accent-[#D4A373] cursor-pointer w-4 h-4 shrink-0">
-                    <label for="privacy" class="cursor-pointer font-light">개인정보 수집 이용 동의 및 현장 안내문자 수신 동의</label>
+                <!-- 관심 평형 밑에 추가되는 방문일시 영역 -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <div>
+        <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">방문 희망일</label>
+        <input type="date" id="visitDate" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all [color-scheme:dark]">
+    </div>
+    <div>
+        <label class="block text-xs md:text-sm font-bold text-slate-200 mb-1.5">방문 희망시간</label>
+        <select id="visitTime" class="w-full px-4 py-3.5 bg-slate-950 border border-slate-800 rounded-xl text-white text-sm md:text-base focus:outline-none focus:border-[#D4A373] transition-all">
+            <option value="">방문 시간 선택</option>
+            <option value="10:00">오전 10:00</option>
+            <option value="11:00">오전 11:00</option>
+            <option value="12:00">오후 12:00</option>
+            <option value="13:00">오후 1:00</option>
+            <option value="14:00">오후 2:00</option>
+            <option value="15:00">오후 3:00</option>
+            <option value="16:00">오후 4:00</option>
+            <option value="17:00">오후 5:00</option>
+            <option value="18:00">오후 6:00</option>
+            <option value="19:00">오후 7:00</option>
+        </select>
+    </div>
+</div>
+
+                <div class="flex items-start gap-2 text-xs md:text-sm text-slate-300 pt-1">
+                    <input type="checkbox" id="privacy" checked required class="mt-0.5 rounded accent-[#D4A373]">
+                    <label for="privacy" class="cursor-pointer">개인정보 수집 이용 동의 및 현장 안내문자 수신 동의</label>
                 </div>
 
-                <button type="submit" class="shimmer-gold w-full bg-gradient-to-r from-[#D4A373] via-[#EBB991] to-[#D4A373] hover:from-[#EBB991] hover:to-[#FFDAB9] text-slate-950 font-black text-xl py-5 rounded-2xl shadow-xl transition-all active:scale-95 mt-5">
-                    📋 VIP 방문예약 및 분양가 신청
+                <button type="submit" id="submitBtn" class="shimmer-gold w-full bg-gradient-to-r from-[#D4A373] via-[#EBB991] to-[#D4A373] text-slate-950 font-black text-base md:text-lg py-4 rounded-xl shadow-xl transition-all active:scale-95 mt-2 flex items-center justify-center gap-2">
+                    <span>📋 VIP 방문예약 및 분양가 신청</span>
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- 9. 푸터 (심플 & 고급) -->
-    <footer class="max-w-5xl mx-auto px-4 py-8 text-center text-xs text-slate-600 border-t border-slate-800/60 mt-12 pb-32">
-        <p class="font-extrabold text-slate-500 mb-1.5">e편한세상 부천 어반스퀘어 공식 VIP 상담 센터</p>
-        <p class="font-light">※ 본 사이트는 소비자 이해를 돕기 위한 VIP 분양 홍보 사이트입니다.</p>
+    <!-- 8. 푸터 -->
+    <footer class="max-w-4xl mx-auto px-4 py-6 text-center text-xs md:text-sm text-slate-500 border-t border-slate-800/60 pb-28">
+        <p class="font-extrabold text-slate-400 mb-1">e편한세상 부천 어반스퀘어 공식 VIP 분양 홍보관</p>
+        <p>※ 본 사이트는 소비자 이해를 돕기 위한 홍보용 랜딩페이지입니다.</p>
     </footer>
 
-    <!-- [영종유림 감성] 하단 고정 전화 / DB 신청 바 (Sticky Footer) 완벽 구현 -->
-    <div class="fixed bottom-0 left-0 right-0 bg-slate-950/95 border-t border-[#D4A373]/50 p-4 z-50 backdrop-blur-xl shadow-4xl">
-        <div class="max-w-4xl mx-auto grid grid-cols-2 gap-3">
-            <a href="tel:1833-8384" class="bg-slate-800 border-2 border-slate-700 hover:border-[#D4A373]/60 text-slate-100 font-extrabold py-4 rounded-xl text-center flex items-center justify-center gap-2.5 shadow-md text-sm md:text-base">
-                <i class="fa-solid fa-phone text-base group-hover:text-yellow-400"></i>
-                대표번호 전화연결
+    <!-- 9. 하단 고정 전화 / DB 신청 바 -->
+    <div class="fixed bottom-0 left-0 right-0 bg-slate-950/95 border-t border-[#D4A373]/50 p-3 z-50 backdrop-blur-md shadow-2xl">
+        <div class="max-w-md mx-auto grid grid-cols-2 gap-2.5">
+            <a href="tel:1833-8384" class="bg-slate-900 border border-slate-700 text-slate-100 font-extrabold py-3.5 rounded-xl text-center flex items-center justify-center gap-2 shadow-md text-sm md:text-base">
+                <i class="fa-solid fa-phone text-[#EBB991]"></i> 전화연결
             </a>
-            <a href="#db-form" class="bg-gradient-to-r from-[#EBB991] to-[#D4A373] hover:from-[#FFDAB9] hover:to-[#EBB991] text-slate-950 font-black py-4 rounded-xl text-center flex items-center justify-center gap-2.5 shadow-lg text-sm md:text-base">
-                <i class="fa-solid fa-calendar-days text-base"></i>
-                VIP 방문예약 접수
+            <a href="#db-form" class="bg-gradient-to-r from-[#EBB991] to-[#D4A373] text-slate-950 font-black py-3.5 rounded-xl text-center flex items-center justify-center gap-2 shadow-lg text-sm md:text-base">
+                <i class="fa-solid fa-calendar-check"></i> VIP 방문예약
             </a>
         </div>
     </div>
 
-    <!-- 11. 실시간 예약 알림 Toast Alert -->
-    <div id="toast" class="fixed top-24 right-4 bg-slate-900 text-white border-2 border-[#D4A373]/80 px-5 py-4 rounded-3xl shadow-3xl transition-all duration-500 opacity-0 transform translate-y-4 z-50 flex items-center gap-3.5 max-w-sm">
-        <div class="bg-[#D4A373] text-slate-950 p-3 rounded-full text-xs font-black shadow-lg"><i class="fa-solid fa-bell animate-pulse"></i></div>
-        <div class="text-xs">
-            <p class="font-bold text-rose-gold text-sm" id="toast-name">부천 심곡동 김OO 고객님</p>
-            <p class="text-slate-200 mt-0.5" id="toast-action">방문예약 신청 완료</p>
-        </div>
-    </div>
-
+    <script src="./tracking-config.js"></script>
+    <!-- 10. 접수 및 전환 측정 스크립트 -->
     <script>
-        const dummyData = [
-            { name: "부천 소사구 박OO 고객님", action: "로얄층 잔여세대 문의 완료" },
-            { name: "서울 구로구 이OO 고객님", action: "방문예약 접수 완료" },
-            { name: "인천 부평구 최OO 고객님", action: "1차 계약금 상담 완료" },
-            { name: "부천 심곡동 정OO 고객님", action: "상품권 증정대상 확정" },
-            { name: "시흥 대야동 황OO 고객님", action: "84A타입 로얄동 상담 완료" }
-        ];
+        const SOSA_CONFIG = window.SOSA_CONFIG || {};
 
-        function showToast() {
-            const toast = document.getElementById('toast');
-            const item = dummyData[Math.floor(Math.random() * dummyData.length)];
-            document.getElementById('toast-name').innerText = item.name;
-            document.getElementById('toast-action').innerText = item.action;
-
-            toast.classList.remove('opacity-0', 'translate-y-4');
-            toast.classList.add('opacity-100', 'translate-y-0');
-
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'translate-y-4');
-            }, 3800);
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/[.$?*|{}()[\]\\/+^]/g, '\\$&') + '=([^;]*)'));
+            return match ? decodeURIComponent(match[1]) : '';
         }
-        setInterval(showToast, 9000);
 
-        function handleFormSubmit(e) {
+        function createEventId() {
+            if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+            return 'lead-' + Date.now() + '-' + Math.random().toString(16).slice(2);
+        }
+
+        function setVisitDateMin() {
+            const dateInput = document.getElementById('visitDate');
+            const now = new Date();
+            const localToday = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+            dateInput.min = localToday;
+        }
+        setVisitDateMin();
+
+        async function handleFormSubmit(e) {
             e.preventDefault();
-            alert("VIP 관심고객 등록이 완료되었습니다.\n담당자가 확인 후 즉시 방문예약 및 모델하우스 위치문자를 발송해 드리겠습니다.");
+
+            const name = document.getElementById('userName').value.trim();
+            const phone = document.getElementById('userPhone').value.trim().replace(/[^0-9]/g, '');
+            const pType = document.getElementById('userType').value;
+            const visitDate = document.getElementById('visitDate').value;
+            const visitTime = document.getElementById('visitTime').value;
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (phone.length < 10) {
+                alert('올바른 휴대폰 번호를 입력해 주세요.');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> 접수 중입니다...';
+
+            if (!SOSA_CONFIG.relayUrl) {
+                console.error('접수 API 주소가 설정되지 않았습니다.');
+                alert('접수 설정을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>📋 VIP 방문예약 및 분양가 신청</span>';
+                return;
+            }
+
+            const eventId = createEventId();
+
+            try {
+                const response = await fetch(SOSA_CONFIG.relayUrl.replace(/\/$/, '') + '/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        type: pType,
+                        visitDate: visitDate,
+                        visitTime: visitTime,
+                        eventId: eventId,
+                        pageUrl: window.location.href,
+                        fbp: getCookie('_fbp'),
+                        fbc: getCookie('_fbc')
+                    })
+                });
+
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok || result.result !== 'success') {
+                    throw new Error(result.message || '접수 처리에 실패했습니다.');
+                }
+
+                // 실제 접수 성공 후에만 Browser Lead를 전송하며, 서버 CAPI와 eventId를 공유합니다.
+                if (window.SOSA_META_READY) {
+                    await window.SOSA_META_READY;
+                }
+                if (window.SosaMeta && typeof window.SosaMeta.trackLead === 'function') {
+                    window.SosaMeta.trackLead(eventId);
+                }
+
+                alert(`VIP 관심고객 등록이 완료되었습니다!\n\n접수자: ${name}님\n연락처: ${phone}\n\n담당자가 확인 후 즉시 안내해 드리겠습니다.`);
+                document.getElementById('vipForm').reset();
+            } catch (error) {
+                console.error('전송 오류:', error);
+                alert(`접수 처리 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.`);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>📋 VIP 방문예약 및 상담신청</span>';
+            }
         }
     </script>
 </body>
+</html>
 </html>
