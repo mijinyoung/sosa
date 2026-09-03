@@ -3,58 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>송도 하늘채 아이비원 - 파격 15% 할인 입주안내</title>
+    <title>송도 하늘채 아이비원 - 송도 최저가 5억2천대 파격 할인</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
-            --brand-red: #d92626;
+            --brand-red: #e11d48;
             --brand-yellow: #facc15;
-            --brand-green: #16a34a;
-            --brand-blue: #2563eb;
+            --brand-green: #10b981;
+            --brand-blue: #0284c7;
             --bg-gray: #f1f5f9;
             --text-dark: #0f172a;
-            --border: #e2e8f0;
+            --border: #cbd5e1;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; }
         body { color: var(--text-dark); background-color: #1e293b; line-height: 1.4; padding-bottom: 60px; word-break: keep-all; }
 
-        /* 모바일 최적화 컨테이너 */
         .mobile-container { max-width: 500px; margin: 0 auto; background: #ffffff; min-height: 100vh; box-shadow: 0 0 25px rgba(0,0,0,0.3); }
 
         /* 최상단 핫핑크/레드 긴급 할인 배너 */
         .urgent-top-bar {
-            background: linear-gradient(90deg, #dc2626, #b91c1c);
+            background: linear-gradient(90deg, #e11d48, #be123c);
             color: #ffffff;
             text-align: center;
-            padding: 8px 12px;
-            font-size: 0.88rem;
+            padding: 9px 12px;
+            font-size: 0.9rem;
             font-weight: 800;
             letter-spacing: -0.3px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
-        .urgent-top-bar span { color: var(--brand-yellow); }
+        .urgent-top-bar span { color: var(--brand-yellow); font-size: 1rem; text-decoration: underline; }
 
         /* Header */
         header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #ffffff; border-bottom: 2px solid var(--primary); sticky; top: 0; z-index: 100; }
         header .logo { font-weight: 900; font-size: 1.15rem; color: var(--primary); letter-spacing: -0.5px; }
         header .logo span { color: var(--brand-red); }
-        header .menu-btn { font-size: 0.82rem; font-weight: 800; color: #ffffff; background: var(--brand-red); padding: 5px 12px; border-radius: 20px; text-decoration: none; }
+        header .menu-btn { font-size: 0.82rem; font-weight: 800; color: #ffffff; background: var(--brand-red); padding: 6px 12px; border-radius: 20px; text-decoration: none; }
 
-        /* Hero Section (이미지 짤림 및 겹침 해결 구조) */
+        /* Hero Section */
         .hero { background: #0f172a; text-align: center; position: relative; }
         
-        /* 1. Hero 상단 텍스트 영역 (이미지와 분리하여 겹침 차단) */
-        .hero-head-text { padding: 22px 16px 14px 16px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #fff; }
-        .hero-head-text .badge-red { display: inline-block; background: var(--brand-red); color: #fff; font-size: 0.8rem; font-weight: 800; padding: 3px 10px; border-radius: 4px; margin-bottom: 6px; }
-        .hero-head-text h2 { font-size: 1.85rem; font-weight: 900; color: #ffffff; line-height: 1.2; letter-spacing: -0.5px; }
-        .hero-head-text h2 span { color: var(--brand-yellow); }
-        .hero-head-text .sub-price { font-size: 1.2rem; font-weight: 800; color: #38bdf8; margin-top: 6px; }
+        .hero-head-text { padding: 22px 16px 16px 16px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #fff; }
+        .hero-head-text .badge-red { display: inline-block; background: var(--brand-red); color: #fff; font-size: 0.82rem; font-weight: 800; padding: 4px 12px; border-radius: 4px; margin-bottom: 8px; }
+        .hero-head-text h2 { font-size: 1.85rem; font-weight: 900; color: #ffffff; line-height: 1.25; letter-spacing: -0.5px; }
+        .hero-head-text h2 span { color: var(--brand-yellow); background: rgba(250, 204, 21, 0.15); padding: 0 4px; }
+        
+        .price-hero-box {
+            margin-top: 10px;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            padding: 10px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 900;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+        }
+        .price-hero-box span { color: var(--brand-yellow); font-size: 1.4rem; }
 
-        /* 2. Hero 이미지 영역 (원본 비율 유지하여 절대 안 짤림) */
         .hero-img-wrap { width: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .hero-img-wrap img { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
+        .hero-img-wrap img { width: 100%; height: auto; max-height: 300px; object-fit: contain; display: block; }
 
         /* Hero 하단 강렬한 접수 폼 카드 */
         .hero-form-card { 
@@ -86,7 +93,7 @@
 
         .submit-btn-red { 
             width: 100%; 
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); 
+            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%); 
             color: #fff; 
             border: none; 
             padding: 15px; 
@@ -95,11 +102,10 @@
             border-radius: 8px; 
             cursor: pointer; 
             margin-top: 4px; 
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
-            letter-spacing: -0.3px;
+            box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
         }
 
-        /* 전화 직통 대형 연결 배너 (시안 스타일) */
+        /* 전화 직통 대형 연결 배너 */
         .direct-call-banner {
             background: #0f172a;
             color: #fff;
@@ -118,52 +124,41 @@
             text-decoration: none; 
             margin: 4px 0 12px 0;
             letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .cta-btn-green { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px; 
-            background: var(--brand-green); 
-            color: #fff; 
-            text-decoration: none; 
-            font-weight: 800; 
-            padding: 13px; 
-            border-radius: 8px; 
-            font-size: 1rem;
-            margin-bottom: 8px;
+            display: flex; align-items: center; justify-content: center; gap: 8px; 
+            background: var(--brand-green); color: #fff; text-decoration: none; 
+            font-weight: 800; padding: 13px; border-radius: 8px; font-size: 1rem; margin-bottom: 8px;
         }
         .cta-btn-yellow { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px; 
-            background: var(--brand-yellow); 
-            color: #0f172a; 
-            text-decoration: none; 
-            font-weight: 900; 
-            padding: 13px; 
-            border-radius: 8px; 
-            font-size: 1rem;
+            display: flex; align-items: center; justify-content: center; gap: 8px; 
+            background: var(--brand-yellow); color: #0f172a; text-decoration: none; 
+            font-weight: 900; padding: 13px; border-radius: 8px; font-size: 1rem;
         }
 
         /* Section Commons */
         .section { padding: 35px 16px; border-bottom: 8px solid var(--bg-gray); background: #fff; }
         .sec-header { text-align: center; margin-bottom: 20px; }
         .sec-header .sub { font-size: 0.82rem; color: var(--brand-red); font-weight: 800; letter-spacing: 1px; }
-        .sec-header h3 { font-size: 1.5rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
-        .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 500; }
+        .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
+        .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
+
+        /* 송도 대표 인프라 그리드 카테고리 */
+        .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+        .infra-card { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 14px 10px; text-align: center; }
+        .infra-card i { font-size: 1.8rem; color: var(--brand-blue); margin-bottom: 8px; }
+        .infra-card h4 { font-size: 0.98rem; font-weight: 800; color: var(--primary); margin-bottom: 4px; }
+        .infra-card p { font-size: 0.78rem; color: #64748b; font-weight: 600; line-height: 1.3; }
 
         /* 이미지 박스 */
-        .img-card-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .img-card-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .img-card-box img { width: 100%; display: block; height: auto; }
-        .img-card-box .cap { padding: 10px; background: #f8fafc; font-size: 0.88rem; font-weight: 800; color: var(--primary); text-align: center; border-top: 1px solid var(--border); }
+        .img-card-box .cap { padding: 10px 12px; background: #f8fafc; font-size: 0.9rem; font-weight: 800; color: var(--primary); text-align: center; border-top: 1px solid var(--border); }
 
-        /* 특장점 리스트 (원형 체크버튼) */
-        .check-list { list-style: none; margin-top: 15px; }
-        .check-list li { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; font-weight: 700; color: #334155; margin-bottom: 10px; background: #f8fafc; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border); }
-        .check-list li i { color: var(--brand-red); font-size: 1.1rem; }
+        /* 5억 2천 가성비 비교 강조 박스 */
+        .value-compare-box { background: #fff5f5; border: 2px dashed var(--brand-red); border-radius: 10px; padding: 16px; margin-top: 15px; text-align: center; }
+        .value-compare-box h4 { color: var(--brand-red); font-size: 1.1rem; font-weight: 900; margin-bottom: 6px; }
+        .value-compare-box p { font-size: 0.88rem; color: #334155; font-weight: 700; }
 
         /* 평면안내 탭 UI */
         .tab-menu { display: flex; gap: 6px; margin-bottom: 15px; background: #e2e8f0; padding: 4px; border-radius: 8px; }
@@ -172,7 +167,7 @@
         .plan-img-box { border: 1.5px solid var(--border); border-radius: 10px; padding: 12px; background: #fafafa; text-align: center; }
         .plan-img-box img { width: 100%; max-height: 260px; object-fit: contain; }
 
-        /* 하단 고정 CTA 바 (Bottom Fixed Bar) */
+        /* 하단 고정 CTA 바 */
         .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; max-width: 500px; margin: 0 auto; display: flex; background: #fff; border-top: 1px solid var(--border); z-index: 1000; height: 60px; box-shadow: 0 -4px 15px rgba(0,0,0,0.1); }
         .bottom-bar a { flex: 1; display: flex; justify-content: center; align-items: center; text-decoration: none; font-weight: 900; font-size: 1.05rem; gap: 6px; }
         .bar-call { background: var(--primary); color: #fff; }
@@ -187,7 +182,7 @@
 
     <!-- 긴급 최상단 띠배너 -->
     <div class="urgent-top-bar">
-        🚨 [긴급] 송도 1공구 파격 <span>15% 할인</span> 잔여세대 입주 모집
+        🚨 송도 신축 아파트 <span>5억 2천만 원대</span> 파격 할인 입주
     </div>
 
     <!-- Header -->
@@ -196,12 +191,14 @@
         <a href="#contact-sec" class="menu-btn"><i class="fa-solid fa-calendar-check"></i> 방문예약</a>
     </header>
 
-    <!-- Hero Section (텍스트와 이미지를 분리해 겹침/잘림 완전 방지) -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-head-text">
-            <span class="badge-red">준공 완료 · 즉시 입주</span>
-            <h2>송도 하늘채 아이비원<br><span>특별 15% 할인분양</span></h2>
-            <p class="sub-price">전용 59㎡ 5억 2,000만 원대부터~</p>
+            <span class="badge-red">송도국제도시 1공구 준공아파트</span>
+            <h2>송도에서 다시 없을<br><span>5억 2천대 신축 내집마련</span></h2>
+            <div class="price-hero-box">
+                파격 15% 할인 혜택 적용 중!
+            </div>
         </div>
         
         <div class="hero-img-wrap">
@@ -212,7 +209,7 @@
     <!-- Hero 하단 실물 세대 방문예약 카드 -->
     <div class="hero-form-card">
         <h3>실물 세대 관람 신청</h3>
-        <p>보안 및 방문 관리를 위해 사전 예약제로 운영됩니다.</p>
+        <p>즉시 입주 가능한 실물 세대를 직접 확인해보세요.</p>
         
         <form onsubmit="alert('성공적으로 방문 예약이 접수되었습니다. 담당자가 즉시 연락드리겠습니다.'); return false;">
             <div class="input-group">
@@ -229,61 +226,85 @@
                     <option value="store">단지 내 상가 매매/임대</option>
                 </select>
             </div>
-            <button type="submit" class="submit-btn-red">실물 세대 방문예약 신청하기</button>
+            <button type="submit" class="submit-btn-red">실물 세대 관람 예약하기</button>
         </form>
     </div>
 
-    <!-- 전화/문자 direct CTA 배너 (시안 호킹성 반영) -->
+    <!-- 송도 대표 인프라 강조 섹션 -->
+    <section class="section">
+        <div class="sec-header">
+            <span class="sub">SONGDO INFRASTRUCTURE</span>
+            <h3>송도 완벽 인프라의 중심</h3>
+            <p>1공구 명문 학군부터 센트럴파크까지 모두 누립니다</p>
+        </div>
+
+        <div class="img-card-box">
+            <img src="44.jpg" alt="송도 하늘채 아이비원 입지 안내도" onerror="handleImgError(this, '44')">
+            <div class="cap">📍 송도 1공구 학원가 및 입지 프리미엄</div>
+        </div>
+
+        <!-- 송도 핵심 인프라 4대 요소 카테고리 -->
+        <div class="infra-grid">
+            <div class="infra-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h4>송도 1공구 학원가</h4>
+                <p>수도권 대표 명문 학원가 도보이용 최적 입지</p>
+            </div>
+            <div class="infra-card">
+                <i class="fa-solid fa-tree"></i>
+                <h4>송도 센트럴파크</h4>
+                <p>센트럴파크 & 워터프런트호수 에코 라이프</p>
+            </div>
+            <div class="infra-card">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <h4>코스트코·아울렛</h4>
+                <p>현대아울렛, 코스트코, 롯데몰(예정) 쇼핑권</p>
+            </div>
+            <div class="infra-card">
+                <i class="fa-solid fa-train-subway"></i>
+                <h4>GTX-B & 교통</h4>
+                <p>인천1호선 및 GTX-B(예정) 서울 빠른 연결</p>
+            </div>
+        </div>
+
+        <!-- 5억 2천 가격 경쟁력 비교 강조 박스 -->
+        <div class="value-compare-box">
+            <h4>💡 왜 '송도 하늘채 아이비원' 인가?</h4>
+            <p>송도국제도시 신축 아파트 평균 시세 대비<br><strong>압도적 가격 경쟁력! 5억 2천만 원대!</strong><br>높은 전세가 부담 대신 합리적 내집마련 기회</p>
+        </div>
+    </section>
+
+    <!-- 전화/문자 direct CTA 배너 -->
     <div class="direct-call-banner">
         <div class="label">로얄동·호수 및 할인 분양가 Direct 문의</div>
         <a href="tel:1600-0000" class="phone-link"><i class="fa-solid fa-phone-volume"></i> 1600-0000</a>
-        <a href="tel:1600-0000" class="cta-btn-green"><i class="fa-solid fa-comment-sms"></i> 문자로 할인 분양가 및 상세정보 받기</a>
+        <a href="tel:1600-0000" class="cta-btn-green"><i class="fa-solid fa-comment-sms"></i> 문자로 할인 분양가 받기</a>
         <a href="#contact-sec" class="cta-btn-yellow"><i class="fa-solid fa-calendar-days"></i> 빠른 실물 세대 방문예약</a>
     </div>
 
-    <!-- 입지 및 지도 섹션 -->
-    <section class="section">
-        <div class="sec-header">
-            <span class="sub">LOCATION & INFRA</span>
-            <h3>송도 1공구 명문 입지</h3>
-            <p>학원가, 대중교통, 원스톱 상권의 완벽한 중심</p>
-        </div>
-        
-        <div class="img-card-box">
-            <img src="44.jpg" alt="송도 하늘채 아이비원 입지 안내도" onerror="handleImgError(this, '44')">
-            <div class="cap">송도 1공구 핵심 학세권 및 입지 환경</div>
-        </div>
-
-        <ul class="check-list">
-            <li><i class="fa-solid fa-circle-check"></i> 송도 1공구 대표 학원가 도보거리 위치</li>
-            <li><i class="fa-solid fa-circle-check"></i> 기존 분양가 대비 약 15% 파격 조건 할인</li>
-            <li><i class="fa-solid fa-circle-check"></i> 공사 완료로 계약 후 즉시 입주 가능</li>
-        </ul>
-    </section>
-
-    <!-- 커뮤니티 및 단지 안내 -->
+    <!-- 단지 내 커뮤니티 및 시설 -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">PREMIUM COMMUNITY</span>
-            <h3>단지 내 특화 커뮤니티</h3>
+            <h3>단지 내 원스톱 라이프</h3>
         </div>
 
         <div class="img-card-box">
             <img src="41.jpg" alt="단지 내 어린이집" onerror="handleImgError(this, '41')">
-            <div class="cap">단지 내 안심 어린이집 및 보육 시설</div>
+            <div class="cap">단지 내 안심 어린이집 및 보육 환경</div>
         </div>
 
         <div class="img-card-box">
             <img src="42.jpg" alt="140m 스트리트 몰" onerror="handleImgError(this, '42')">
-            <div class="cap">140m 그랜드 스트리트 몰 & 헬시가든 조경</div>
+            <div class="cap">140m 그랜드 스트리트 몰 & 헬시가든</div>
         </div>
     </section>
 
-    <!-- 평면 안내 (탭메뉴 적용) -->
+    <!-- 평면 안내 -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">UNIT PLAN</span>
-            <h3>세대 평면 안내</h3>
+            <h3>타입별 세대 평면</h3>
         </div>
 
         <div class="tab-menu">
@@ -301,8 +322,8 @@
     <section id="contact-sec" class="section">
         <div class="sec-header">
             <span class="sub">RESERVATION</span>
-            <h3>방문 예약 및 분양 문의</h3>
-            <p>전화번호를 남겨주시면 담당자가 빠르게 연락해 드립니다.</p>
+            <h3>실물 세대 관람 신청</h3>
+            <p>전화번호를 남겨주시면 빠르게 연락해 드립니다.</p>
         </div>
 
         <form onsubmit="alert('성공적으로 접수되었습니다. 빠른 시간 내에 연락드리겠습니다.'); return false;">
@@ -322,7 +343,7 @@
         실물 세대 관람은 안전 및 보안상 사전 예약제로 운영됩니다.</p>
     </footer>
 
-    <!-- 하단 고정 CTA 바 (Bottom Bar) -->
+    <!-- 하단 고정 CTA 바 -->
     <div class="bottom-bar">
         <a href="tel:1600-0000" class="bar-call"><i class="fa-solid fa-phone"></i> 전화상담</a>
         <a href="#contact-sec" class="bar-reserve"><i class="fa-solid fa-calendar-check"></i> 방문예약</a>
