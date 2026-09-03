@@ -7,11 +7,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #1b2d2a;       /* 딥 세이지 그린 */
-            --primary-light: #2c423e;
-            --accent: #c09a5b;        /* 고급스러운 워머 골드 */
-            --accent-hover: #a88346;
-            --bg-light: #fcfbf8;      /* Warm Warm Soft Light */
+            --primary: #11221f;
+            --primary-light: #1b3530;
+            --accent: #d4af37;
+            --accent-hover: #b89528;
+            --accent-red: #e63946;
+            --bg-light: #fcfbf8;
             --card-bg: #ffffff;
             --text-dark: #1a202c;
             --text-gray: #5a6578;
@@ -21,12 +22,12 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif; }
         body { color: var(--text-dark); line-height: 1.6; background-color: var(--bg-light); scroll-behavior: smooth; word-break: keep-all; }
 
-        /* Header */
+        /* Header (텍스트 2줄 내려감 완벽 방지) */
         header { 
-            background: rgba(27, 45, 42, 0.98); 
+            background: rgba(17, 34, 31, 0.98); 
             backdrop-filter: blur(10px);
             color: #fff; 
-            padding: 1rem 2rem; 
+            padding: 0.8rem 2rem; 
             position: sticky; 
             top: 0; 
             z-index: 1000; 
@@ -35,12 +36,13 @@
             align-items: center;
             border-bottom: 2px solid var(--accent);
         }
-        header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
+        header h1 { font-size: 1.25rem; font-weight: 800; white-space: nowrap; letter-spacing: -0.5px; }
         header h1 span { color: var(--accent); }
-        nav a { color: #e2e8f0; text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        nav { display: flex; gap: 1.2rem; flex-wrap: nowrap; }
+        nav a { color: #e2e8f0; text-decoration: none; font-size: 0.92rem; font-weight: 500; white-space: nowrap; transition: color 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Hero Section (사진 잘림 및 안보임 완벽 수정) */
+        /* Hero Section */
         .hero { 
             background-color: var(--primary);
             position: relative;
@@ -51,120 +53,146 @@
         }
         .hero-img-container {
             width: 100%;
-            max-width: 1300px;
-            height: auto;
-            max-height: 600px;
+            max-width: 1200px;
+            max-height: 520px;
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #111e1c;
+            background: #0a1413;
         }
         .hero-img-container img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 사진 잘림 현상 방지 */
-            filter: none !important; /* 반투명/어둡게 만든 필터 완전 제거 */
+            object-fit: contain;
         }
         
-        /* Hero 하단 문구 카드 */
+        /* Hero 하단 마케팅 유도 카드 */
         .hero-content-card {
             width: 100%;
             background: #fff;
             border-bottom: 1px solid var(--border);
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
         }
-        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.4rem 1.2rem; border-radius: 30px; font-size: 0.88rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
-        .hero-content-card h2 { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.3; }
-        .hero-content-card p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 1.8rem; font-weight: 500; }
+        .badge-wrap { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.35rem 1rem; border-radius: 30px; font-size: 0.85rem; font-weight: 700; white-space: nowrap; }
+        .badge-red { background: var(--accent-red); }
         
+        .hero-content-card h2 { font-size: 2.3rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.25; white-space: nowrap; }
+        .hero-content-card p { font-size: 1.1rem; color: var(--text-gray); margin-bottom: 1.5rem; font-weight: 500; }
+        
+        .hero-points { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
+        .hero-point-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.95rem; font-weight: 600; color: var(--primary); background: #f4f1ea; padding: 0.4rem 0.9rem; border-radius: 8px; }
+        .hero-point-item i { color: var(--accent); }
+
+        .btn-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
         .btn-primary { 
-            background: linear-gradient(135deg, var(--accent) 0%, #a88346 100%); 
+            background: linear-gradient(135deg, var(--accent) 0%, #b89528 100%); 
             color: #fff; 
-            padding: 1.1rem 2.8rem; 
+            padding: 1rem 2.2rem; 
             text-decoration: none; 
-            font-size: 1.1rem; 
+            font-size: 1.05rem; 
             font-weight: 700; 
             border-radius: 50px; 
-            display: inline-block; 
-            box-shadow: 0 8px 20px rgba(192, 154, 91, 0.35);
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .btn-call {
+            background: var(--primary);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 50px;
+            white-space: nowrap;
             transition: all 0.3s ease;
         }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(192, 154, 91, 0.45); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-call:hover { background: var(--primary-light); }
 
         /* Highlights Banner */
-        .highlights { background: #f3f0e9; border-bottom: 1px solid var(--border); padding: 3rem 1rem; }
-        .highlights-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-        .highlight-item { text-align: center; padding: 1.8rem 1rem; border-radius: 12px; background: #fff; border: 1px solid rgba(192, 154, 91, 0.2); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
-        .highlight-item i { font-size: 2.2rem; color: var(--accent); margin-bottom: 0.8rem; }
-        .highlight-item h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.4rem; }
-        .highlight-item p { font-size: 0.88rem; color: var(--text-gray); }
+        .highlights { background: #f4f1ea; border-bottom: 1px solid var(--border); padding: 2.5rem 1rem; }
+        .highlights-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+        .highlight-item { text-align: center; padding: 1.5rem 1rem; border-radius: 12px; background: #fff; border: 1px solid rgba(212, 175, 55, 0.2); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .highlight-item i { font-size: 2rem; color: var(--accent); margin-bottom: 0.6rem; }
+        .highlight-item h3 { font-size: 1.05rem; color: var(--primary); margin-bottom: 0.3rem; white-space: nowrap; }
+        .highlight-item p { font-size: 0.85rem; color: var(--text-gray); }
 
         /* Section Commons */
-        .container { max-width: 1100px; margin: 5rem auto; padding: 0 1.5rem; }
-        .section-title-wrap { text-align: center; margin-bottom: 3rem; }
-        .section-subtitle { color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.3rem; display: block; }
-        .section-title { font-size: 2.2rem; color: var(--primary); font-weight: 800; }
+        .container { max-width: 1100px; margin: 4rem auto; padding: 0 1.5rem; }
+        .section-title-wrap { text-align: center; margin-bottom: 2.5rem; }
+        .section-subtitle { color: var(--accent); font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.3rem; display: block; }
+        .section-title { font-size: 2.1rem; color: var(--primary); font-weight: 800; white-space: nowrap; }
 
-        /* Section Feature Block */
-        .feature-row { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3.5rem; background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
-        .feature-row.reverse { flex-direction: row-reverse; }
-        .feature-img { flex: 1; min-width: 320px; height: 360px; position: relative; overflow: hidden; background: #f8f8f8; }
-        .feature-img img { width: 100%; height: 100%; object-fit: cover; }
-        .feature-text { flex: 1; min-width: 320px; padding: 2.5rem; }
-        .feature-text h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; font-weight: 700; }
-        .feature-text p { color: var(--text-gray); line-height: 1.7; font-size: 1rem; margin-bottom: 1.5rem; }
-        .feature-list { list-style: none; }
-        .feature-list li { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.95rem; color: #334155; }
-        .feature-list li i { color: var(--accent); }
-
-        /* Overview Table */
-        .overview-table-wrap { background: #fff; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .overview-table { width: 100%; border-collapse: collapse; text-align: left; }
-        .overview-table th, .overview-table td { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
-        .overview-table th { background: #f5f3ee; color: var(--primary); font-weight: 700; width: 22%; border-right: 1px solid var(--border); }
-        .overview-table td { color: #334155; }
+        /* 사업개요 (텍스트 2줄 방지 및 프리미엄 카드 추가) */
+        .overview-table-wrap { background: #fff; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 2rem; }
+        .overview-table { width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed; }
+        .overview-table th, .overview-table td { padding: 1rem 1.2rem; border-bottom: 1px solid var(--border); font-size: 0.93rem; }
+        .overview-table th { background: #f5f3ee; color: var(--primary); font-weight: 700; width: 18%; white-space: nowrap; border-right: 1px solid var(--border); }
+        .overview-table td { color: #334155; width: 32%; }
         .overview-table tr:last-child th, .overview-table tr:last-child td { border-bottom: none; }
 
+        /* 사업개요 밑 USP 요약 카드 */
+        .overview-usp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+        .usp-card { background: #fff; padding: 1.2rem 1.5rem; border-radius: 10px; border-left: 4px solid var(--accent); border: 1px solid var(--border); border-left-width: 4px; }
+        .usp-card h4 { font-size: 1rem; color: var(--primary); margin-bottom: 0.3rem; }
+        .usp-card p { font-size: 0.85rem; color: var(--text-gray); }
+
+        /* Section Feature Block */
+        .feature-row { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3rem; background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
+        .feature-row.reverse { flex-direction: row-reverse; }
+        .feature-img { flex: 1; min-width: 300px; height: 340px; position: relative; overflow: hidden; background: #f8f8f8; }
+        .feature-img img { width: 100%; height: 100%; object-fit: cover; }
+        .feature-text { flex: 1; min-width: 300px; padding: 2.2rem; }
+        .feature-text h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 0.8rem; font-weight: 700; }
+        .feature-text p { color: var(--text-gray); line-height: 1.65; font-size: 0.98rem; margin-bottom: 1.2rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; font-size: 0.92rem; color: #334155; }
+        .feature-list li i { color: var(--accent); }
+
         /* Unit Specs & Plan Cards */
-        .unit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .unit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
         .unit-card { background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
-        .unit-img-box { width: 100%; height: 260px; background: #faf8f5; border-bottom: 1px solid var(--border); padding: 1rem; display: flex; align-items: center; justify-content: center; }
+        .unit-img-box { width: 100%; height: 250px; background: #faf8f5; border-bottom: 1px solid var(--border); padding: 1rem; display: flex; align-items: center; justify-content: center; }
         .unit-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .unit-body { padding: 1.8rem; }
-        .unit-body h3 { font-size: 1.3rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; }
-        .unit-body h3 .badge-sm { font-size: 0.75rem; background: #f5f3ee; border: 1px solid var(--border); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; }
+        .unit-body { padding: 1.5rem; }
+        .unit-body h3 { font-size: 1.25rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 0.8rem; display: flex; justify-content: space-between; align-items: center; }
+        .unit-body h3 .badge-sm { font-size: 0.75rem; background: #f5f3ee; border: 1px solid var(--border); color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; }
         .spec-list { list-style: none; }
-        .spec-list li { display: flex; justify-content: space-between; padding: 0.55rem 0; border-bottom: 1px dashed var(--border); font-size: 0.92rem; }
+        .spec-list li { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px dashed var(--border); font-size: 0.9rem; }
         .spec-list li span:first-child { color: var(--text-gray); }
         .spec-list li span:last-child { font-weight: 600; color: var(--primary); }
 
-        /* Contact Section */
-        .contact-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 4rem 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(27, 45, 42, 0.2); }
+        /* Contact Section (마케팅 유도 박스 포함) */
+        .contact-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 3.5rem 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(17, 34, 31, 0.25); text-align: center; }
         .contact-box .section-title { color: #fff; }
-        .contact-form { max-width: 550px; margin: 2rem auto 0 auto; }
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; margin-bottom: 0.4rem; font-size: 0.9rem; color: #cbd5e1; }
-        .form-group input, .form-group select { width: 100%; padding: 0.9rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 1rem; outline: none; }
+        .contact-desc { color: #cbd5e1; font-size: 0.98rem; margin-bottom: 1.8rem; }
+        .contact-form { max-width: 520px; margin: 0 auto; text-align: left; }
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; margin-bottom: 0.3rem; font-size: 0.88rem; color: #cbd5e1; }
+        .form-group input, .form-group select { width: 100%; padding: 0.85rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 0.95rem; outline: none; }
         .form-group input::placeholder { color: #8a99ad; }
         .form-group option { background: var(--primary); color: #fff; }
-        .submit-btn { width: 100%; background: var(--accent); color: #fff; border: none; padding: 1.1rem; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.3s; margin-top: 1rem; }
+        .submit-btn { width: 100%; background: linear-gradient(135deg, var(--accent) 0%, #b89528 100%); color: #fff; border: none; padding: 1.1rem; font-size: 1.1rem; font-weight: 800; border-radius: 8px; cursor: pointer; transition: background 0.3s; margin-top: 0.8rem; box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4); }
         .submit-btn:hover { background: var(--accent-hover); }
 
-        footer { background: #111e1c; color: #7f9390; text-align: center; padding: 2.5rem 1rem; font-size: 0.85rem; border-top: 1px solid #233834; }
+        footer { background: #0a1413; color: #7f9390; text-align: center; padding: 2.2rem 1rem; font-size: 0.82rem; border-top: 1px solid #1b3530; }
 
         @media (max-width: 768px) {
-            header { padding: 0.8rem 1rem; }
-            .hero-img-container { height: 260px; }
-            .hero-content-card h2 { font-size: 1.8rem; }
-            .hero-content-card p { font-size: 1rem; }
-            .section-title { font-size: 1.7rem; }
+            header { flex-direction: column; gap: 0.5rem; padding: 0.8rem 1rem; }
+            nav { gap: 0.8rem; overflow-x: auto; width: 100%; justify-content: center; }
+            .hero-content-card h2 { font-size: 1.6rem; white-space: normal; }
+            .hero-content-card p { font-size: 0.95rem; }
+            .section-title { font-size: 1.6rem; white-space: normal; }
             .feature-row, .feature-row.reverse { flex-direction: column; }
-            .feature-img { width: 100%; height: 250px; }
-            .overview-table th, .overview-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
-            .overview-table th { width: 30%; }
+            .feature-img { width: 100%; height: 240px; }
+            .overview-table th, .overview-table td { display: block; width: 100%; }
+            .overview-table th { border-right: none; }
         }
     </style>
 </head>
@@ -181,16 +209,29 @@
         </nav>
     </header>
 
-    <!-- Hero Section (원본 이미지 100% 보존 및 비율 맞춤 배치) -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-img-container">
             <img src="39.jpg" alt="송도 하늘채 아이비원 메인 조감도" onerror="handleImgError(this, '39')">
         </div>
         <div class="hero-content-card">
-            <span class="badge">선착순 동호지정 분양 중</span>
-            <h2>송도 1공구 학세권의 완성<br>송도 하늘채 아이비원</h2>
-            <p>명문 학원가 중심 입지 · 코오롱글로벌 혁신설계 · GTX-B 교통 호재</p>
-            <a href="#contact" class="btn-primary">잔여세대 계약 문의</a>
+            <div class="badge-wrap">
+                <span class="badge badge-red">마감임박 잔여세대</span>
+                <span class="badge">송도 1공구 학세권</span>
+            </div>
+            <h2>송도 하늘채 아이비원 공식 분양안내</h2>
+            <p>명문 학원가 중심 입지 · 코오롱글로벌 혁신설계 · GTX-B 교통 호재 프리미엄</p>
+            
+            <div class="hero-points">
+                <div class="hero-point-item"><i class="fa-solid fa-check-circle"></i> 계약금 5% 지원혜택</div>
+                <div class="hero-point-item"><i class="fa-solid fa-check-circle"></i> 중도금 무이자 제공</div>
+                <div class="hero-point-item"><i class="fa-solid fa-check-circle"></i> 즉시 입주 가능 세대</div>
+            </div>
+
+            <div class="btn-group">
+                <a href="#contact" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> 로얄동호수 선착순 예약</a>
+                <a href="tel:1600-0000" class="btn-call"><i class="fa-solid fa-phone"></i> 전화 직통 연결</a>
+            </div>
         </div>
     </section>
 
@@ -204,7 +245,7 @@
             </div>
             <div class="highlight-item">
                 <i class="fa-solid fa-store"></i>
-                <h3>140m 그랜드 스트리트몰</h3>
+                <h3>140m 스트리트 몰</h3>
                 <p>단지 내 160개 근린생활시설 상가 원스톱 인프라</p>
             </div>
             <div class="highlight-item">
@@ -220,12 +261,13 @@
         </div>
     </section>
 
-    <!-- Overview Section -->
+    <!-- Overview Section (표 한 줄 정리 및 USP 요약 카드) -->
     <section id="overview" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">PROJECT OVERVIEW</span>
             <h2 class="section-title">사업개요</h2>
         </div>
+        
         <div class="overview-table-wrap">
             <table class="overview-table">
                 <tbody>
@@ -238,7 +280,7 @@
                     <tr>
                         <th>건축규모</th>
                         <td>지하 3층 ~ 지상 10층 (총 8개동)</td>
-                        <th>용도</th>
+                        <th>주요용도</th>
                         <td>공동주택(아파트 336세대), 근린생활시설</td>
                     </tr>
                     <tr>
@@ -248,17 +290,32 @@
                         <td>62,395.35 ㎡</td>
                     </tr>
                     <tr>
-                        <th>세대 구성</th>
+                        <th>세대구성</th>
                         <td>일반분양 119세대 / 조합원 217세대</td>
                         <th>주차대수</th>
-                        <td>총 517대 (세대당 여유로운 주차공간)</td>
+                        <td>총 517대 (세대당 1.5대 여유로운 주차)</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
+        <div class="overview-usp-grid">
+            <div class="usp-card">
+                <h4><i class="fa-solid fa-star" style="color:var(--accent)"></i> 최고 입지 프리미엄</h4>
+                <p>송도국제도시 최고 인프라의 1공구 핵심 자리 입지</p>
+            </div>
+            <div class="usp-card">
+                <h4><i class="fa-solid fa-star" style="color:var(--accent)"></i> 안심 교육 환경</h4>
+                <p>채드윅 국제학교 및 명문 학원가 도보 이용 가능</p>
+            </div>
+            <div class="usp-card">
+                <h4><i class="fa-solid fa-star" style="color:var(--accent)"></i> 미래 가치 상승</h4>
+                <p>GTX-B 착공 수혜 및 원도심 상권과의 완벽 시너지</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Site Layout Section (44.jpg) -->
+    <!-- Site Layout Section -->
     <section id="layout" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">SITE PLAN & LAYOUT</span>
@@ -281,7 +338,7 @@
         </div>
     </section>
 
-    <!-- Community Section (41, 42, 43) -->
+    <!-- Community Section -->
     <section id="community" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">PREMIUM COMMUNITY</span>
@@ -331,7 +388,7 @@
         </div>
     </section>
 
-    <!-- Unit Specs & Floor Plan Section (34.jpg, 31.jpg, 33.jpg) -->
+    <!-- Unit Specs & Floor Plan Section -->
     <section id="specs" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">UNIT PLAN & SPECIFICATIONS</span>
@@ -385,14 +442,16 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
+    <!-- Contact Form (문의 유도강화) -->
     <section id="contact" class="container">
         <div class="contact-box">
             <div class="section-title-wrap">
-                <span class="section-subtitle" style="color: #c09a5b;">ONLINE INQUIRY</span>
+                <span class="section-subtitle" style="color: #d4af37;">VIP ONLINE RESERVATION</span>
                 <h2 class="section-title">분양 문의 및 방문 예약</h2>
             </div>
-            <form class="contact-form" onsubmit="alert('성공적으로 접수되었습니다. 전문 상담사가 즉시 안내해 드리겠습니다.'); return false;">
+            <p class="contact-desc">온라인 사전 방문 예약 후 홍보관 방문 시 전문 상담사 배정 및 VIP 사은품을 증정합니다.</p>
+            
+            <form class="contact-form" onsubmit="alert('성공적으로 접수되었습니다. 담당 전문 상담사가 즉시 안내 전화를 드리겠습니다.'); return false;">
                 <div class="form-group">
                     <label for="name">성함</label>
                     <input type="text" id="name" required placeholder="예: 홍길동">
@@ -402,16 +461,16 @@
                     <input type="tel" id="phone" required placeholder="010-0000-0000">
                 </div>
                 <div class="form-group">
-                    <label for="type">관심 분야</label>
+                    <label for="type">관심 희망 분야</label>
                     <select id="type">
-                        <option value="59A">59㎡ A 타입</option>
+                        <option value="59A">59㎡ A 타입 (인기)</option>
                         <option value="59B">59㎡ B 타입</option>
                         <option value="59C">59㎡ C 타입</option>
-                        <option value="32">32㎡ 타입 (복층/일반)</option>
-                        <option value="store">단지 내 상가 분양</option>
+                        <option value="32">32㎡ 타입 (소형/복층)</option>
+                        <option value="store">단지 내 상가 (원스톱 스트리트몰)</option>
                     </select>
                 </div>
-                <button type="submit" class="submit-btn">상담 신청하기</button>
+                <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> VIP 방문 예약 및 분양가 신청하기</button>
             </form>
         </div>
     </section>
@@ -426,7 +485,7 @@
             if (currentSrc.indexOf('.jpg') !== -1) {
                 img.src = imgNum + '.png';
             } else if (currentSrc.indexOf('.png') !== -1) {
-                img.src = 'https://placehold.co/800x600/1b2d2a/c09a5b?text=Songdo+Ibyone+' + imgNum;
+                img.src = 'https://placehold.co/800x600/11221f/d4af37?text=Songdo+Ibyone+' + imgNum;
             }
         }
     </script>
