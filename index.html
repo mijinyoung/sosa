@@ -3,344 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>송도 하늘채 아이비원 - 회사보유분 특별 할인분양</title>
+    <title>송도 하늘채 아이비원 - 프리미엄 주거공간</title>
     <style>
-        :root {
-            --primary: #0b2545;
-            --accent: #e63946;
-            --secondary: #134074;
-            --bg-light: #f8fafc;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; }
+        body { color: #333; line-height: 1.6; background-color: #f9f9f9; }
+        
+        /* Header & Nav */
+        header { background: #1a2530; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+        header h1 { font-size: 1.3rem; letter-spacing: -0.5px; }
+        nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-        }
+        /* Hero Section */
+        .hero { position: relative; background: #000; color: #fff; text-align: center; overflow: hidden; }
+        .hero img { width: 100%; height: 70vh; object-fit: cover; opacity: 0.75; }
+        .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 800px; }
+        .hero-text h2 { font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+        .btn-main { background: #c59d5f; color: #fff; padding: 0.8rem 2rem; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
 
-        body {
-            background-color: var(--bg-light);
-            color: #333;
-            line-height: 1.6;
-        }
+        /* Section Layout */
+        .container { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
+        .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; color: #1a2530; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        
+        /* Cards & Images */
+        .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 1.2rem; }
+        .card-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
 
-        /* Hero / Header Section */
-        .hero {
-            background: linear-gradient(135deg, #0b2545 0%, #134074 100%);
-            color: #fff;
-            text-align: center;
-            padding: 40px 20px;
-        }
+        /* Form */
+        .contact-form { background: #fff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.4rem; font-weight: bold; }
+        .form-group input, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; }
+        .submit-btn { width: 100%; background: #1a2530; color: #fff; border: none; padding: 1rem; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 4px; }
 
-        .hero-badge {
-            background-color: var(--accent);
-            color: #fff;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 6px 14px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: #ffd700;
-        }
-
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        /* Container */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Urgency Banner */
-        .urgency-box {
-            background-color: #fff;
-            border: 2px solid var(--accent);
-            border-radius: 10px;
-            padding: 15px;
-            text-align: center;
-            margin-top: -20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .urgency-box span {
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 22px;
-            color: var(--primary);
-            margin: 30px 0 15px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        /* Table Style */
-        .info-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .info-table th, .info-table td {
-            padding: 12px 15px;
-            font-size: 15px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .info-table th {
-            background-color: #eef4f8;
-            color: var(--primary);
-            text-align: left;
-            width: 35%;
-        }
-
-        /* Premium Cards */
-        .card {
-            background: #fff;
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 12px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--secondary);
-        }
-
-        .card h3 {
-            font-size: 17px;
-            color: var(--secondary);
-            margin-bottom: 5px;
-        }
-
-        /* Form Container */
-        .form-box {
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px 20px;
-            margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 2px solid var(--secondary);
-        }
-
-        .form-box h3 {
-            text-align: center;
-            font-size: 20px;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .form-subtext {
-            text-align: center;
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
-        }
-
-        .checkbox-group {
-            font-size: 13px;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background-color: var(--accent);
-            color: #fff;
-            border: none;
-            padding: 16px;
-            border-radius: 8px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background 0.3s;
-        }
-
-        .btn-submit:hover {
-            background-color: #c92a37;
-        }
-
-        /* Sticky Call Button (Mobile) */
-        .sticky-footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #fff;
-            padding: 10px 15px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            gap: 10px;
-            z-index: 999;
-        }
-
-        .btn-call {
-            flex: 1;
-            background-color: #2b8a3e;
-            color: #fff;
-            text-align: center;
-            padding: 12px 0;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .btn-reserve {
-            flex: 1;
-            background-color: var(--accent);
-            color: #fff;
-            text-align: center;
-            padding: 12px 0;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 12px;
-            color: #888;
-            padding: 30px 20px 80px;
-        }
+        footer { background: #111; color: #888; text-align: center; padding: 2rem; font-size: 0.85rem; margin-top: 4rem; }
     </style>
 </head>
 <body>
 
-    <!-- Main Header -->
-    <div class="hero">
-        <div class="hero-badge">송도 1공구 명문학세권 완벽입지</div>
+    <header>
         <h1>송도 하늘채 아이비원</h1>
-        <p>준공 완료 | 회사보유분 특별 할인분양</p>
-    </div>
+        <nav>
+            <a href="#location">입지안내</a>
+            <a href="#plan">단지배치</a>
+            <a href="#interior">인테리어</a>
+            <a href="#contact">상담신청</a>
+        </nav>
+    </header>
 
-    <div class="container">
-        <!-- Emergency Banner -->
-        <div class="urgency-box">
-            🚨 <span>선착순 동·호 지정!</span> 파격 할인 혜택 + 즉시 입주!
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="f6ddd2465fcc7240b9bfb6a0ab2f436a.jpg" alt="송도 하늘채 아이비원 조감도">
+        <div class="hero-text">
+            <h2>송도학원가 랜드마크 주거공간</h2>
+            <p>투자가치의 스케일이 다르다 | 잔여세대 동호지정 계약 중</p>
+            <a href="#contact" class="btn-main">분양 상담 신청하기</a>
         </div>
+    </section>
 
-        <!-- Section 1: Overview -->
-        <h2 class="section-title">📌 단지 주요 안내</h2>
-        <table class="info-table">
-            <tr>
-                <th>위치</th>
-                <td>인천광역시 연수구 송도동 (송도 1공구)</td>
-            </tr>
-            <tr>
-                <th>공급규모</th>
-                <td>전용면적 32㎡ / 59㎡ (A, B, C)</td>
-            </tr>
-            <tr>
-                <th>입주조건</th>
-                <td><strong>즉시 입주 가능</strong> (준공 완료 단지)</td>
-            </tr>
-            <tr>
-                <th>특별혜택</th>
-                <td>회사보유분 한정 할인분양가 적용</td>
-            </tr>
-        </table>
-
-        <!-- Section 2: Premium Points -->
-        <h2 class="section-title">✨ 송도 하늘채 아이비원 프리미엄</h2>
-        <div class="card">
-            <h3>🎓 PREMIUM 01. 송도 1공구 명문 학세권</h3>
-            <p>명선초, 신송중, 신송고 및 명문 학원가 인접 최고의 교육 환경</p>
-        </div>
-        <div class="card">
-            <h3>🔑 PREMIUM 02. 실물 확인 후 즉시 입주</h3>
-            <p>준공 단지로 직접 세대 방문 및 관람 후 안전하게 입주 진행</p>
-        </div>
-        <div class="card">
-            <h3>🚆 PREMIUM 03. GTX-B 호재 및 중심 인프라</h3>
-            <p>인천대입구역, GTX-B(예정), 코스트코, 롯데몰 등 완벽한 생활 인프라</p>
-        </div>
-
-        <!-- Section 3: DB Form -->
-        <div class="form-box" id="reserve-form">
-            <h3>📋 실물 세대 방문예약 & 분양가 문의</h3>
-            <p class="form-subtext">준공 단지 특성상 안전 관리를 위해 <strong>사전 방문예약제</strong>로 운영됩니다.</p>
-            
-            <form id="leadForm">
-                <div class="form-group">
-                    <label for="name">성함</label>
-                    <input type="text" id="name" placeholder="성함을 입력하세요" required>
+    <!-- Location Section -->
+    <section id="location" class="container">
+        <h2 class="section-title">프리미엄 인프라</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="20260830_174918_2.jpg" alt="송도 트리플스트리트">
+                <div class="card-body">
+                    <h3>송도 트리플스트리트</h3>
+                    <p>다양한 쇼핑, 문화, F&B 시설이 조성된 송도 대표 스트리트 몰 인프라</p>
                 </div>
-                <div class="form-group">
-                    <label for="phone">연락처</label>
-                    <input type="tel" id="phone" placeholder="010-0000-0000" required>
+            </div>
+            <div class="card">
+                <img src="20260830_174700.jpg" alt="현대프리미엄아울렛 송도점">
+                <div class="card-body">
+                    <h3>현대프리미엄아울렛</h3>
+                    <p>테크노파크역과 직접 연결되는 대형 프리미엄 쇼핑 복합 단지</p>
                 </div>
-                <div class="form-group">
-                    <label for="type">관심 평형</label>
-                    <select id="type">
-                        <option value="59A">59㎡ A타입 (추천)</option>
-                        <option value="59B">59㎡ B타입</option>
-                        <option value="59C">59㎡ C타입</option>
-                        <option value="32">32㎡ 소형평형</option>
-                    </select>
+            </div>
+            <div class="card">
+                <img src="20260830_174941.jpg" alt="트리플스트리트 광장">
+                <div class="card-body">
+                    <h3>송도 1공구 학원가 중심</h3>
+                    <p>인천 최대 규모의 학원가 및 우수한 교육·생활 인프라 제공</p>
                 </div>
-                <div class="checkbox-group">
-                    <input type="checkbox" id="agree" checked required>
-                    <label for="agree">[필수] 개인정보 수집 및 분양 안내 활용 동의</label>
-                </div>
-                <button type="submit" class="btn-submit">할인분양가 & 방문예약 신청하기</button>
-            </form>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Sticky Bottom Bar (Mobile Friendly) -->
-    <div class="sticky-footer">
-        <a href="tel:1600-0000" class="btn-call">📞 전화 상담</a>
-        <a href="#reserve-form" class="btn-reserve">📅 방문 예약</a>
-    </div>
+    <!-- Plan Section -->
+    <section id="plan" class="container">
+        <h2 class="section-title">단지 배치도</h2>
+        <div class="card" style="max-width: 800px; margin: 0 auto;">
+            <img src="20260830_001754.jpg" alt="단지 배치도" style="height: auto;">
+            <div class="card-body" style="text-align: center;">
+                <p>32㎡ A·B / 59㎡ A·B·C 타입 구성</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Section -->
+    <section id="interior" class="container">
+        <h2 class="section-title">세대 인테리어</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="KakaoTalk_20260830_005941216_09.jpg" alt="주방 및 거실">
+                <div class="card-body">
+                    <h3>주방 & 다이닝 공간</h3>
+                    <p>효율적인 동선과 고급스러운 빌트인 수납 디자인</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="KakaoTalk_20260830_005941216_08.jpg" alt="욕실">
+                <div class="card-body">
+                    <h3>프리미엄 욕실</h3>
+                    <p>샤워 부스 및 간접 조명이 적용된 모던 욕실 인테리어</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="container">
+        <h2 class="section-title">동호지정 계약 & 방문 예약</h2>
+        <form class="contact-form" onsubmit="alert('상담 신청이 완료되었습니다.'); return false;">
+            <div class="form-group">
+                <label for="name">성함</label>
+                <input type="text" id="name" required placeholder="홍길동">
+            </div>
+            <div class="form-group">
+                <label for="phone">연락처</label>
+                <input type="tel" id="phone" required placeholder="010-0000-0000">
+            </div>
+            <div class="form-group">
+                <label for="type">관심 평형</label>
+                <select id="type">
+                    <option value="59A">59㎡ A</option>
+                    <option value="59B">59㎡ B</option>
+                    <option value="59C">59㎡ C</option>
+                    <option value="32A">32㎡ A</option>
+                    <option value="32B">32㎡ B</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">분양 안내 받기</button>
+        </form>
+    </section>
 
     <footer>
-        <p>송도 하늘채 아이비원 분양홍보관 | 대표번호: 1600-0000</p>
-        <p>※ 본 페이지는 마케팅 및 잔여세대 안내 용도로 제작되었습니다.</p>
+        <p>&copy; 송도 하늘채 아이비원 분양홍보관 | 본 웹사이트의 이미지 및 내용은 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.</p>
     </footer>
 
-    <script>
-        // Form submission handling (Pixel / GA4 Event Link)
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('방문예약 및 문의가 성공적으로 접수되었습니다. 담당자가 빠르게 연락드리겠습니다!');
-            // 여기에 Meta Pixel(fbq)이나 GA4(gtag) 전환 코드를 추가하세요.
-        });
-    </script>
 </body>
 </html>
