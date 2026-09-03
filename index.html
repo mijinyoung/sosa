@@ -59,7 +59,7 @@
         }
 
         .hero-img-wrap { width: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; max-height: 360px; }
-        .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
+        .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
 
         /* Hero 하단 실물 세대 방문예약 카드 */
         .hero-form-card { 
@@ -109,105 +109,59 @@
         .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
         .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
 
-        /* 🚀 [초고화질 업그레이드] 프리미엄 지도 그래픽 UI */
-        .realmap-container {
+        /* 🗺️ 네이버 지도 캡처 반영 영역 */
+        .naver-map-wrap {
             position: relative;
             width: 100%;
-            height: 380px;
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
-            border: 3px solid #0f172a;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            margin-bottom: 16px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
+            background: #f8fafc;
+        }
+        .naver-map-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        /* 지도 격자 및 레이어 효과 */
-        .map-bg-grid {
+        /* 네이버 지도 위 강조 핀 */
+        .naver-map-pin {
             position: absolute;
-            inset: 0;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.6) 2px, transparent 2px),
-                linear-gradient(90deg, rgba(255,255,255,0.6) 2px, transparent 2px);
-            background-size: 40px 40px;
-        }
-
-        /* 상세 도로망 (고속도로/간선도로 표현) */
-        .map-road-main { position: absolute; top: 40%; left: 0; right: 0; height: 24px; background: #ffffff; border-top: 2px solid #94a3b8; border-bottom: 2px solid #94a3b8; transform: translateY(-50%); }
-        .map-road-sub { position: absolute; top: 0; bottom: 0; left: 52%; width: 20px; background: #ffffff; border-left: 2px solid #94a3b8; border-right: 2px solid #94a3b8; transform: translateX(-50%); }
-        .map-road-bridge { position: absolute; top: 70%; left: 0; right: 0; height: 16px; background: #fde047; transform: translateY(-50%); opacity: 0.8; }
-
-        /* 지도 구역 레이블 (송도 1공구 등) */
-        .map-zone-label {
-            position: absolute;
-            font-size: 0.75rem;
-            font-weight: 900;
-            color: #64748b;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: -0.5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .zone-1 { top: 12px; left: 12px; }
-        .zone-2 { bottom: 12px; right: 12px; }
-
-        /* 입체적 핀 마커 스타일 */
-        .map-marker {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 800;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            white-space: nowrap;
-            z-index: 5;
-        }
-
-        .marker-mall { top: 18%; left: 8%; background: #ffffff; color: var(--primary); border: 1.5px solid var(--brand-blue); }
-        .marker-mall i { color: var(--brand-blue); }
-
-        .marker-station { top: 22%; right: 8%; background: #ffffff; color: var(--primary); border: 1.5px solid var(--brand-green); }
-        .marker-station i { color: var(--brand-green); }
-
-        .marker-uni { bottom: 18%; left: 12%; background: #ffffff; color: var(--primary); border: 1.5px solid #8b5cf6; }
-        .marker-uni i { color: #8b5cf6; }
-
-        /* 📍 메인 현장 핀 (강력한 펄스 애니메이션) */
-        .marker-main-site {
-            top: 48%;
-            left: 50%;
+            top: 36%;
+            left: 65%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+            background: var(--brand-red);
             color: #ffffff;
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-size: 0.9rem;
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 0.85rem;
             font-weight: 900;
             border: 2px solid #ffffff;
-            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.5);
-            z-index: 20;
-            animation: bounce-pin 1.6s infinite;
+            box-shadow: 0 6px 15px rgba(225, 29, 72, 0.6);
+            z-index: 10;
+            white-space: nowrap;
+            animation: pulse-pin 1.5s infinite;
         }
-        .marker-main-site i { color: var(--brand-yellow); font-size: 1.1rem; }
+        .naver-map-pin i { color: var(--brand-yellow); font-size: 0.95rem; }
 
-        @keyframes bounce-pin {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+        @keyframes pulse-pin {
+            0% { transform: translate(-50%, -50%) scale(1); }
             50% { transform: translate(-50%, -50%) scale(1.08); }
+            100% { transform: translate(-50%, -50%) scale(1); }
         }
 
         /* 지도 하단 네비게이션 바로가기 바 */
         .map-action-bar {
             display: flex;
             background: #0f172a;
-            border-radius: 0 0 12px 12px;
+            border-radius: 0 0 10px 10px;
             overflow: hidden;
-            margin-top: -6px;
+            margin-top: -15px;
+            margin-bottom: 16px;
             position: relative;
-            z-index: 25;
+            z-index: 15;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         .map-action-bar a {
@@ -226,7 +180,7 @@
         .map-action-bar a:first-child { border-right: 1px solid rgba(255,255,255,0.15); background: #1e293b; }
         .map-action-bar a span { color: var(--brand-yellow); }
 
-        /* 송도 대표 인프라 갤러리 섹션 */
+        /* 인프라 갤러리 섹션 */
         .infra-gallery { display: flex; flex-direction: column; gap: 16px; margin-top: 15px; }
         .infra-card-item { border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .infra-card-item img { width: 100%; height: 210px; object-fit: cover; display: block; }
@@ -239,7 +193,7 @@
         .value-compare-box h4 { color: var(--brand-red); font-size: 1.15rem; font-weight: 900; margin-bottom: 6px; }
         .value-compare-box p { font-size: 0.88rem; color: #334155; font-weight: 700; line-height: 1.5; }
 
-        /* 전화 직통 대형 연결 배너 (전화번호: 1833-8384) */
+        /* 전화 직통 대형 연결 배너 */
         .direct-call-banner {
             background: #0f172a;
             color: #fff;
@@ -306,7 +260,7 @@
         <a href="#contact-sec" class="menu-btn"><i class="fa-solid fa-calendar-check"></i> 방문예약</a>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (9.png 적용) -->
     <section class="hero">
         <div class="hero-head-text">
             <span class="badge-red">송도국제도시 1공구 준공아파트</span>
@@ -317,7 +271,7 @@
         </div>
         
         <div class="hero-img-wrap">
-            <img src="39.jpg" alt="송도 하늘채 아이비원 외관" onerror="handleImgError(this, '39')">
+            <img src="9.png" alt="송도 하늘채 아이비원 히어로 이미지" onerror="handleImgError(this, '9')">
         </div>
     </section>
 
@@ -345,50 +299,30 @@
         </form>
     </div>
 
-    <!-- 🗺️ [초고화질 프리미엄 인터랙티브 위치 지도 영역] -->
+    <!-- 🗺️ 네이버 지도 캡처본(50.jpg) 영역 -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">LOCATION & INFRASTRUCTURE</span>
-            <h3>송도 1공구 핵심 위치 지도</h3>
-            <p>교통·쇼핑·학군 중심지를 한눈에 확인하세요</p>
+            <h3>송도 1공구 네이버 입지 지도</h3>
+            <p>송도 하늘채 아이비원 주변 위치를 직접 확인하세요</p>
         </div>
 
-        <!-- 지도 그래픽 카드 박스 -->
-        <div class="realmap-container">
-            <div class="map-bg-grid"></div>
-            <div class="map-road-main"></div>
-            <div class="map-road-sub"></div>
-            <div class="map-road-bridge"></div>
-
-            <div class="map-zone-label zone-1">📍 송도국제도시 1공구 프리미엄 존</div>
-            <div class="map-zone-label zone-2">인천지하철 1호선 라인</div>
-
-            <!-- 주변 인프라 마커들 -->
-            <div class="map-marker marker-mall">
-                <i class="fa-solid fa-store"></i> 현대아울렛·트리플
-            </div>
-            
-            <div class="map-marker marker-station">
-                <i class="fa-solid fa-train-subway"></i> GTX-B 역세권(예정)
-            </div>
-
-            <!-- 현장 중심 마커 (펄스 애니메이션) -->
-            <div class="map-marker marker-main-site">
+        <!-- 네이버 지도 캡처 이미지 박스 -->
+        <div class="naver-map-wrap">
+            <img src="50.jpg" alt="송도 하늘채 아이비원 네이버 지도 위치" onerror="handleImgError(this, '50')">
+            <!-- 지도 위 강조 핀포인트 -->
+            <div class="naver-map-pin">
                 <i class="fa-solid fa-location-dot"></i> 송도 하늘채 아이비원
             </div>
-
-            <div class="map-marker marker-uni">
-                <i class="fa-solid fa-graduation-cap"></i> 연세대 국제캠퍼스
-            </div>
         </div>
 
-        <!-- 지도 하단 빠른 길찾기/문의 연동 바 -->
+        <!-- 지도 하단 빠른 문의/길찾기 연동 바 -->
         <div class="map-action-bar">
             <a href="tel:1833-8384"><i class="fa-solid fa-map-location-dot"></i> 현장 위치 <span>상세 문자 전송</span></a>
             <a href="tel:1833-8384"><i class="fa-solid fa-car"></i> 오시는 길 <span>전화 안내</span></a>
         </div>
 
-        <!-- 지정해주신 인프라 갤러리 (6.png, 5.png, 2.png, 1.png) -->
+        <!-- 인프라 갤러리 (6.png, 5.png, 2.png, 1.png) -->
         <div class="infra-gallery">
             <div class="infra-card-item">
                 <img src="6.png" alt="현대프리미엄아울렛 송도점">
