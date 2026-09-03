@@ -7,13 +7,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #c59d5f;
-            --accent-hover: #b0894c;
-            --bg-light: #f8fafc;
-            --text-dark: #0f172a;
-            --text-gray: #64748b;
+            --primary: #1b2d2a;       /* 딥 세이지 그린 */
+            --primary-light: #2c423e;
+            --accent: #c09a5b;        /* 고급스러운 워머 골드 */
+            --accent-hover: #a88346;
+            --bg-light: #fcfbf8;      /* Warm Warm Soft Light */
+            --card-bg: #ffffff;
+            --text-dark: #1a202c;
+            --text-gray: #5a6578;
             --border: #e2e8f0;
         }
 
@@ -22,7 +23,7 @@
 
         /* Header */
         header { 
-            background: rgba(15, 23, 42, 0.95); 
+            background: rgba(27, 45, 42, 0.98); 
             backdrop-filter: blur(10px);
             color: #fff; 
             padding: 1rem 2rem; 
@@ -32,44 +33,55 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 2px solid var(--accent);
         }
         header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.5px; }
         header h1 span { color: var(--accent); }
         nav a { color: #e2e8f0; text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Hero Section */
+        /* Hero Section (사진 잘림 및 안보임 완벽 수정) */
         .hero { 
-            position: relative; 
-            height: 85vh; 
-            display: flex; 
-            align-items: flex-end; 
-            justify-content: center; 
-            color: #fff; 
-            text-align: center; 
+            background-color: var(--primary);
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero-img-container {
+            width: 100%;
+            max-width: 1300px;
+            height: auto;
+            max-height: 600px;
             overflow: hidden;
-            background: #0f172a;
-            padding-bottom: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #111e1c;
         }
-        .hero img {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-            filter: brightness(0.85); /* 선명하게 조정 */
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 사진 잘림 현상 방지 */
+            filter: none !important; /* 반투명/어둡게 만든 필터 완전 제거 */
         }
-        .hero-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.8) 100%);
+        
+        /* Hero 하단 문구 카드 */
+        .hero-content-card {
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 1.5rem; }
-        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.4rem 1.2rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.2rem; letter-spacing: 1px; }
-        .hero-content h2 { font-size: 3.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25; text-shadow: 0 4px 15px rgba(0,0,0,0.7); }
-        .hero-content p { font-size: 1.25rem; color: #f1f5f9; margin-bottom: 2.2rem; font-weight: 400; text-shadow: 0 2px 8px rgba(0,0,0,0.7); }
+        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.4rem 1.2rem; border-radius: 30px; font-size: 0.88rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
+        .hero-content-card h2 { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; line-height: 1.3; }
+        .hero-content-card p { font-size: 1.15rem; color: var(--text-gray); margin-bottom: 1.8rem; font-weight: 500; }
         
         .btn-primary { 
-            background: linear-gradient(135deg, #c59d5f 0%, #9a763f 100%); 
+            background: linear-gradient(135deg, var(--accent) 0%, #a88346 100%); 
             color: #fff; 
             padding: 1.1rem 2.8rem; 
             text-decoration: none; 
@@ -77,15 +89,15 @@
             font-weight: 700; 
             border-radius: 50px; 
             display: inline-block; 
-            box-shadow: 0 10px 25px rgba(197, 157, 95, 0.4);
+            box-shadow: 0 8px 20px rgba(192, 154, 91, 0.35);
             transition: all 0.3s ease;
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(197, 157, 95, 0.5); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(192, 154, 91, 0.45); }
 
         /* Highlights Banner */
-        .highlights { background: #fff; border-bottom: 1px solid var(--border); padding: 3rem 1rem; }
+        .highlights { background: #f3f0e9; border-bottom: 1px solid var(--border); padding: 3rem 1rem; }
         .highlights-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-        .highlight-item { text-align: center; padding: 1.5rem; border-radius: 12px; background: var(--bg-light); border: 1px solid var(--border); }
+        .highlight-item { text-align: center; padding: 1.8rem 1rem; border-radius: 12px; background: #fff; border: 1px solid rgba(192, 154, 91, 0.2); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
         .highlight-item i { font-size: 2.2rem; color: var(--accent); margin-bottom: 0.8rem; }
         .highlight-item h3 { font-size: 1.1rem; color: var(--primary); margin-bottom: 0.4rem; }
         .highlight-item p { font-size: 0.88rem; color: var(--text-gray); }
@@ -93,13 +105,13 @@
         /* Section Commons */
         .container { max-width: 1100px; margin: 5rem auto; padding: 0 1.5rem; }
         .section-title-wrap { text-align: center; margin-bottom: 3rem; }
-        .section-subtitle { color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.3rem; display: block; }
+        .section-subtitle { color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.3rem; display: block; }
         .section-title { font-size: 2.2rem; color: var(--primary); font-weight: 800; }
 
         /* Section Feature Block */
-        .feature-row { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3.5rem; background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .feature-row { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3.5rem; background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.04); }
         .feature-row.reverse { flex-direction: row-reverse; }
-        .feature-img { flex: 1; min-width: 320px; height: 350px; position: relative; overflow: hidden; }
+        .feature-img { flex: 1; min-width: 320px; height: 360px; position: relative; overflow: hidden; background: #f8f8f8; }
         .feature-img img { width: 100%; height: 100%; object-fit: cover; }
         .feature-text { flex: 1; min-width: 320px; padding: 2.5rem; }
         .feature-text h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; font-weight: 700; }
@@ -109,44 +121,45 @@
         .feature-list li i { color: var(--accent); }
 
         /* Overview Table */
-        .overview-table-wrap { background: #fff; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .overview-table-wrap { background: #fff; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
         .overview-table { width: 100%; border-collapse: collapse; text-align: left; }
         .overview-table th, .overview-table td { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
-        .overview-table th { background: var(--bg-light); color: var(--primary); font-weight: 700; width: 22%; border-right: 1px solid var(--border); }
+        .overview-table th { background: #f5f3ee; color: var(--primary); font-weight: 700; width: 22%; border-right: 1px solid var(--border); }
         .overview-table td { color: #334155; }
         .overview-table tr:last-child th, .overview-table tr:last-child td { border-bottom: none; }
 
-        /* Unit Specs & Plan Image Cards (유니트 사진 전면 배치) */
+        /* Unit Specs & Plan Cards */
         .unit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .unit-card { background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .unit-img-box { width: 100%; height: 260px; background: #fff; border-bottom: 1px solid var(--border); padding: 1rem; display: flex; align-items: center; justify-content: center; }
+        .unit-card { background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.04); }
+        .unit-img-box { width: 100%; height: 260px; background: #faf8f5; border-bottom: 1px solid var(--border); padding: 1rem; display: flex; align-items: center; justify-content: center; }
         .unit-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
         .unit-body { padding: 1.8rem; }
         .unit-body h3 { font-size: 1.3rem; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; }
-        .unit-body h3 .badge-sm { font-size: 0.75rem; background: var(--bg-light); border: 1px solid var(--border); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; }
+        .unit-body h3 .badge-sm { font-size: 0.75rem; background: #f5f3ee; border: 1px solid var(--border); color: var(--accent); padding: 0.2rem 0.6rem; border-radius: 4px; }
         .spec-list { list-style: none; }
         .spec-list li { display: flex; justify-content: space-between; padding: 0.55rem 0; border-bottom: 1px dashed var(--border); font-size: 0.92rem; }
         .spec-list li span:first-child { color: var(--text-gray); }
         .spec-list li span:last-child { font-weight: 600; color: var(--primary); }
 
         /* Contact Section */
-        .contact-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 4rem 2rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .contact-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 4rem 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(27, 45, 42, 0.2); }
         .contact-box .section-title { color: #fff; }
         .contact-form { max-width: 550px; margin: 2rem auto 0 auto; }
         .form-group { margin-bottom: 1.2rem; }
         .form-group label { display: block; margin-bottom: 0.4rem; font-size: 0.9rem; color: #cbd5e1; }
         .form-group input, .form-group select { width: 100%; padding: 0.9rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 1rem; outline: none; }
-        .form-group input::placeholder { color: #64748b; }
+        .form-group input::placeholder { color: #8a99ad; }
         .form-group option { background: var(--primary); color: #fff; }
         .submit-btn { width: 100%; background: var(--accent); color: #fff; border: none; padding: 1.1rem; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.3s; margin-top: 1rem; }
         .submit-btn:hover { background: var(--accent-hover); }
 
-        footer { background: #090d16; color: #64748b; text-align: center; padding: 2.5rem 1rem; font-size: 0.85rem; border-top: 1px solid #1e293b; }
+        footer { background: #111e1c; color: #7f9390; text-align: center; padding: 2.5rem 1rem; font-size: 0.85rem; border-top: 1px solid #233834; }
 
         @media (max-width: 768px) {
             header { padding: 0.8rem 1rem; }
-            .hero-content h2 { font-size: 2.1rem; }
-            .hero-content p { font-size: 1rem; }
+            .hero-img-container { height: 260px; }
+            .hero-content-card h2 { font-size: 1.8rem; }
+            .hero-content-card p { font-size: 1rem; }
             .section-title { font-size: 1.7rem; }
             .feature-row, .feature-row.reverse { flex-direction: column; }
             .feature-img { width: 100%; height: 250px; }
@@ -168,11 +181,12 @@
         </nav>
     </header>
 
-    <!-- Hero Section (39.jpg 선명하게 표시) -->
+    <!-- Hero Section (원본 이미지 100% 보존 및 비율 맞춤 배치) -->
     <section class="hero">
-        <img src="39.jpg" alt="송도 하늘채 아이비원 메인 조감도" onerror="handleImgError(this, '39')">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div class="hero-img-container">
+            <img src="39.jpg" alt="송도 하늘채 아이비원 메인 조감도" onerror="handleImgError(this, '39')">
+        </div>
+        <div class="hero-content-card">
             <span class="badge">선착순 동호지정 분양 중</span>
             <h2>송도 1공구 학세권의 완성<br>송도 하늘채 아이비원</h2>
             <p>명문 학원가 중심 입지 · 코오롱글로벌 혁신설계 · GTX-B 교통 호재</p>
@@ -244,7 +258,7 @@
         </div>
     </section>
 
-    <!-- Site Layout Section (44.jpg 배치) -->
+    <!-- Site Layout Section (44.jpg) -->
     <section id="layout" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">SITE PLAN & LAYOUT</span>
@@ -267,14 +281,13 @@
         </div>
     </section>
 
-    <!-- Community Section (41, 42, 43 이미지 1:1 매칭) -->
+    <!-- Community Section (41, 42, 43) -->
     <section id="community" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">PREMIUM COMMUNITY</span>
             <h2 class="section-title">단지 내 특화 커뮤니티</h2>
         </div>
 
-        <!-- 커뮤니티 1 (41.jpg) -->
         <div class="feature-row reverse">
             <div class="feature-img">
                 <img src="41.jpg" alt="단지 내 어린이집 및 야외 휴게공간" onerror="handleImgError(this, '41')">
@@ -289,7 +302,6 @@
             </div>
         </div>
 
-        <!-- 커뮤니티 2 (42.jpg) -->
         <div class="feature-row">
             <div class="feature-img">
                 <img src="42.jpg" alt="헬시가든 및 단지 내 스트리트몰" onerror="handleImgError(this, '42')">
@@ -304,7 +316,6 @@
             </div>
         </div>
 
-        <!-- 커뮤니티 3 (43.jpg) -->
         <div class="feature-row reverse">
             <div class="feature-img">
                 <img src="43.jpg" alt="작은도서관 및 주민 소통 공간" onerror="handleImgError(this, '43')">
@@ -320,7 +331,7 @@
         </div>
     </section>
 
-    <!-- Unit Specs & Floor Plan Section (34.jpg, 31.jpg, 33.jpg 유니트 사진 직접 연동) -->
+    <!-- Unit Specs & Floor Plan Section (34.jpg, 31.jpg, 33.jpg) -->
     <section id="specs" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">UNIT PLAN & SPECIFICATIONS</span>
@@ -329,7 +340,6 @@
         
         <div class="unit-grid">
             
-            <!-- 59A Unit Card (34.jpg) -->
             <div class="unit-card">
                 <div class="unit-img-box">
                     <img src="34.jpg" alt="59㎡ A 타입 유니트 평면도" onerror="handleImgError(this, '34')">
@@ -344,7 +354,6 @@
                 </div>
             </div>
 
-            <!-- 59B Unit Card (31.jpg) -->
             <div class="unit-card">
                 <div class="unit-img-box">
                     <img src="31.jpg" alt="59㎡ B 타입 유니트 평면도" onerror="handleImgError(this, '31')">
@@ -359,7 +368,6 @@
                 </div>
             </div>
 
-            <!-- 59C Unit Card (33.jpg) -->
             <div class="unit-card">
                 <div class="unit-img-box">
                     <img src="33.jpg" alt="59㎡ C 타입 유니트 평면도" onerror="handleImgError(this, '33')">
@@ -381,7 +389,7 @@
     <section id="contact" class="container">
         <div class="contact-box">
             <div class="section-title-wrap">
-                <span class="section-subtitle" style="color: #c59d5f;">ONLINE INQUIRY</span>
+                <span class="section-subtitle" style="color: #c09a5b;">ONLINE INQUIRY</span>
                 <h2 class="section-title">분양 문의 및 방문 예약</h2>
             </div>
             <form class="contact-form" onsubmit="alert('성공적으로 접수되었습니다. 전문 상담사가 즉시 안내해 드리겠습니다.'); return false;">
@@ -418,7 +426,7 @@
             if (currentSrc.indexOf('.jpg') !== -1) {
                 img.src = imgNum + '.png';
             } else if (currentSrc.indexOf('.png') !== -1) {
-                img.src = 'https://placehold.co/800x600/0f172a/c59d5f?text=Songdo+Ibyone+' + imgNum;
+                img.src = 'https://placehold.co/800x600/1b2d2a/c09a5b?text=Songdo+Ibyone+' + imgNum;
             }
         }
     </script>
