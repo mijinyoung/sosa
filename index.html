@@ -110,50 +110,79 @@
         .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
         .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
 
-        /* ✨ [신규] 세련된 커스텀 모던 입지도 그래픽 카드 */
-        .custom-map-card {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        /* ✨ [신규 구현] 진짜 지도 UI 스타일의 시각적 위치 지도 그래픽 박스 */
+        .mock-map-container {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background-color: #e2e8f0;
+            background-image: 
+                linear-gradient(90deg, rgba(255,255,255,.4) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255,255,255,.4) 1px, transparent 1px);
+            background-size: 30px 30px;
             border-radius: 12px;
-            padding: 22px 16px;
-            color: #fff;
-            margin-bottom: 22px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            border: 2px solid var(--border);
+            margin-bottom: 16px;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
         }
-        .map-card-header {
+
+        /* 지도 도로망 표현 효과 */
+        .map-road-h { position: absolute; top: 45%; left: 0; right: 0; height: 16px; background: #cbd5e1; transform: translateY(-50%); }
+        .map-road-v { position: absolute; top: 0; bottom: 0; left: 55%; width: 16px; background: #cbd5e1; transform: translateX(-50%); }
+        .map-road-accent { position: absolute; top: 20%; left: 0; right: 0; height: 10px; background: #fde047; transform: translateY(-50%); opacity: 0.7; }
+
+        /* 지도 위 핀포인트 요소들 */
+        .map-pin {
+            position: absolute;
+            background: #ffffff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.15);
-            padding-bottom: 12px;
-            margin-bottom: 14px;
+            gap: 4px;
+            white-space: nowrap;
+            border: 1.5px solid var(--border);
         }
-        .map-card-header .title { font-size: 1.1rem; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 6px; }
-        .map-card-header .title i { color: var(--brand-yellow); }
-        .map-card-header .badge { background: var(--brand-red); color: #fff; font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; font-weight: 800; }
+        .map-pin i { font-size: 0.8rem; }
         
-        .map-route-visual {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        /* 개별 핀 위치 지정 */
+        .pin-mall { top: 18%; left: 10%; }
+        .pin-mall i { color: var(--brand-blue); }
+
+        .pin-station { top: 25%; right: 12%; }
+        .pin-station i { color: var(--brand-green); }
+
+        /* 메인 현장 핀 (가장 강조) */
+        .pin-main {
+            top: 55%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            background: var(--brand-red);
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 900;
+            border: 2px solid #ffffff;
+            box-shadow: 0 6px 15px rgba(225, 29, 72, 0.4);
+            z-index: 10;
+            animation: pulse-pin 1.5s infinite;
         }
-        .route-node {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.1);
-            padding: 11px 14px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .pin-main i { color: var(--brand-yellow); font-size: 1rem; }
+
+        .pin-uni { bottom: 15%; left: 15%; }
+        .pin-uni i { color: #8b5cf6; }
+
+        @keyframes pulse-pin {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.06); }
+            100% { transform: translate(-50%, -50%) scale(1); }
         }
-        .route-node.main-target {
-            background: rgba(225, 29, 72, 0.2);
-            border: 2px solid var(--brand-red);
-        }
-        .route-node .node-info strong { display: block; font-size: 0.95rem; color: #fff; font-weight: 900; }
-        .route-node .node-info span { font-size: 0.78rem; color: #94a3b8; font-weight: 600; }
-        .route-node .node-badge { background: var(--brand-blue); color: #fff; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 800; }
-        .route-node.main-target .node-badge { background: var(--brand-red); }
 
         /* 송도 대표 인프라 갤러리 섹션 */
         .infra-gallery { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
@@ -274,42 +303,35 @@
         </form>
     </div>
 
-    <!-- ✨ [모던 커스텀 입지도 & 인프라 섹션] -->
+    <!-- ✨ [신규 장착된 인터랙티브 스타일 위치 지도 & 인프라 섹션] -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">LOCATION & INFRASTRUCTURE</span>
-            <h3>송도 1공구 핵심 입지 안내</h3>
-            <p>완벽한 교통·쇼핑·학군 인프라의 중심</p>
+            <h3>송도 1공구 핵심 위치 지도</h3>
+            <p>교통·쇼핑·학군 중심지를 한눈에 확인하세요</p>
         </div>
 
-        <!-- 커스텀 고화질 지도형 그래픽 카드 (구형 입지도 대체) -->
-        <div class="custom-map-card">
-            <div class="map-card-header">
-                <div class="title"><i class="fa-solid fa-map-marked-alt"></i> 송도 하늘채 아이비원 동선 가이드</div>
-                <div class="badge">1공구 프리미엄</div>
+        <!-- 🗺️ 고화질 스타일 위치 지도 그래픽 (구형 입지도 대체) -->
+        <div class="mock-map-container">
+            <div class="map-road-accent"></div>
+            <div class="map-road-h"></div>
+            <div class="map-road-v"></div>
+
+            <!-- 지도 위 핀포인트 요소들 -->
+            <div class="map-pin pin-mall">
+                <i class="fa-solid fa-store"></i> 현대아울렛·트리플
             </div>
-            <div class="map-route-visual">
-                <div class="route-node">
-                    <div class="node-info">
-                        <strong>쇼핑 & 문화 인프라</strong>
-                        <span>현대프리미엄아울렛 · 트리플스트리트 · 코스트코 인접</span>
-                    </div>
-                    <div class="node-badge">생활권</div>
-                </div>
-                <div class="route-node main-target">
-                    <div class="node-info">
-                        <strong>📍 송도 하늘채 아이비원 (현장 위치)</strong>
-                        <span>송도국제도시 1공구 핵심 주거지 · 즉시 입주 단지</span>
-                    </div>
-                    <div class="node-badge">현장</div>
-                </div>
-                <div class="route-node">
-                    <div class="node-info">
-                        <strong>학군 & 교통</strong>
-                        <span>연세대학교 국제캠퍼스 및 GTX-B(예정) 광역 교통망</span>
-                    </div>
-                    <div class="node-badge">미래가치</div>
-                </div>
+            <div class="map-pin pin-station">
+                <i class="fa-solid fa-train-subway"></i> GTX-B(예정)·역세권
+            </div>
+            
+            <!-- 현장 중심 핀 -->
+            <div class="map-pin pin-main">
+                <i class="fa-solid fa-location-dot"></i> 송도 하늘채 아이비원
+            </div>
+
+            <div class="map-pin pin-uni">
+                <i class="fa-solid fa-graduation-cap"></i> 연세대 국제캠퍼스
             </div>
         </div>
 
