@@ -40,7 +40,7 @@
         header .logo span { color: var(--brand-red); }
         header .menu-btn { font-size: 0.82rem; font-weight: 800; color: #ffffff; background: var(--brand-red); padding: 6px 12px; border-radius: 20px; text-decoration: none; }
 
-        /* Hero Section (텍스트 상자 제거된 깨끗한 화면) */
+        /* Hero Section */
         .hero { background: #0f172a; text-align: center; position: relative; }
         
         .hero-head-text { padding: 22px 16px 16px 16px; background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%); color: #fff; }
@@ -58,8 +58,9 @@
             font-weight: 900;
         }
 
-        .hero-img-wrap { width: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-        .hero-img-wrap img { width: 100%; height: auto; max-height: 380px; object-fit: contain; display: block; }
+        /* Hero 이미지 오른쪽 텍스트 박스 가림/크롭 처리 */
+        .hero-img-wrap { width: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; max-height: 360px; }
+        .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
 
         /* Hero 하단 실물 세대 방문예약 카드 */
         .hero-form-card { 
@@ -102,6 +103,26 @@
             box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
         }
 
+        /* Section Commons */
+        .section { padding: 35px 16px; border-bottom: 8px solid var(--bg-gray); background: #fff; }
+        .sec-header { text-align: center; margin-bottom: 20px; }
+        .sec-header .sub { font-size: 0.82rem; color: var(--brand-red); font-weight: 800; letter-spacing: 1px; }
+        .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
+        .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
+
+        /* 송도 대표 인프라 갤러리 섹션 */
+        .infra-gallery { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
+        .infra-card-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .infra-card-item img { width: 100%; height: 210px; object-fit: cover; display: block; }
+        .infra-card-item .infra-info { padding: 14px; }
+        .infra-card-item .infra-info h4 { font-size: 1.1rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
+        .infra-card-item .infra-info p { font-size: 0.85rem; color: #475569; font-weight: 600; line-height: 1.4; }
+
+        /* 5억 2천 가성비 강조 박스 */
+        .value-compare-box { background: #fff5f5; border: 2px dashed var(--brand-red); border-radius: 10px; padding: 16px; margin-top: 18px; text-align: center; }
+        .value-compare-box h4 { color: var(--brand-red); font-size: 1.15rem; font-weight: 900; margin-bottom: 6px; }
+        .value-compare-box p { font-size: 0.88rem; color: #334155; font-weight: 700; line-height: 1.5; }
+
         /* 전화 직통 대형 연결 배너 */
         .direct-call-banner {
             background: #0f172a;
@@ -115,7 +136,7 @@
         .direct-call-banner .label { font-size: 0.9rem; color: var(--brand-yellow); font-weight: 800; }
         .direct-call-banner .phone-link { 
             display: block; 
-            font-size: 2rem; 
+            font-size: 2.2rem; 
             font-weight: 900; 
             color: #ffffff; 
             text-decoration: none; 
@@ -133,30 +154,10 @@
             font-weight: 900; padding: 13px; border-radius: 8px; font-size: 1rem;
         }
 
-        /* Section Commons */
-        .section { padding: 35px 16px; border-bottom: 8px solid var(--bg-gray); background: #fff; }
-        .sec-header { text-align: center; margin-bottom: 20px; }
-        .sec-header .sub { font-size: 0.82rem; color: var(--brand-red); font-weight: 800; letter-spacing: 1px; }
-        .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
-        .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
-
-        /* 이미지 카드 박스 (기존 단지용) */
+        /* 기존 단지 이미지 카드 박스 */
         .img-card-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .img-card-box img { width: 100%; display: block; height: auto; }
         .img-card-box .cap { padding: 10px 12px; background: #f8fafc; font-size: 0.9rem; font-weight: 800; color: var(--primary); text-align: center; border-top: 1px solid var(--border); }
-
-        /* 🔥 [신규 추가] 송도 대표 인프라 전용 카드 섹션 스타일 */
-        .infra-gallery { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
-        .infra-card-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .infra-card-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
-        .infra-card-item .infra-info { padding: 14px; }
-        .infra-card-item .infra-info h4 { font-size: 1.1rem; font-weight: 900; color: var(--primary); margin-bottom: 4px; }
-        .infra-card-item .infra-info p { font-size: 0.85rem; color: #475569; font-weight: 600; line-height: 1.4; }
-
-        /* 5억 2천 가성비 비교 강조 박스 */
-        .value-compare-box { background: #fff5f5; border: 2px dashed var(--brand-red); border-radius: 10px; padding: 16px; margin-top: 18px; text-align: center; }
-        .value-compare-box h4 { color: var(--brand-red); font-size: 1.15rem; font-weight: 900; margin-bottom: 6px; }
-        .value-compare-box p { font-size: 0.88rem; color: #334155; font-weight: 700; line-height: 1.5; }
 
         /* 평면안내 탭 UI */
         .tab-menu { display: flex; gap: 6px; margin-bottom: 15px; background: #e2e8f0; padding: 4px; border-radius: 8px; }
@@ -200,7 +201,8 @@
         </div>
         
         <div class="hero-img-wrap">
-            <img src="39.jpg" alt="송도 하늘채 아이비원 건물 외관" onerror="handleImgError(this, '39')">
+            <!-- object-position으로 이미지 우측 텍스트 영역을 가려줍니다 -->
+            <img src="39.jpg" alt="송도 하늘채 아이비원 외관" onerror="handleImgError(this, '39')">
         </div>
     </section>
 
@@ -228,59 +230,68 @@
         </form>
     </div>
 
-    <!-- 🔥 [새로 추가한 독립 섹션] 송도 대표 인프라 (아울렛, 트리플스트리트 등) -->
+    <!-- 송도 대표 인프라 카드 섹션 (지정해주신 파일 적용) -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">PREMIUM INFRASTRUCTURE</span>
             <h3>송도 대표 인프라를 한걸음에</h3>
-            <p>쇼핑부터 문화, 학군까지 완성된 송도 프리미엄</p>
+            <p>쇼핑부터 문화, 명문 학군까지 완성된 프리미엄</p>
         </div>
 
         <div class="infra-gallery">
-            <!-- 현대프리미엄아울렛 & 트리플스트리트 -->
+            <!-- 현대프리미엄아울렛 (6.png) -->
             <div class="infra-card-item">
-                <img src="outlet.jpg" alt="현대프리미엄아울렛 트리플스트리트" onerror="this.src='43.jpg'">
+                <img src="6.png" alt="현대프리미엄아울렛 송도점">
                 <div class="infra-info">
-                    <h4>🛍️ 현대프리미엄아울렛 & 트리플스트리트</h4>
-                    <p>송도 대표 대형 쇼핑·문화복합단지를 편리하게 누리는 완벽한 생활 인프라</p>
+                    <h4>🛍️ 현대프리미엄아울렛 송도점</h4>
+                    <p>송도를 대표하는 초대형 쇼핑 테마파크를 가까이서 편리하게 이용하는 라이프</p>
                 </div>
             </div>
 
-            <!-- 1공구 학원가 -->
+            <!-- 트리플스트리트 (5.png) -->
             <div class="infra-card-item">
-                <img src="academy.jpg" alt="송도 1공구 학원가" onerror="this.src='42.jpg'">
+                <img src="5.png" alt="트리플스트리트">
                 <div class="infra-info">
-                    <h4>🎓 송도 1공구 명문 학원가</h4>
-                    <p>수도권 대표 명문 학원가와 도보거리 명문 학교가 이웃한 최고의 교육환경</p>
+                    <h4>✨ 트리플스트리트 (TRIPLE STREET)</h4>
+                    <p>다채로운 맛집, 카페, 영화관, 패션 브랜드가 집약된 송도 대표 복합문화공간</p>
                 </div>
             </div>
 
-            <!-- 센트럴파크 -->
+            <!-- 코스트코 (2.png) -->
             <div class="infra-card-item">
-                <img src="park.jpg" alt="송도 센트럴파크" onerror="this.src='41.jpg'">
+                <img src="2.png" alt="코스트코 송도점">
                 <div class="infra-info">
-                    <h4>🌳 송도 센트럴파크 & 에코라이프</h4>
-                    <p>송도를 대표하는 센트럴파크와 워터프런트 호수를 가까이서 누리는 힐링 라이프</p>
+                    <h4>🛒 코스트코 송도점</h4>
+                    <p>대형 글로벌 창고형 할인매장이 근거리에 위치하여 완벽한 대형쇼핑 생활권 형성</p>
+                </div>
+            </div>
+
+            <!-- 연세대학교 (1.png) -->
+            <div class="infra-card-item">
+                <img src="1.png" alt="연세대학교 국제캠퍼스">
+                <div class="infra-info">
+                    <h4>🎓 연세대학교 국제캠퍼스 & 명문 학군</h4>
+                    <p>수도권 최고 수준의 명문 교육 환경과 글로벌 캠퍼스 인프라를 함께 누리는 입지</p>
                 </div>
             </div>
         </div>
 
-        <!-- 5억 2천 가격 강점 강조 박스 -->
+        <!-- 5억 2천 가성비 메인 강조 박스 -->
         <div class="value-compare-box">
-            <h4>💡 송도 인프라를 누리는 최저가 기회!</h4>
-            <p>송도 중심 인프라를 모두 누리면서<br><strong>"신축 아파트 5억 2천만 원대"</strong>로 소유할 수 있는<br>마지막 파격 할인 분양 기회입니다.</p>
+            <h4>💡 송도 핵심 인프라를 누리는 최저가 기회!</h4>
+            <p>송도국제도시의 대표 쇼핑·교육 인프라를 누리면서<br><strong>"신축 아파트 5억 2천만 원대"</strong>로 소유할 수 있는<br>마지막 파격 15% 할인 분양 기회입니다.</p>
         </div>
     </section>
 
-    <!-- 전화/문자 direct CTA 배너 -->
+    <!-- 전화/문자 direct CTA 배너 (전화번호: 1833-8384 반영) -->
     <div class="direct-call-banner">
         <div class="label">로얄동·호수 및 할인 분양가 Direct 문의</div>
-        <a href="tel:1600-0000" class="phone-link"><i class="fa-solid fa-phone-volume"></i> 1600-0000</a>
-        <a href="tel:1600-0000" class="cta-btn-green"><i class="fa-solid fa-comment-sms"></i> 문자로 할인 분양가 받기</a>
+        <a href="tel:1833-8384" class="phone-link"><i class="fa-solid fa-phone-volume"></i> 1833-8384</a>
+        <a href="tel:1833-8384" class="cta-btn-green"><i class="fa-solid fa-comment-sms"></i> 문자로 할인 분양가 받기</a>
         <a href="#contact-sec" class="cta-btn-yellow"><i class="fa-solid fa-calendar-days"></i> 빠른 실물 세대 방문예약</a>
     </div>
 
-    <!-- 🔄 [원래대로 복구] 기존 단지 및 입지 안내 섹션 -->
+    <!-- 기존 단지 및 입지 안내 섹션 -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">LOCATION & COMMUNITY</span>
@@ -303,7 +314,7 @@
         </div>
     </section>
 
-    <!-- 🔄 [원래대로 복구] 기존 평면 안내 섹션 -->
+    <!-- 기존 평면 안내 섹션 -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">UNIT PLAN</span>
@@ -346,9 +357,9 @@
         실물 세대 관람은 안전 및 보안상 사전 예약제로 운영됩니다.</p>
     </footer>
 
-    <!-- 하단 고정 CTA 바 -->
+    <!-- 하단 고정 CTA 바 (전화번호: 1833-8384 반영) -->
     <div class="bottom-bar">
-        <a href="tel:1600-0000" class="bar-call"><i class="fa-solid fa-phone"></i> 전화상담</a>
+        <a href="tel:1833-8384" class="bar-call"><i class="fa-solid fa-phone"></i> 전화상담</a>
         <a href="#contact-sec" class="bar-reserve"><i class="fa-solid fa-calendar-check"></i> 방문예약</a>
     </div>
 
