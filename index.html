@@ -4,206 +4,391 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>송도 하늘채 아이비원 - 프리미엄 주거공간</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif; }
-        body { color: #333; line-height: 1.6; background-color: #f9f9f9; }
-        
-        /* Header & Nav */
-        header { background: #1a2530; color: #fff; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
-        header h1 { font-size: 1.3rem; letter-spacing: -0.5px; }
-        nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; }
+        :root {
+            --primary: #1e293b;
+            --accent: #c59d5f;
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --text-gray: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; }
+        body { color: var(--text-dark); line-height: 1.6; background-color: var(--bg-light); scroll-behavior: smooth; }
+
+        /* Header */
+        header { 
+            background: rgba(30, 41, 59, 0.95); 
+            backdrop-filter: blur(8px);
+            color: #fff; 
+            padding: 1.2rem 2rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        header h1 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; color: #fff; }
+        header h1 span { color: var(--accent); }
+        nav a { color: #e2e8f0; text-decoration: none; margin-left: 1.8rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
 
         /* Hero Section */
-        .hero { position: relative; background: #000; color: #fff; text-align: center; overflow: hidden; }
-        .hero img { width: 100%; height: 65vh; object-fit: cover; opacity: 0.8; }
-        .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 800px; }
-        .hero-text h2 { font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
-        .hero-text p { font-size: 1.2rem; margin-bottom: 1.5rem; }
-        .btn-main { background: #c59d5f; color: #fff; padding: 0.8rem 2rem; text-decoration: none; font-weight: bold; border-radius: 4px; display: inline-block; }
+        .hero { 
+            position: relative; 
+            height: 75vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #fff; 
+            text-align: center; 
+            overflow: hidden;
+        }
+        .hero-bg { 
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; 
+            filter: brightness(0.45);
+            transform: scale(1.05);
+            transition: transform 6s ease;
+        }
+        .hero:hover .hero-bg { transform: scale(1); }
+        .hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 1.5rem; }
+        .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.4rem 1.2rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .hero-content h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .hero-content p { font-size: 1.25rem; color: #cbd5e1; margin-bottom: 2rem; font-weight: 300; }
+        .btn-primary { 
+            background: linear-gradient(135deg, #c59d5f 0%, #a37c40 100%); 
+            color: #fff; 
+            padding: 1rem 2.5rem; 
+            text-decoration: none; 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            border-radius: 50px; 
+            display: inline-block; 
+            box-shadow: 0 10px 20px rgba(197, 157, 95, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(197, 157, 95, 0.4); }
 
-        /* Section Layout */
-        .container { max-width: 1100px; margin: 4rem auto; padding: 0 1rem; }
-        .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; color: #1a2530; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        
-        /* Cards & Images */
-        .card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-body { padding: 1.2rem; }
-        .card-body h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        /* Key Features Section */
+        .features { background: #fff; padding: 4rem 1rem; margin-bottom: 3rem; }
+        .features-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+        .feature-card { text-align: center; padding: 2rem; border-radius: 12px; background: var(--bg-light); border: 1px solid #e2e8f0; transition: transform 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; }
+        .feature-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .feature-card p { font-size: 0.9rem; color: var(--text-gray); }
 
-        /* Form */
-        .contact-form { background: #fff; padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); max-width: 600px; margin: 0 auto; }
+        /* Gallery / Section Layout */
+        .container { max-width: 1100px; margin: 0 auto 5rem auto; padding: 0 1.5rem; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text-gray); font-size: 1rem; }
+
+        /* Tabs Gallery */
+        .tab-menu { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+        .tab-btn { background: #fff; border: 1px solid #cbd5e1; padding: 0.7rem 1.5rem; border-radius: 30px; font-weight: 600; color: var(--text-gray); cursor: pointer; transition: all 0.3s; }
+        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
+        .gallery-item { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: all 0.3s; }
+        .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .img-wrapper { position: relative; width: 100%; height: 240px; overflow: hidden; background-color: #e2e8f0; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover .img-wrapper img { transform: scale(1.08); }
+        .item-info { padding: 1.5rem; }
+        .item-info h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.4rem; font-weight: 700; }
+        .item-info p { font-size: 0.92rem; color: var(--text-gray); }
+
+        /* Highlight Plan Card */
+        .plan-card { background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; text-align: center; }
+        .plan-card img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 1.5rem; }
+
+        /* Contact Section */
+        .contact-wrapper { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; padding: 4rem 2rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        .contact-wrapper .section-header h2 { color: #fff; }
+        .contact-wrapper .section-header p { color: #94a3b8; }
+        .contact-form { max-width: 550px; margin: 0 auto; }
         .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; margin-bottom: 0.4rem; font-weight: bold; }
-        .form-group input, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; }
-        .submit-btn { width: 100%; background: #1a2530; color: #fff; border: none; padding: 1rem; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 4px; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #cbd5e1; }
+        .form-group input, .form-group select { width: 100%; padding: 0.9rem 1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 1rem; outline: none; }
+        .form-group input::placeholder { color: #64748b; }
+        .form-group option { background: #1e293b; color: #fff; }
+        .submit-btn { width: 100%; background: var(--accent); color: #fff; border: none; padding: 1.1rem; font-size: 1.1rem; font-weight: 700; border-radius: 8px; cursor: pointer; transition: background 0.3s; margin-top: 1rem; }
+        .submit-btn:hover { background: #a37c40; }
 
-        footer { background: #111; color: #888; text-align: center; padding: 2rem; font-size: 0.85rem; margin-top: 4rem; }
+        /* Footer */
+        footer { background: #090d16; color: #64748b; text-align: center; padding: 3rem 1rem; font-size: 0.85rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            header h1 { font-size: 1.1rem; }
+            nav a { margin-left: 0.8rem; font-size: 0.85rem; }
+            .hero-content h2 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
-        <h1>송도 하늘채 아이비원</h1>
+        <h1>송도 <span>하늘채 아이비원</span></h1>
         <nav>
-            <a href="#plan">단지배치</a>
-            <a href="#interior">인테리어</a>
-            <a href="#location">입지안내</a>
-            <a href="#contact">상담신청</a>
+            <a href="#features">특장점</a>
+            <a href="#gallery">단지/인프라</a>
+            <a href="#contact">분양상담</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="3.jpg" alt="송도 하늘채 아이비원 전경">
-        <div class="hero-text">
-            <h2>송도 1공구 학원가 중심 프리미엄 주거단지</h2>
-            <p>우수한 교육 환경과 풍부한 생활 인프라의 중심 | 잔여 세대 분양 중</p>
-            <a href="#contact" class="btn-main">분양 상담 신청하기</a>
+        <img src="3.jpg" data-fallback="3.png" alt="송도 하늘채 아이비원 메인" class="hero-bg" onerror="handleImgError(this)">
+        <div class="hero-content">
+            <span class="badge">송도 1공구 학원가 핵심 입지</span>
+            <h2>프리미엄의 중심에서<br>매일을 새로이 누리다</h2>
+            <p>우수한 명문학군과 풍부한 대형 쇼핑·문화 인프라의 완성</p>
+            <a href="#contact" class="btn-primary">실시간 분양 상담 신청</a>
         </div>
     </section>
 
-    <!-- Plan Section -->
-    <section id="plan" class="container">
-        <h2 class="section-title">단지 배치도</h2>
-        <div class="card" style="max-width: 900px; margin: 0 auto;">
-            <img src="15.jpg" alt="단지 배치도" style="height: auto;">
-            <div class="card-body" style="text-align: center;">
-                <h3>32㎡ A·B / 59㎡ A·B·C 타입 구성</h3>
-                <p>101동~108동 통합 배치 및 헬시가든, 유아놀이터 조성</p>
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>명문 학원가 인접</h3>
+                <p>송도 1공구 프리미엄 학원가 중심 입지로 탁월한 교육 환경 제공</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <h3>몰세권 인프라</h3>
+                <p>현대아울렛, 트리플스트리트, 코스트코 등 도보/차량 이용 용이</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-building"></i>
+                <h3>혁신 평면 설계</h3>
+                <p>32㎡ 소형부터 59㎡ 선호 타입까지 실속 있는 공간 구성</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-tree"></i>
+                <h3>쾌적한 힐링 단지</h3>
+                <p>단지 내 헬시가든, 유아놀이터 및 인근 녹지 공원 연계</p>
             </div>
         </div>
     </section>
 
-    <!-- Interior Section -->
-    <section id="interior" class="container">
-        <h2 class="section-title">세대 내 관람 (견본주택)</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="13.jpg" alt="거실 공간">
-                <div class="card-body">
-                    <h3>넓고 모던한 거실</h3>
-                    <p>우물형 천장 조명과 아트월 마감으로 고급스러운 거실 분위기 연출</p>
+    <!-- Gallery / Interactive View -->
+    <section id="gallery" class="container">
+        <div class="section-header">
+            <h2>단지 및 주변 둘러보기</h2>
+            <p>송도 하늘채 아이비원의 단지 배치와 내부, 주변 생활 환경을 확인해보세요.</p>
+        </div>
+
+        <div class="tab-menu">
+            <button class="tab-btn active" onclick="filterGallery('all')">전체보기</button>
+            <button class="tab-btn" onclick="filterGallery('plan')">단지배치도</button>
+            <button class="tab-btn" onclick="filterGallery('interior')">세대 인테리어</button>
+            <button class="tab-btn" onclick="filterGallery('exterior')">단지외관/상가</button>
+            <button class="tab-btn" onclick="filterGallery('location')">주변 인프라</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+            
+            <!-- 단지배치도 -->
+            <div class="gallery-item" data-category="plan">
+                <div class="img-wrapper">
+                    <img src="15.jpg" data-fallback="15.png" alt="단지 배치도" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>단지 배치도 (32㎡ / 59㎡)</h3>
+                    <p>101동~108동 동별 배치 및 유아놀이터, 헬시가든 완비</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="14.jpg" alt="침실 및 서재">
-                <div class="card-body">
-                    <h3>효율적인 공간 활용</h3>
-                    <p>서재 및 개인 공간으로 활용 가능한 쾌적한 실내 구조</p>
+
+            <!-- 인테리어 -->
+            <div class="gallery-item" data-category="interior">
+                <div class="img-wrapper">
+                    <img src="13.jpg" data-fallback="13.png" alt="거실 인테리어" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>거실 (Living Room)</h3>
+                    <p>우물형 천장 설계와 우아한 아트월 마감으로 넓고 모던한 분위기 연출</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Complex Section -->
-    <section class="container">
-        <h2 class="section-title">단지 외관 및 스트리트 상가</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="4.jpg" alt="단지 외관">
-                <div class="card-body">
+            <div class="gallery-item" data-category="interior">
+                <div class="img-wrapper">
+                    <img src="14.jpg" data-fallback="14.png" alt="서재 인테리어" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>서재 / 침실 (Study Room)</h3>
+                    <p>채광이 우수하며 라이프스타일에 맞게 활용 가능한 가변형 공간</p>
+                </div>
+            </div>
+
+            <!-- 외관 및 상가 -->
+            <div class="gallery-item" data-category="exterior">
+                <div class="img-wrapper">
+                    <img src="4.jpg" data-fallback="4.png" alt="단지 외관" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
                     <h3>세련된 입면 디자인</h3>
-                    <p>모던하고 입체적인 외관 설계로 완성된 단지 전경</p>
+                    <p>모던하고 입체적인 외관 설계로 완성된 주거 단지 전경</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="1.jpg" alt="보행자 전용 도로">
-                <div class="card-body">
-                    <h3>쾌적한 보행 환경</h3>
-                    <p>단지 내 상가와 학원가가 연결되는 여유로운 보행로</p>
+
+            <div class="gallery-item" data-category="exterior">
+                <div class="img-wrapper">
+                    <img src="1.jpg" data-fallback="1.png" alt="보행자 도로" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>쾌적한 단지 내 보행로</h3>
+                    <p>스트리트 상가 및 학원가로 안전하게 이어지는 보행자 전용 도로</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="2.jpg" alt="단지 상가 입구">
-                <div class="card-body">
+
+            <div class="gallery-item" data-category="exterior">
+                <div class="img-wrapper">
+                    <img src="2.jpg" data-fallback="2.png" alt="단지 상가 입구" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
                     <h3>원스톱 근린생활시설</h3>
-                    <p>다양한 생활 편의시설이 입점된 단지 내 상업공간</p>
+                    <p>다양한 생활 편의 업종 및 교육 시설이 입점하는 스트리트몰</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Location Section -->
-    <section id="location" class="container">
-        <h2 class="section-title">주변 인프라 & 생활 환경</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="4_2.jpg" alt="트리플스트리트 야경">
-                <div class="card-body">
+            <div class="gallery-item" data-category="exterior">
+                <div class="img-wrapper">
+                    <img src="5.jpg" data-fallback="5.png" alt="상가 야경" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>스트리트몰 야경</h3>
+                    <p>화려한 경관 조명과 활기찬 거리가 어우러진 주거 상권</p>
+                </div>
+            </div>
+
+            <!-- 주변 인프라 -->
+            <div class="gallery-item" data-category="location">
+                <div class="img-wrapper">
+                    <img src="4_2.jpg" data-fallback="4_2.png" alt="트리플스트리트" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
                     <h3>송도 트리플스트리트</h3>
-                    <p>쇼핑, 문화, F&B가 집약된 송도 대표 스트리트 몰</p>
+                    <p>쇼핑, 문화, 영화관, F&B 시설이 조성된 대표 복합문화공간</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="6.jpg" alt="현대프리미엄아울렛 송도점">
-                <div class="card-body">
-                    <h3>현대프리미엄아울렛 & 프리미엄 마켓</h3>
-                    <p>지하철역과 연결된 다양한 쇼핑 및 푸드코트 인프라</p>
+
+            <div class="gallery-item" data-category="location">
+                <div class="img-wrapper">
+                    <img src="6.jpg" data-fallback="6.png" alt="현대프리미엄아울렛 송도점" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>현대프리미엄아울렛 송도점</h3>
+                    <p>지하철역과 직접 연결되어 편의성이 뛰어난 대형 아울렛 인프라</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="2_2.jpg" alt="코스트코 송도점">
-                <div class="card-body">
+
+            <div class="gallery-item" data-category="location">
+                <div class="img-wrapper">
+                    <img src="2_2.jpg" data-fallback="2_2.png" alt="코스트코 송도점" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
                     <h3>코스트코 송도점</h3>
-                    <p>대형 창고형 할인매장이 인접하여 편리한 쇼핑 환경 제공</p>
+                    <p>대형 창고형 매장이 가까워 편리한 장보기 및 쇼핑 환경</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="1_2.jpg" alt="글로벌 캠퍼스 및 녹지">
-                <div class="card-body">
-                    <h3>명문 학군 & 공원 인프라</h3>
-                    <p>글로벌 캠퍼스 및 주변의 쾌적한 녹지/공원 공간</p>
+
+            <div class="gallery-item" data-category="location">
+                <div class="img-wrapper">
+                    <img src="1_2.jpg" data-fallback="1_2.png" alt="글로벌 캠퍼스 및 녹지" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>글로벌 캠퍼스 & 녹지 공원</h3>
+                    <p>주변에 풍부한 녹지공원과 명문 글로벌 교육 시설 위치</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="3_2.jpg" alt="트리플스트리트 중앙광장">
-                <div class="card-body">
-                    <h3>중앙 광장 & 스트리트 몰</h3>
-                    <p>이국적인 전경과 여가 공간이 조화된 문화 환경</p>
+
+            <div class="gallery-item" data-category="location">
+                <div class="img-wrapper">
+                    <img src="3_2.jpg" data-fallback="3_2.png" alt="트리플스트리트 광장" onerror="handleImgError(this)">
+                </div>
+                <div class="item-info">
+                    <h3>스트리트몰 중앙 광장</h3>
+                    <p>다양한 축제와 이국적인 분위기를 선사하는 휴식 공간</p>
                 </div>
             </div>
-            <div class="card">
-                <img src="5.jpg" alt="상가 거리 야경">
-                <div class="card-body">
-                    <h3>활기찬 야간 상권</h3>
-                    <p>화려한 조명과 함께 즐기는 야간 라이프스타일</p>
-                </div>
-            </div>
+
         </div>
     </section>
 
-    <!-- Contact Form -->
+    <!-- Contact Section -->
     <section id="contact" class="container">
-        <h2 class="section-title">방문 예약 및 분양 문의</h2>
-        <form class="contact-form" onsubmit="alert('상담 신청이 완료되었습니다.'); return false;">
-            <div class="form-group">
-                <label for="name">성함</label>
-                <input type="text" id="name" required placeholder="홍길동">
+        <div class="contact-wrapper">
+            <div class="section-header">
+                <h2>VIP 방문예약 & 분양 문의</h2>
+                <p>원하시는 상담 내역을 남겨주시면 담당자가 신속히 안내해 드립니다.</p>
             </div>
-            <div class="form-group">
-                <label for="phone">연락처</label>
-                <input type="tel" id="phone" required placeholder="010-0000-0000">
-            </div>
-            <div class="form-group">
-                <label for="type">관심 타입</label>
-                <select id="type">
-                    <option value="59A">59㎡ A</option>
-                    <option value="59B">59㎡ B</option>
-                    <option value="59C">59㎡ C</option>
-                    <option value="32A">32㎡ A</option>
-                    <option value="32B">32㎡ B</option>
-                    <option value="store">단지 내 상가 문의</option>
-                </select>
-            </div>
-            <button type="submit" class="submit-btn">상담 신청하기</button>
-        </form>
+            <form class="contact-form" onsubmit="alert('성공적으로 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.'); return false;">
+                <div class="form-group">
+                    <label for="name">성함</label>
+                    <input type="text" id="name" required placeholder="홍길동">
+                </div>
+                <div class="form-group">
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" required placeholder="010-0000-0000">
+                </div>
+                <div class="form-group">
+                    <label for="type">관심 분야</label>
+                    <select id="type">
+                        <option value="59A">59㎡ A 타입</option>
+                        <option value="59B">59㎡ B 타입</option>
+                        <option value="59C">59㎡ C 타입</option>
+                        <option value="32A">32㎡ A 타입</option>
+                        <option value="32B">32㎡ B 타입</option>
+                        <option value="store">단지 내 상가 문의</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">상담 신청하기</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 송도 하늘채 아이비원 분양홍보관 | 본 웹사이트의 이미지 및 내용은 이해를 돕기 위한 것으로 실제와 다를 수 있습니다.</p>
+        <p>&copy; 송도 하늘채 아이비원 분양홍보관 | 본 사이트의 이미지 및 CG는 이해를 돕기 위한 것으로 실제와 차이가 있을 수 있습니다.</p>
     </footer>
 
+    <script>
+        // JPG / PNG 확장자 자동 스위칭 함수 (이미지 로딩 실패 시 실행)
+        function handleImgError(img) {
+            const fallbackSrc = img.getAttribute('data-fallback');
+            if (fallbackSrc && img.src !== fallbackSrc) {
+                img.src = fallbackSrc;
+                img.removeAttribute('data-fallback'); // 무한 루프 방지
+            }
+        }
+
+        // 탭 필터 기능
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
