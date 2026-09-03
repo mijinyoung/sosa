@@ -35,7 +35,7 @@
         .urgent-top-bar span { color: var(--brand-yellow); font-size: 1rem; text-decoration: underline; }
 
         /* Header */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #ffffff; border-bottom: 2px solid var(--primary); sticky; top: 0; z-index: 100; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #ffffff; border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 100; }
         header .logo { font-weight: 900; font-size: 1.15rem; color: var(--primary); letter-spacing: -0.5px; }
         header .logo span { color: var(--brand-red); }
         header .menu-btn { font-size: 0.82rem; font-weight: 800; color: #ffffff; background: var(--brand-red); padding: 6px 12px; border-radius: 20px; text-decoration: none; }
@@ -110,6 +110,17 @@
         .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
         .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
 
+        /* ✨ [신규 구성] 깔끔한 모던 입지 가이드 박스 */
+        .modern-location-box { background: #f8fafc; border: 1.5px solid var(--border); border-radius: 12px; padding: 20px 16px; margin-bottom: 20px; }
+        .loc-highlight-title { font-size: 1.05rem; font-weight: 900; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .loc-highlight-title i { color: var(--brand-red); }
+        .loc-features-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .loc-feature-item { background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid var(--brand-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .loc-feature-item.red { border-left-color: var(--brand-red); }
+        .loc-feature-item.green { border-left-color: var(--brand-green); }
+        .loc-feature-item strong { display: block; font-size: 0.95rem; color: var(--primary); margin-bottom: 2px; font-weight: 900; }
+        .loc-feature-item span { font-size: 0.82rem; color: #64748b; font-weight: 600; }
+
         /* 송도 대표 인프라 갤러리 섹션 */
         .infra-gallery { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
         .infra-card-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: #ffffff; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
@@ -123,7 +134,7 @@
         .value-compare-box h4 { color: var(--brand-red); font-size: 1.15rem; font-weight: 900; margin-bottom: 6px; }
         .value-compare-box p { font-size: 0.88rem; color: #334155; font-weight: 700; line-height: 1.5; }
 
-        /* 전화 직통 대형 연결 배너 */
+        /* 전화 직통 대형 연결 배너 (전화번호: 1833-8384) */
         .direct-call-banner {
             background: #0f172a;
             color: #fff;
@@ -154,7 +165,7 @@
             font-weight: 900; padding: 13px; border-radius: 8px; font-size: 1rem;
         }
 
-        /* 기존 단지 이미지 카드 박스 */
+        /* 단지 커뮤니티 이미지 카드 박스 */
         .img-card-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .img-card-box img { width: 100%; display: block; height: auto; }
         .img-card-box .cap { padding: 10px 12px; background: #f8fafc; font-size: 0.9rem; font-weight: 800; color: var(--primary); text-align: center; border-top: 1px solid var(--border); }
@@ -201,7 +212,6 @@
         </div>
         
         <div class="hero-img-wrap">
-            <!-- object-position으로 이미지 우측 텍스트 영역을 가려줍니다 -->
             <img src="39.jpg" alt="송도 하늘채 아이비원 외관" onerror="handleImgError(this, '39')">
         </div>
     </section>
@@ -230,21 +240,43 @@
         </form>
     </div>
 
-    <!-- 송도 대표 인프라 카드 섹션 (지정해주신 파일 적용) -->
+    <!-- ✨ [신규 모던 입지 가이드 & 인프라 섹션] 오래된 입지도 대체 -->
     <section class="section">
         <div class="sec-header">
-            <span class="sub">PREMIUM INFRASTRUCTURE</span>
-            <h3>송도 대표 인프라를 한걸음에</h3>
-            <p>쇼핑부터 문화, 명문 학군까지 완성된 프리미엄</p>
+            <span class="sub">LOCATION & INFRASTRUCTURE</span>
+            <h3>송도 1공구 중심 프리미엄 입지</h3>
+            <p>교통·쇼핑·학군을 완벽하게 품은 송도 핵심 인프라</p>
         </div>
 
+        <!-- 모던 입지 포인트 텍스트 가이드 (화질 저하 이미지 대체) -->
+        <div class="modern-location-box">
+            <div class="loc-highlight-title">
+                <i class="fa-solid fa-map-location-dot"></i> 송도 하늘채 아이비원 입지 가이드
+            </div>
+            <div class="loc-features-grid">
+                <div class="loc-feature-item red">
+                    <strong>🚀 광역 교통망 및 역세권</strong>
+                    <span>인천대입구역 인접 및 GTX-B(예정) 광역 교통 호재 수혜</span>
+                </div>
+                <div class="loc-feature-item">
+                    <strong>🎓 송도 1공구 명문 교육 인프라</strong>
+                    <span>수도권 최고 수준의 명문 학원가 및 우수 학교 인접 도보 통학권</span>
+                </div>
+                <div class="loc-feature-item green">
+                    <strong>🌿 쾌적한 힐링 에코 라이프</strong>
+                    <span>센트럴파크 및 워터프런트 호수 공원이 인접한 쾌적한 주거환경</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 지정해주신 인프라 갤러리 (6, 5, 2, 1번 파일 적용) -->
         <div class="infra-gallery">
             <!-- 현대프리미엄아울렛 (6.png) -->
             <div class="infra-card-item">
-                <img src="6.png" alt="현대프리미엄아울렛 송도점">
+                <img src="6.png" alt="현대프리미엄아울렛 송동점">
                 <div class="infra-info">
                     <h4>🛍️ 현대프리미엄아울렛 송도점</h4>
-                    <p>송도를 대표하는 초대형 쇼핑 테마파크를 가까이서 편리하게 이용하는 라이프</p>
+                    <p>송도를 대표하는 초대형 쇼핑 테마파크를 가까이서 편리하게 이용</p>
                 </div>
             </div>
 
@@ -253,7 +285,7 @@
                 <img src="5.png" alt="트리플스트리트">
                 <div class="infra-info">
                     <h4>✨ 트리플스트리트 (TRIPLE STREET)</h4>
-                    <p>다채로운 맛집, 카페, 영화관, 패션 브랜드가 집약된 송도 대표 복합문화공간</p>
+                    <p>맛집, 영화관, 트렌디한 브랜드가 집약된 복합문화공간</p>
                 </div>
             </div>
 
@@ -262,7 +294,7 @@
                 <img src="2.png" alt="코스트코 송도점">
                 <div class="infra-info">
                     <h4>🛒 코스트코 송도점</h4>
-                    <p>대형 글로벌 창고형 할인매장이 근거리에 위치하여 완벽한 대형쇼핑 생활권 형성</p>
+                    <p>글로벌 대형 창고형 할인매장이 인접한 편리한 장보기 환경</p>
                 </div>
             </div>
 
@@ -271,7 +303,7 @@
                 <img src="1.png" alt="연세대학교 국제캠퍼스">
                 <div class="infra-info">
                     <h4>🎓 연세대학교 국제캠퍼스 & 명문 학군</h4>
-                    <p>수도권 최고 수준의 명문 교육 환경과 글로벌 캠퍼스 인프라를 함께 누리는 입지</p>
+                    <p>수도권 최고 수준의 교육 환경과 글로벌 캠퍼스 인프라 공존</p>
                 </div>
             </div>
         </div>
@@ -283,7 +315,7 @@
         </div>
     </section>
 
-    <!-- 전화/문자 direct CTA 배너 (전화번호: 1833-8384 반영) -->
+    <!-- 전화/문자 direct CTA 배너 (전화번호: 1833-8384) -->
     <div class="direct-call-banner">
         <div class="label">로얄동·호수 및 할인 분양가 Direct 문의</div>
         <a href="tel:1833-8384" class="phone-link"><i class="fa-solid fa-phone-volume"></i> 1833-8384</a>
@@ -291,16 +323,11 @@
         <a href="#contact-sec" class="cta-btn-yellow"><i class="fa-solid fa-calendar-days"></i> 빠른 실물 세대 방문예약</a>
     </div>
 
-    <!-- 기존 단지 및 입지 안내 섹션 -->
+    <!-- 단지 내 시설 및 커뮤니티 안내 -->
     <section class="section">
         <div class="sec-header">
-            <span class="sub">LOCATION & COMMUNITY</span>
-            <h3>단지 및 광역 입지 안내</h3>
-        </div>
-
-        <div class="img-card-box">
-            <img src="44.jpg" alt="송도 하늘채 아이비원 광역 입지" onerror="handleImgError(this, '44')">
-            <div class="cap">📍 송도 하늘채 아이비원 입지 안내도</div>
+            <span class="sub">COMMUNITY & ENVIRONMENT</span>
+            <h3>단지 내부 시설 안내</h3>
         </div>
 
         <div class="img-card-box">
@@ -314,7 +341,7 @@
         </div>
     </section>
 
-    <!-- 기존 평면 안내 섹션 -->
+    <!-- 평면 안내 섹션 -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">UNIT PLAN</span>
@@ -357,7 +384,7 @@
         실물 세대 관람은 안전 및 보안상 사전 예약제로 운영됩니다.</p>
     </footer>
 
-    <!-- 하단 고정 CTA 바 (전화번호: 1833-8384 반영) -->
+    <!-- 하단 고정 CTA 바 -->
     <div class="bottom-bar">
         <a href="tel:1833-8384" class="bar-call"><i class="fa-solid fa-phone"></i> 전화상담</a>
         <a href="#contact-sec" class="bar-reserve"><i class="fa-solid fa-calendar-check"></i> 방문예약</a>
