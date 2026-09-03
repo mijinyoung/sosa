@@ -39,28 +39,34 @@
         nav a { color: #e2e8f0; text-decoration: none; margin-left: 1.5rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Hero Section */
+        /* Hero Section (밝기 및 시시성 개선) */
         .hero { 
             position: relative; 
-            height: 80vh; 
+            height: 85vh; 
             display: flex; 
-            align-items: center; 
+            align-items: flex-end; 
             justify-content: center; 
             color: #fff; 
             text-align: center; 
             overflow: hidden;
-            background: #000;
+            background: #0f172a;
+            padding-bottom: 5rem;
         }
         .hero img {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
-            filter: brightness(0.35);
+            filter: brightness(0.75); /* 히어로 이미지 시인성 확보 */
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(15,23,42,0.3) 0%, rgba(15,23,42,0.85) 100%);
         }
         .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 1.5rem; }
         .badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.4rem 1.2rem; border-radius: 30px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.2rem; letter-spacing: 1px; }
-        .hero-content h2 { font-size: 3.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25; text-shadow: 0 4px 12px rgba(0,0,0,0.5); }
-        .hero-content p { font-size: 1.25rem; color: #cbd5e1; margin-bottom: 2.5rem; font-weight: 300; }
+        .hero-content h2 { font-size: 3.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25; text-shadow: 0 4px 15px rgba(0,0,0,0.7); }
+        .hero-content p { font-size: 1.25rem; color: #f1f5f9; margin-bottom: 2.2rem; font-weight: 400; text-shadow: 0 2px 8px rgba(0,0,0,0.7); }
         
         .btn-primary { 
             background: linear-gradient(135deg, #c59d5f 0%, #9a763f 100%); 
@@ -90,6 +96,18 @@
         .section-subtitle { color: var(--accent); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.3rem; display: block; }
         .section-title { font-size: 2.2rem; color: var(--primary); font-weight: 800; }
 
+        /* Section Feature Block (풍성한 레이아웃 구성) */
+        .feature-row { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-bottom: 3.5rem; background: #fff; border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .feature-row.reverse { flex-direction: row-reverse; }
+        .feature-img { flex: 1; min-width: 320px; height: 350px; position: relative; overflow: hidden; }
+        .feature-img img { width: 100%; height: 100%; object-fit: cover; }
+        .feature-text { flex: 1; min-width: 320px; padding: 2.5rem; }
+        .feature-text h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; font-weight: 700; }
+        .feature-text p { color: var(--text-gray); line-height: 1.7; font-size: 1rem; margin-bottom: 1.5rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; font-size: 0.95rem; color: #334155; }
+        .feature-list li i { color: var(--accent); }
+
         /* Overview Table */
         .overview-table-wrap { background: #fff; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
         .overview-table { width: 100%; border-collapse: collapse; text-align: left; }
@@ -97,22 +115,6 @@
         .overview-table th { background: var(--bg-light); color: var(--primary); font-weight: 700; width: 22%; border-right: 1px solid var(--border); }
         .overview-table td { color: #334155; }
         .overview-table tr:last-child th, .overview-table tr:last-child td { border-bottom: none; }
-
-        /* Community Feature Grid */
-        .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-        .community-card { background: #fff; border-radius: 12px; border: 1px solid var(--border); padding: 1.8rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); transition: transform 0.3s; }
-        .community-card:hover { transform: translateY(-4px); }
-        .community-card .icon-box { width: 50px; height: 50px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.5rem; margin-bottom: 1rem; border: 1px solid var(--border); }
-        .community-card h3 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.5rem; }
-        .community-card p { font-size: 0.9rem; color: var(--text-gray); line-height: 1.5; }
-
-        /* Layout & Building Overview Info */
-        .layout-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-        .info-box { background: #fff; padding: 2rem; border-radius: 12px; border: 1px solid var(--border); }
-        .info-box h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
-        .info-box ul { list-style: none; }
-        .info-box ul li { font-size: 0.95rem; color: #475569; padding: 0.5rem 0; border-bottom: 1px dashed var(--border); display: flex; justify-content: space-between; }
-        .info-box ul li strong { color: var(--primary); }
 
         /* Unit Specs Section */
         .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -123,21 +125,6 @@
         .spec-list li { display: flex; justify-content: space-between; padding: 0.55rem 0; border-bottom: 1px dashed var(--border); font-size: 0.92rem; }
         .spec-list li span:first-child { color: var(--text-gray); }
         .spec-list li span:last-child { font-weight: 600; color: var(--primary); }
-
-        /* Gallery Cards */
-        .tab-menu { display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-        .tab-btn { background: #fff; border: 1px solid var(--border); padding: 0.6rem 1.4rem; border-radius: 30px; font-weight: 600; color: var(--text-gray); cursor: pointer; transition: all 0.3s; }
-        .tab-btn.active, .tab-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
-
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; }
-        .gallery-card { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.03); transition: transform 0.3s, box-shadow 0.3s; }
-        .gallery-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08); }
-        .img-container { width: 100%; height: 240px; background-color: #e2e8f0; overflow: hidden; position: relative; }
-        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .gallery-card:hover .img-container img { transform: scale(1.06); }
-        .card-content { padding: 1.4rem; }
-        .card-content h3 { font-size: 1.15rem; color: var(--primary); margin-bottom: 0.4rem; font-weight: 700; }
-        .card-content p { font-size: 0.9rem; color: var(--text-gray); }
 
         /* Contact Section */
         .contact-box { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: #fff; padding: 4rem 2rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
@@ -158,9 +145,10 @@
             .hero-content h2 { font-size: 2.1rem; }
             .hero-content p { font-size: 1rem; }
             .section-title { font-size: 1.7rem; }
+            .feature-row, .feature-row.reverse { flex-direction: column; }
+            .feature-img { width: 100%; height: 250px; }
             .overview-table th, .overview-table td { padding: 0.8rem 1rem; font-size: 0.88rem; }
             .overview-table th { width: 30%; }
-            .layout-info-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -170,22 +158,22 @@
         <h1>송도 <span>하늘채 아이비원</span></h1>
         <nav>
             <a href="#overview">사업개요</a>
-            <a href="#community">커뮤니티</a>
             <a href="#layout">단지배치</a>
+            <a href="#community">커뮤니티</a>
             <a href="#specs">평면안내</a>
-            <a href="#gallery">갤러리</a>
             <a href="#contact">분양상담</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (조감도 시인성 원본 유지) -->
     <section class="hero">
-        <img src="39.jpg" alt="송도 하늘채 아이비원 조감도" onerror="handleImgError(this, '39')">
+        <img src="39.jpg" alt="송도 하늘채 아이비원 메인 조감도" onerror="handleImgError(this, '39')">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="badge">잔여세대 동호지정 계약 중</span>
-            <h2>투자가치의 스케일이 다르다<br>송도 하늘채 아이비원</h2>
-            <p>인천 최대 학원가 · 코오롱 혁신설계 · GTX/KTX 호재 중심 입지</p>
-            <a href="#contact" class="btn-primary">실시간 잔여세대 문의</a>
+            <span class="badge">선착순 동호지정 분양 중</span>
+            <h2>송도 1공구 학세권의 완성<br>송도 하늘채 아이비원</h2>
+            <p>명문 학원가 중심 입지 · 코오롱글로벌 혁신설계 · GTX-B 교통 호재</p>
+            <a href="#contact" class="btn-primary">잔여세대 계약 문의</a>
         </div>
     </section>
 
@@ -195,22 +183,22 @@
             <div class="highlight-item">
                 <i class="fa-solid fa-graduation-cap"></i>
                 <h3>송도 1공구 학세권</h3>
-                <p>대치동·목동에 견줄만한 수도권 대표 학원가 거리</p>
+                <p>수도권 대표 명문 학원가 인접 최고의 교육 환경</p>
             </div>
             <div class="highlight-item">
                 <i class="fa-solid fa-store"></i>
                 <h3>140m 그랜드 스트리트몰</h3>
-                <p>단지 내 근린생활시설 160개 호실 배치</p>
+                <p>단지 내 160개 근린생활시설 상가 원스톱 인프라</p>
             </div>
             <div class="highlight-item">
                 <i class="fa-solid fa-train"></i>
-                <h3>획기적 교통 호재</h3>
-                <p>GTX-B, KTX, 제2공항철도(예정) 연계 특수</p>
+                <h3>교통 비전 프리미엄</h3>
+                <p>GTX-B, 인천발 KTX, 제2공항철도(예정) 수혜지</p>
             </div>
             <div class="highlight-item">
-                <i class="fa-solid fa-tree"></i>
-                <h3>프리미엄 커뮤니티</h3>
-                <p>헬시가든, 어린이집, 작은도서관 등 맞춤 시설</p>
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>브랜드 프리미엄</h3>
+                <p>코오롱글로벌의 주거 노하우가 담긴 공간 특화</p>
             </div>
         </div>
     </section>
@@ -219,93 +207,111 @@
     <section id="overview" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">PROJECT OVERVIEW</span>
-            <h2 class="section-title">단지 사업개요</h2>
+            <h2 class="section-title">사업개요</h2>
         </div>
         <div class="overview-table-wrap">
             <table class="overview-table">
                 <tbody>
                     <tr>
                         <th>대지위치</th>
-                        <td>인천광역시 연수구 송도동 20-4, 5, 6, 7, 8, 9, 10, 11번지 (8필지)</td>
+                        <td>인천광역시 연수구 송도동 20-4 외 7필지</td>
                         <th>대지면적</th>
                         <td>12,293.30 ㎡</td>
                     </tr>
                     <tr>
+                        <th>건축규모</th>
+                        <td>지하 3층 ~ 지상 10층 (총 8개동)</td>
                         <th>용도</th>
-                        <td>공동주택(아파트), 근린생활시설</td>
-                        <th>규모</th>
-                        <td>지하 3층 ~ 지상 10층</td>
+                        <td>공동주택(아파트 336세대), 근린생활시설</td>
                     </tr>
                     <tr>
                         <th>건축면적</th>
-                        <td>6,139.7104 ㎡</td>
+                        <td>6,139.71 ㎡</td>
                         <th>연면적</th>
-                        <td>62,395.3528 ㎡</td>
+                        <td>62,395.35 ㎡</td>
                     </tr>
                     <tr>
-                        <th>세대수</th>
-                        <td>아파트 총 336세대 / 근린생활시설 160개 호실</td>
+                        <th>세대 구성</th>
+                        <td>일반분양 119세대 / 조합원 217세대</td>
                         <th>주차대수</th>
-                        <td>총 517대</td>
+                        <td>총 517대 (세대당 여유로운 주차공간)</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <!-- Community Section (Text & Detailed Structure Addition) -->
-    <section id="community" class="container">
+    <!-- Site Layout Section (44.jpg 매칭) -->
+    <section id="layout" class="container">
         <div class="section-title-wrap">
-            <span class="section-subtitle">PREMIUM COMMUNITY</span>
-            <h2 class="section-title">편리함 가득한 단지 설계 및 커뮤니티</h2>
+            <span class="section-subtitle">SITE PLAN & LAYOUT</span>
+            <h2 class="section-title">단지 및 동호수 배치</h2>
         </div>
-        <div class="community-grid">
-            <div class="community-card">
-                <div class="icon-box"><i class="fa-solid fa-baby"></i></div>
-                <h3>단지 내 어린이집</h3>
-                <p>영유아 자녀를 안심하고 맡길 수 있는 안전하고 쾌적한 보육 시설이 단지 내 조성됩니다.</p>
+        
+        <div class="feature-row">
+            <div class="feature-img">
+                <img src="44.jpg" alt="송도 하늘채 아이비원 단지 및 동호수 배치도" onerror="handleImgError(this, '44')">
             </div>
-            <div class="community-card">
-                <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
-                <h3>헬시가든</h3>
-                <p>입주민들의 건강한 생활과 여유로운 휴식을 유지해 주는 단지 내 쾌적한 녹지 조경 공간입니다.</p>
-            </div>
-            <div class="community-card">
-                <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
-                <h3>작은도서관 & 실내놀이터</h3>
-                <p>부모와 아이가 함께 즐겁고 여유로운 교육 및 문화 시간을 보낼 수 있는 친환경 공간입니다.</p>
-            </div>
-            <div class="community-card">
-                <div class="icon-box"><i class="fa-solid fa-mug-hot"></i></div>
-                <h3>주민카페 & 경로당</h3>
-                <p>입주민 간의 친목을 도모하고 어르신들이 편안하게 문화생활을 즐길 수 있는 소통의 쉼터입니다.</p>
+            <div class="feature-text">
+                <h3>A/B 블록 균형 배치 및 맞춤형 동호수</h3>
+                <p>단지 내 차량 주출입구를 분리하여 안전한 단지 환경을 조성하였으며, 유아놀이터와 힐링가든을 중심으로 전 세대 채광과 조망권을 극대화했습니다.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check"></i> <strong>A블록 (101~104동) / B블록 (105~108동)</strong> 구분</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>주거 및 단지 내 상가 동선 완전 분리</strong></li>
+                    <li><i class="fa-solid fa-check"></i> <strong>일반분양 총 119세대 (59㎡, 32㎡ 타입)</strong></li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Layout & Site Map Section -->
-    <section id="layout" class="container">
+    <!-- Community Section (41, 42, 43 이미지 1:1 매칭 상세 구성) -->
+    <section id="community" class="container">
         <div class="section-title-wrap">
-            <span class="section-subtitle">SITE PLAN & LAYOUT</span>
-            <h2 class="section-title">단지 및 동호수 배치 안내</h2>
+            <span class="section-subtitle">PREMIUM COMMUNITY</span>
+            <h2 class="section-title">단지 내 특화 커뮤니티</h2>
         </div>
-        <div class="layout-info-grid">
-            <div class="info-box">
-                <h3>단지 배치 특징</h3>
-                <ul>
-                    <li><span>블록 구성</span> <strong>A블록 (101~104동) / B블록 (105~108동)</strong></li>
-                    <li><span>차량 동선</span> <strong>양쪽 차량 주출입구 분리로 원활한 통행</strong></li>
-                    <li><span>보행 환경</span> <strong>중앙 힐링가든 및 유아놀이터 배치</strong></li>
-                    <li><span>스트리트 상가</span> <strong>지상 1~2층 연계형 원스톱 라이프</strong></li>
+
+        <!-- 커뮤니티 1 (41.jpg) -->
+        <div class="feature-row reverse">
+            <div class="feature-img">
+                <img src="41.jpg" alt="단지 내 어린이집 및 야외 휴게공간" onerror="handleImgError(this, '41')">
+            </div>
+            <div class="feature-text">
+                <h3>안심 보육을 위한 단지 내 어린이집</h3>
+                <p>영유아 자녀를 안심하고 맡길 수 있는 전용 보육시설이 단지 내에 조성되어 어린 자녀를 둔 학부모 입주민에게 한 차원 높은 편의성을 제공합니다.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> 단지 내 안전한 보육환경 구축</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 야외 놀이공간과 연계된 쾌적한 이동 동선</li>
                 </ul>
             </div>
-            <div class="info-box">
-                <h3>세대 구성 현황</h3>
-                <ul>
-                    <li><span>조합원 보유</span> <strong>217 세대</strong></li>
-                    <li><span>일반분양</span> <strong>119 세대</strong></li>
-                    <li><span>공급 타입</span> <strong>59㎡ (A/B/C타입) / 32㎡ (A/B타입)</strong></li>
-                    <li><span>특화 층수</span> <strong>최상층 복층 설계 (일부 세대)</strong></li>
+        </div>
+
+        <!-- 커뮤니티 2 (42.jpg) -->
+        <div class="feature-row">
+            <div class="feature-img">
+                <img src="42.jpg" alt="헬시가든 및 단지 내 스트리트몰" onerror="handleImgError(this, '42')">
+            </div>
+            <div class="feature-text">
+                <h3>헬시가든 & 원스톱 스트리트 몰</h3>
+                <p>입주민의 건강과 여유를 책임지는 조경 공간 '헬시가든'과 지상 1~2층에 위치한 약 140m 길이의 근린생활시설이 삶의 질을 높여줍니다.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> 건강한 일상을 돕는 휴게 및 녹지 존</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 160개 호실 규모의 원스톱 라이프 상가</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 커뮤니티 3 (43.jpg) -->
+        <div class="feature-row reverse">
+            <div class="feature-img">
+                <img src="43.jpg" alt="작은도서관 및 주민 소통 공간" onerror="handleImgError(this, '43')">
+            </div>
+            <div class="feature-text">
+                <h3>작은도서관, 주민카페 & 경로당</h3>
+                <p>온 가족이 모여 책을 읽고 휴식할 수 있는 도서관 공간과 어르신들의 쉼터인 경로당, 입주민 간 이웃 정을 나누는 주민카페가 완비됩니다.</p>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-circle-check"></i> 자녀들의 스터디 및 독서를 위한 교육 커뮤니티</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 입주민 간 화합을 위한 소통 쉼터 제공</li>
                 </ul>
             </div>
         </div>
@@ -315,7 +321,7 @@
     <section id="specs" class="container">
         <div class="section-title-wrap">
             <span class="section-subtitle">UNIT SPECIFICATIONS</span>
-            <h2 class="section-title">타입별 면적 세부 분석</h2>
+            <h2 class="section-title">타입별 제원 안내</h2>
         </div>
         <div class="spec-grid">
             
@@ -323,10 +329,8 @@
                 <h3>59㎡ A 타입 <span class="badge-sm">계약면적 148.74㎡</span></h3>
                 <ul class="spec-list">
                     <li><span>전용면적</span> <span>59.32 ㎡</span></li>
-                    <li><span>주거공용면적</span> <span>24.85 ㎡</span></li>
                     <li><span>공급면적</span> <span>84.17 ㎡</span></li>
-                    <li><span>주차장면적</span> <span>60.49 ㎡</span></li>
-                    <li><span>주요 옵션</span> <span>안방 붙박이장, 침실 통합형, 개방형</span></li>
+                    <li><span>주요 특화</span> <span>안방 붙박이장, 침실 통합/개방형 선택</span></li>
                 </ul>
             </div>
 
@@ -334,10 +338,8 @@
                 <h3>59㎡ B 타입 <span class="badge-sm">계약면적 149.69㎡</span></h3>
                 <ul class="spec-list">
                     <li><span>전용면적</span> <span>59.48 ㎡</span></li>
-                    <li><span>주거공용면적</span> <span>25.45 ㎡</span></li>
                     <li><span>공급면적</span> <span>84.94 ㎡</span></li>
-                    <li><span>주차장면적</span> <span>60.66 ㎡</span></li>
-                    <li><span>주요 옵션</span> <span>드레스룸, 하이브리드월, 스터디월</span></li>
+                    <li><span>주요 특화</span> <span>드레스룸, 하이브리드 스터디월</span></li>
                 </ul>
             </div>
 
@@ -345,145 +347,18 @@
                 <h3>59㎡ C 타입 <span class="badge-sm">계약면적 148.14㎡</span></h3>
                 <ul class="spec-list">
                     <li><span>전용면적</span> <span>59.02 ㎡</span></li>
-                    <li><span>주거공용면적</span> <span>24.88 ㎡</span></li>
                     <li><span>공급면적</span> <span>83.90 ㎡</span></li>
-                    <li><span>주차장면적</span> <span>60.18 ㎡</span></li>
-                    <li><span>주요 옵션</span> <span>현관중문, 안방/침실 붙박이장</span></li>
+                    <li><span>주요 특화</span> <span>고급 현관중문, 수납 강화형</span></li>
                 </ul>
             </div>
 
             <div class="spec-card">
-                <h3>32㎡ A 타입 <span class="badge-sm">계약면적 82.02㎡</span></h3>
+                <h3>32㎡ A/B 타입 <span class="badge-sm">실속형 공간</span></h3>
                 <ul class="spec-list">
-                    <li><span>전용면적</span> <span>32.45 ㎡</span></li>
-                    <li><span>주거공용면적</span> <span>14.24 ㎡</span></li>
-                    <li><span>공급면적</span> <span>46.69 ㎡</span></li>
-                    <li><span>주차장면적</span> <span>33.09 ㎡</span></li>
-                    <li><span>주요 옵션</span> <span>거실 라이브러리 월, 슬라이딩도어</span></li>
+                    <li><span>전용면적</span> <span>32.45 ㎡ ~ 32.74 ㎡</span></li>
+                    <li><span>공급면적</span> <span>46.69 ㎡ ~ 47.01 ㎡</span></li>
+                    <li><span>주요 특화</span> <span>거실 라이브러리 월, 최상층 복층 옵션</span></li>
                 </ul>
-            </div>
-
-            <div class="spec-card">
-                <h3>32㎡ B 타입 <span class="badge-sm">계약면적 82.65㎡</span></h3>
-                <ul class="spec-list">
-                    <li><span>전용면적</span> <span>32.74 ㎡</span></li>
-                    <li><span>주거공용면적</span> <span>14.26 ㎡</span></li>
-                    <li><span>공급면적</span> <span>47.01 ㎡</span></li>
-                    <li><span>주차장면적</span> <span>33.39 ㎡</span></li>
-                    <li><span>주요 옵션</span> <span>거실 라이브러리 월, 복층(최상층)</span></li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="container">
-        <div class="section-title-wrap">
-            <span class="section-subtitle">VISUAL GALLERY</span>
-            <h2 class="section-title">비주얼 조감도 및 평면 이미지</h2>
-        </div>
-
-        <div class="tab-menu">
-            <button class="tab-btn active" onclick="filterGallery('all', event)">전체보기</button>
-            <button class="tab-btn" onclick="filterGallery('plan', event)">평면/배치도</button>
-            <button class="tab-btn" onclick="filterGallery('community', event)">커뮤니티</button>
-            <button class="tab-btn" onclick="filterGallery('location', event)">입지/비전</button>
-        </div>
-
-        <div class="gallery-grid">
-            
-            <!-- 배치도 및 평면도 -->
-            <div class="gallery-card" data-category="plan">
-                <div class="img-container">
-                    <img src="44.jpg" alt="동호수 및 단지 배치도" onerror="handleImgError(this, '44')">
-                </div>
-                <div class="card-content">
-                    <h3>단지 및 동호수 배치도</h3>
-                    <p>8개동 A/B블록 균형 배치 및 세대별 조망권 확보</p>
-                </div>
-            </div>
-
-            <div class="gallery-card" data-category="plan">
-                <div class="img-container">
-                    <img src="34.jpg" alt="59㎡ A 타입 평면도" onerror="handleImgError(this, '34')">
-                </div>
-                <div class="card-content">
-                    <h3>59㎡ A 타입</h3>
-                    <p>안방 붙박이장 및 침실 통합형/개방형 특화 옵션</p>
-                </div>
-            </div>
-
-            <div class="gallery-card" data-category="plan">
-                <div class="img-container">
-                    <img src="31.jpg" alt="59㎡ B 타입 평면도" onerror="handleImgError(this, '31')">
-                </div>
-                <div class="card-content">
-                    <h3>59㎡ B 타입</h3>
-                    <p>드레스룸 및 침실 스터디월/하이브리드월 옵션</p>
-                </div>
-            </div>
-
-            <div class="gallery-card" data-category="plan">
-                <div class="img-container">
-                    <img src="33.jpg" alt="59㎡ C 타입 평면도" onerror="handleImgError(this, '33')">
-                </div>
-                <div class="card-content">
-                    <h3>59㎡ C 타입</h3>
-                    <p>현관 중문 및 풍부한 수납 특화 설계</p>
-                </div>
-            </div>
-
-            <!-- 커뮤니티 -->
-            <div class="gallery-card" data-category="community">
-                <div class="img-container">
-                    <img src="41.jpg" alt="단지 내 어린이집 및 힐링 공간" onerror="handleImgError(this, '41')">
-                </div>
-                <div class="card-content">
-                    <h3>어린이집 & 힐링 공간</h3>
-                    <p>영유아 자녀를 안심하고 맡길 수 있는 커뮤니티</p>
-                </div>
-            </div>
-
-            <div class="gallery-card" data-category="community">
-                <div class="img-container">
-                    <img src="42.jpg" alt="헬시가든 및 근린생활시설" onerror="handleImgError(this, '42')">
-                </div>
-                <div class="card-content">
-                    <h3>헬시가든 & 상가</h3>
-                    <p>쾌적한 휴식공간과 원스톱 라이프 근린시설</p>
-                </div>
-            </div>
-
-            <div class="gallery-card" data-category="community">
-                <div class="img-container">
-                    <img src="43.jpg" alt="작은도서관 및 주민카페" onerror="handleImgError(this, '43')">
-                </div>
-                <div class="card-content">
-                    <h3>도서관 & 주민카페</h3>
-                    <p>주민 간 소통과 휴식을 위한 문화공간</p>
-                </div>
-            </div>
-
-            <!-- 입지/비전 -->
-            <div class="gallery-card" data-category="location">
-                <div class="img-container">
-                    <img src="38.jpg" alt="송도 입지 지도" onerror="handleImgError(this, '38')">
-                </div>
-                <div class="card-content">
-                    <h3>입지 환경 & 학원가 중심</h3>
-                    <p>송도1공구 명문학군 중심 입지</p>
-                </div>
-            </div>
-
-            <div class="gallery-card" data-category="location">
-                <div class="img-container">
-                    <img src="36.jpg" alt="교통 비전" onerror="handleImgError(this, '36')">
-                </div>
-                <div class="card-content">
-                    <h3>획기적인 대형 교통 호재</h3>
-                    <p>GTX-B, KTX, 제2공항철도(예정) 연결</p>
-                </div>
             </div>
 
         </div>
@@ -494,9 +369,9 @@
         <div class="contact-box">
             <div class="section-title-wrap">
                 <span class="section-subtitle" style="color: #c59d5f;">ONLINE INQUIRY</span>
-                <h2 class="section-title">분양 문의 및 잔여세대 예약</h2>
+                <h2 class="section-title">분양 문의 및 방문 예약</h2>
             </div>
-            <form class="contact-form" onsubmit="alert('성공적으로 접수되었습니다. 담당자가 빠르게 연락드리겠습니다.'); return false;">
+            <form class="contact-form" onsubmit="alert('성공적으로 접수되었습니다. 전문 상담사가 즉시 안내해 드리겠습니다.'); return false;">
                 <div class="form-group">
                     <label for="name">성함</label>
                     <input type="text" id="name" required placeholder="예: 홍길동">
@@ -506,50 +381,33 @@
                     <input type="tel" id="phone" required placeholder="010-0000-0000">
                 </div>
                 <div class="form-group">
-                    <label for="type">관심 분야 선택</label>
+                    <label for="type">관심 분야</label>
                     <select id="type">
                         <option value="59A">59㎡ A 타입</option>
                         <option value="59B">59㎡ B 타입</option>
                         <option value="59C">59㎡ C 타입</option>
-                        <option value="32A">32㎡ A 타입</option>
-                        <option value="32B">32㎡ B 타입</option>
-                        <option value="store">단지 내 상가 문의</option>
+                        <option value="32">32㎡ 타입 (복층/일반)</option>
+                        <option value="store">단지 내 상가 분양</option>
                     </select>
                 </div>
-                <button type="submit" class="submit-btn">상담 접수하기</button>
+                <button type="submit" class="submit-btn">상담 신청하기</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 송도 하늘채 아이비원 분양홍보관 | 본 홍보물에 표시된 CG, 이미지, 치수 등은 소비자의 이해를 돕기 위해 제작된 것으로 실제와 차이가 있을 수 있습니다.</p>
+        <p>&copy; 송도 하늘채 아이비원 분양홍보관 | 본 사이트의 CG, 이미지, 치수는 이해를 돕기 위한 것으로 실제와 차이가 있을 수 있습니다.</p>
     </footer>
 
     <script>
-        // 엑스박스 완벽 방지 폴백 함수 (JPG -> PNG -> Placehold)
+        // 엑스박스 예방을 위한 자동 확장자/대체 이미지 폴백 로직
         function handleImgError(img, imgNum) {
-            if (img.src.endsWith('.jpg')) {
+            var currentSrc = img.src;
+            if (currentSrc.indexOf('.jpg') !== -1) {
                 img.src = imgNum + '.png';
-            } else if (img.src.endsWith('.png')) {
-                img.src = 'https://placehold.co/600x400/0f172a/c59d5f?text=Songdo+Ibyone+Img+' + imgNum;
+            } else if (currentSrc.indexOf('.png') !== -1) {
+                img.src = 'https://placehold.co/800x600/0f172a/c59d5f?text=Songdo+Ibyone+' + imgNum;
             }
-        }
-
-        // 갤러리 카테고리 필터링
-        function filterGallery(category, evt) {
-            const items = document.querySelectorAll('.gallery-card');
-            const buttons = document.querySelectorAll('.tab-btn');
-
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if(evt) evt.target.classList.add('active');
-
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
         }
     </script>
 </body>
