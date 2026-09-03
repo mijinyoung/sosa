@@ -58,7 +58,7 @@
             font-weight: 900;
         }
 
-        /* Hero 이미지 오른쪽 텍스트 박스 가림/크롭 처리 */
+        /* Hero 이미지 오른쪽 텍스트 박스 크롭 처리 */
         .hero-img-wrap { width: 100%; background: #000; overflow: hidden; display: flex; align-items: center; justify-content: center; max-height: 360px; }
         .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
 
@@ -110,16 +110,50 @@
         .sec-header h3 { font-size: 1.55rem; font-weight: 900; color: var(--primary); margin-top: 2px; letter-spacing: -0.5px; }
         .sec-header p { font-size: 0.88rem; color: #64748b; margin-top: 4px; font-weight: 600; }
 
-        /* ✨ [신규 구성] 깔끔한 모던 입지 가이드 박스 */
-        .modern-location-box { background: #f8fafc; border: 1.5px solid var(--border); border-radius: 12px; padding: 20px 16px; margin-bottom: 20px; }
-        .loc-highlight-title { font-size: 1.05rem; font-weight: 900; color: var(--primary); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-        .loc-highlight-title i { color: var(--brand-red); }
-        .loc-features-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
-        .loc-feature-item { background: #ffffff; padding: 12px 14px; border-radius: 8px; border-left: 4px solid var(--brand-blue); box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-        .loc-feature-item.red { border-left-color: var(--brand-red); }
-        .loc-feature-item.green { border-left-color: var(--brand-green); }
-        .loc-feature-item strong { display: block; font-size: 0.95rem; color: var(--primary); margin-bottom: 2px; font-weight: 900; }
-        .loc-feature-item span { font-size: 0.82rem; color: #64748b; font-weight: 600; }
+        /* ✨ [신규] 세련된 커스텀 모던 입지도 그래픽 카드 */
+        .custom-map-card {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 12px;
+            padding: 22px 16px;
+            color: #fff;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .map-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .map-card-header .title { font-size: 1.1rem; font-weight: 900; color: #fff; display: flex; align-items: center; gap: 6px; }
+        .map-card-header .title i { color: var(--brand-yellow); }
+        .map-card-header .badge { background: var(--brand-red); color: #fff; font-size: 0.72rem; padding: 3px 8px; border-radius: 4px; font-weight: 800; }
+        
+        .map-route-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .route-node {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 11px 14px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .route-node.main-target {
+            background: rgba(225, 29, 72, 0.2);
+            border: 2px solid var(--brand-red);
+        }
+        .route-node .node-info strong { display: block; font-size: 0.95rem; color: #fff; font-weight: 900; }
+        .route-node .node-info span { font-size: 0.78rem; color: #94a3b8; font-weight: 600; }
+        .route-node .node-badge { background: var(--brand-blue); color: #fff; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; font-weight: 800; }
+        .route-node.main-target .node-badge { background: var(--brand-red); }
 
         /* 송도 대표 인프라 갤러리 섹션 */
         .infra-gallery { display: flex; flex-direction: column; gap: 16px; margin-top: 10px; }
@@ -165,7 +199,7 @@
             font-weight: 900; padding: 13px; border-radius: 8px; font-size: 1rem;
         }
 
-        /* 단지 커뮤니티 이미지 카드 박스 */
+        /* 단지 내부 시설 안내 카드 */
         .img-card-box { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .img-card-box img { width: 100%; display: block; height: auto; }
         .img-card-box .cap { padding: 10px 12px; background: #f8fafc; font-size: 0.9rem; font-weight: 800; color: var(--primary); text-align: center; border-top: 1px solid var(--border); }
@@ -240,40 +274,50 @@
         </form>
     </div>
 
-    <!-- ✨ [신규 모던 입지 가이드 & 인프라 섹션] 오래된 입지도 대체 -->
+    <!-- ✨ [모던 커스텀 입지도 & 인프라 섹션] -->
     <section class="section">
         <div class="sec-header">
             <span class="sub">LOCATION & INFRASTRUCTURE</span>
-            <h3>송도 1공구 중심 프리미엄 입지</h3>
-            <p>교통·쇼핑·학군을 완벽하게 품은 송도 핵심 인프라</p>
+            <h3>송도 1공구 핵심 입지 안내</h3>
+            <p>완벽한 교통·쇼핑·학군 인프라의 중심</p>
         </div>
 
-        <!-- 모던 입지 포인트 텍스트 가이드 (화질 저하 이미지 대체) -->
-        <div class="modern-location-box">
-            <div class="loc-highlight-title">
-                <i class="fa-solid fa-map-location-dot"></i> 송도 하늘채 아이비원 입지 가이드
+        <!-- 커스텀 고화질 지도형 그래픽 카드 (구형 입지도 대체) -->
+        <div class="custom-map-card">
+            <div class="map-card-header">
+                <div class="title"><i class="fa-solid fa-map-marked-alt"></i> 송도 하늘채 아이비원 동선 가이드</div>
+                <div class="badge">1공구 프리미엄</div>
             </div>
-            <div class="loc-features-grid">
-                <div class="loc-feature-item red">
-                    <strong>🚀 광역 교통망 및 역세권</strong>
-                    <span>인천대입구역 인접 및 GTX-B(예정) 광역 교통 호재 수혜</span>
+            <div class="map-route-visual">
+                <div class="route-node">
+                    <div class="node-info">
+                        <strong>쇼핑 & 문화 인프라</strong>
+                        <span>현대프리미엄아울렛 · 트리플스트리트 · 코스트코 인접</span>
+                    </div>
+                    <div class="node-badge">생활권</div>
                 </div>
-                <div class="loc-feature-item">
-                    <strong>🎓 송도 1공구 명문 교육 인프라</strong>
-                    <span>수도권 최고 수준의 명문 학원가 및 우수 학교 인접 도보 통학권</span>
+                <div class="route-node main-target">
+                    <div class="node-info">
+                        <strong>📍 송도 하늘채 아이비원 (현장 위치)</strong>
+                        <span>송도국제도시 1공구 핵심 주거지 · 즉시 입주 단지</span>
+                    </div>
+                    <div class="node-badge">현장</div>
                 </div>
-                <div class="loc-feature-item green">
-                    <strong>🌿 쾌적한 힐링 에코 라이프</strong>
-                    <span>센트럴파크 및 워터프런트 호수 공원이 인접한 쾌적한 주거환경</span>
+                <div class="route-node">
+                    <div class="node-info">
+                        <strong>학군 & 교통</strong>
+                        <span>연세대학교 국제캠퍼스 및 GTX-B(예정) 광역 교통망</span>
+                    </div>
+                    <div class="node-badge">미래가치</div>
                 </div>
             </div>
         </div>
 
-        <!-- 지정해주신 인프라 갤러리 (6, 5, 2, 1번 파일 적용) -->
+        <!-- 지정해주신 인프라 갤러리 (6.png, 5.png, 2.png, 1.png) -->
         <div class="infra-gallery">
             <!-- 현대프리미엄아울렛 (6.png) -->
             <div class="infra-card-item">
-                <img src="6.png" alt="현대프리미엄아울렛 송동점">
+                <img src="6.png" alt="현대프리미엄아울렛 송도점">
                 <div class="infra-info">
                     <h4>🛍️ 현대프리미엄아울렛 송도점</h4>
                     <p>송도를 대표하는 초대형 쇼핑 테마파크를 가까이서 편리하게 이용</p>
